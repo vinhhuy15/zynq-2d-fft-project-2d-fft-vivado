@@ -1,0 +1,14 @@
+$ g++ -std=c++17 -O2 -Wall -Wextra -Iinclude src/main.cpp src/fft2d_reference.cpp -o build/fft2d_reference
+
+
+$ ./build/fft2d_reference 64 64 ../../data/input/square_64x64_matrix_2d.txt output/square_64x64 ../../data/reference/square_64x64_fft_real_2d.txt ../../data/reference/square_64x64_fft_imag_2d.txt
+C++ 2D FFT done.
+Size: 64x64
+Time_ms: 0.3277150000
+Output real: output/square_64x64_cpp_fft_real_2d.txt
+Output imag: output/square_64x64_cpp_fft_imag_2d.txt
+
+Comparison with Python NumPy reference:
+Real MAE: 0.0000000000, MSE: 0.0000000000, RMSE: 0.0000000000, MaxAbs: 0.0000000001
+Imag MAE: 0.0000000000, MSE: 0.0000000000, RMSE: 0.0000000000, MaxAbs: 0.0000000001
+

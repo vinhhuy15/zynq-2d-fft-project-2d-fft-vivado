@@ -1,0 +1,4 @@
+D:/zynq-2d-fft-project-2d-fft-vivado/vitis/fft_platform/zynq_fsbl/build/CMakeFiles/fsbl.elf.dir
+D:/zynq-2d-fft-project-2d-fft-vivado/vitis/fft_platform/zynq_fsbl/build/CMakeFiles/print_build_info.dir
+D:/zynq-2d-fft-project-2d-fft-vivado/vitis/fft_platform/zynq_fsbl/build/CMakeFiles/edit_cache.dir
+D:/zynq-2d-fft-project-2d-fft-vivado/vitis/fft_platform/zynq_fsbl/build/CMakeFiles/rebuild_cache.dir

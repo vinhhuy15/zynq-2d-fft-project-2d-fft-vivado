@@ -1,0 +1,62 @@
+[
+  {
+    "name": "square",
+    "width": 32,
+    "height": 32,
+    "input_min": 0.0,
+    "input_max": 255.0,
+    "fft_real_min": -41424.93518144415,
+    "fft_real_max": 65280.0,
+    "fft_imag_min": -5178.1168976805175,
+    "fft_imag_max": 5178.1168976805175,
+    "fft_magnitude_min": 0.0,
+    "fft_magnitude_max": 65280.0,
+    "dc_value_real_at_0_0": 65280.0,
+    "dc_value_imag_at_0_0": 0.0
+  },
+  {
+    "name": "gradient",
+    "width": 32,
+    "height": 32,
+    "input_min": 0.0,
+    "input_max": 255.0,
+    "fft_real_min": -4295.790793427503,
+    "fft_real_max": 130560.0,
+    "fft_imag_min": -42783.20092383233,
+    "fft_imag_max": 42783.20092383233,
+    "fft_magnitude_min": 0.0,
+    "fft_magnitude_max": 130560.0,
+    "dc_value_real_at_0_0": 130560.0,
+    "dc_value_imag_at_0_0": 0.0
+  },
+  {
+    "name": "checker",
+    "width": 32,
+    "height": 32,
+    "input_min": 0.0,
+    "input_max": 255.0,
+    "fft_real_min": -55719.96533792891,
+    "fft_real_max": 130560.0,
+    "fft_imag_min": -39399.96533792891,
+    "fft_imag_max": 39399.96533792891,
+    "fft_magnitude_min": 0.0,
+    "fft_magnitude_max": 130560.0,
+    "dc_value_real_at_0_0": 130560.0,
+    "dc_value_imag_at_0_0": 0.0
+  },
+  {
+    "name": "circle",
+    "width": 32,
+    "height": 32,
+    "input_min": 0.0,
+    "input_max": 255.0,
+    "fft_real_min": -36481.30346226304,
+    "fft_real_max": 50235.0,
+    "fft_imag_min": -9.094947017729282e-13,
+    "fft_imag_max": 9.094947017729282e-13,
+    "fft_magnitude_min": 6.002585170415841,
+    "fft_magnitude_max": 50235.0,
+    "dc_value_real_at_0_0": 50235.0,
+    "dc_value_imag_at_0_0": 0.0
+  }
+]

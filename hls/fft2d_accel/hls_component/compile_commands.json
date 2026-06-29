@@ -1,0 +1,31 @@
+[
+  {
+    "directory": "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component",
+    "arguments": [
+      "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
+      "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls",
+      "-hls-syn-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\common\\technology\\autopilot",
+      "-fhlstoplevel=fft2d_fixed_top",
+      "-ID:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\include",
+      "-DUSE_AP_FIXED",
+      "-c",
+      "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\src\\fft2d_fixed.cpp"
+    ],
+    "file": "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\src\\fft2d_fixed.cpp"
+  },
+  {
+    "directory": "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component",
+    "arguments": [
+      "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
+      "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\include",
+      "-ID:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\include",
+      "-DUSE_AP_FIXED",
+      "-c",
+      "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\tb\\testbench.cpp"
+    ],
+    "file": "D:\\zynq-2d-fft-project-2d-fft-vivado\\hls\\fft2d_accel\\hls_component\\tb\\testbench.cpp"
+  }
+]

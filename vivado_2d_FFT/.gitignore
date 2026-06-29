@@ -1,0 +1,27 @@
+# Vivado generated/local files
+.Xil/
+*.jou
+*.log
+*.str
+*.backup.jou
+*.backup.log
+project_1.cache/
+project_1.runs/
+project_1.sim/
+project_1.hw/
+project_1.ip_user_files/
+*.wdb
+*.pb
+*.rpx
+
+# SDK/Eclipse generated/local files
+project_1.sdk/.metadata/
+project_1.sdk/RemoteSystemsTempFiles/
+project_1.sdk/webtalk/
+project_1.sdk/SDK.log
+project_1.sdk/**/Debug/
+project_1.sdk/**/*.o
+project_1.sdk/**/*.d
+project_1.sdk/**/*.elf
+project_1.sdk/**/*.size
+project_1.sdk/**/lib/libxil.a

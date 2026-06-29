@@ -1,0 +1,141 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{2D FFT Image Processing Accelerator for Zynq-7000}
+
+\author{
+    \IEEEauthorblockN{
+        Giang Vĩnh Huy,
+        Nguyễn Quang Nhơn,
+        Phạm Đình Phước,
+        Nguyễn Lâm Minh Nhật,
+        Đoàn Nhật Hoà
+    }
+    \IEEEauthorblockA{
+        \textit{Department of Computer Engineering}\\
+        \textit{Faculty of Electrical and Electronics Engineering}\\
+        Ho Chi Minh City University of Technology and Education (HCMUTE)\\
+        Ho Chi Minh City, Vietnam
+    }
+}
+
+\maketitle
+
+\begin{abstract}
+    This paper presents a hardware/software co-design approach for accelerating two-dimensional fast Fourier transform (2D FFT) based image processing on the Zynq-7000 platform. The proposed system combines software control on the processing system with hardware acceleration on programmable logic to improve computation performance while maintaining flexible image-processing workflows. This abstract should be updated with the final method, experimental setup, and key results.
+\end{abstract}
+
+\begin{IEEEkeywords}
+    2D FFT, image processing, hardware/software co-design, FPGA acceleration, Zynq-7000
+\end{IEEEkeywords}
+
+\section{Introduction}
+Introduce the motivation and context of the project. Describe why 2D FFT is important in image processing and why a hardware/software co-design approach is suitable for accelerating this computation on the Zynq-7000 platform.
+
+The main objectives of this work are:
+\begin{itemize}
+    \item To design a 2D FFT image-processing workflow on a Zynq-7000 system.
+    \item To partition computation between software and hardware components.
+    \item To evaluate performance, resource usage, and processing correctness.
+\end{itemize}
+
+The rest of this paper is organized as follows. Section~\ref{sec:background} provides the necessary background. Section~\ref{sec:methodology} presents the proposed methodology. Section~\ref{sec:implementation} describes the implementation. Section~\ref{sec:results} discusses the evaluation results. Finally, Section~\ref{sec:conclusion} concludes the paper.
+
+\section{Background}\label{sec:background}
+\subsection{Two-Dimensional Fast Fourier Transform}
+Briefly explain the role of the 2D FFT in image processing. Mention common applications such as frequency-domain filtering, image enhancement, compression, and feature analysis. The 2D discrete Fourier transform of an image $f(x,y)$ can be written as
+\begin{equation}
+    F(u,v)=\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)e^{-j2\pi\left(\frac{ux}{M}+\frac{vy}{N}\right)}.
+\end{equation}
+Explain how the 2D FFT reduces computational complexity compared with direct DFT computation and why it is suitable for hardware acceleration~\cite{ref:cooley}.
+
+\subsection{Zynq-7000 Hardware/Software Platform}
+Describe the Zynq-7000 architecture, including the processing system (PS), programmable logic (PL), memory interfaces, and AXI-based communication. Explain how the PS can manage image input/output and control flow, while the PL accelerates compute-intensive FFT operations~\cite{ref:zynq}.
+
+\section{Proposed Methodology}\label{sec:methodology}
+\subsection{System Overview}
+Describe the overall system architecture. Explain the input image flow, preprocessing stage, 2D FFT computation, post-processing stage, and output image generation. Fig.~\ref{fig:system-overview} can be replaced with the final block diagram.
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.9\linewidth}{\centering
+            Replace this box with the system overview diagram.\\
+            Example: Image Input $\rightarrow$ PS Control $\rightarrow$ FFT Accelerator $\rightarrow$ Output Image
+        }}
+    \caption{Overview of the proposed 2D FFT image-processing accelerator.}
+    \label{fig:system-overview}
+\end{figure}
+
+\subsection{Hardware/Software Partitioning}
+Explain which tasks are executed in software and which tasks are accelerated in hardware. For example, the software may handle image loading, configuration, and result verification, while the hardware accelerator performs FFT computation, buffering, and data-path processing.
+
+\subsection{2D FFT Processing Flow}
+Describe the processing steps used to compute the 2D FFT. A typical flow includes row-wise FFT, intermediate data storage or transposition, column-wise FFT, and optional magnitude or inverse-transform processing.
+
+\section{Implementation}\label{sec:implementation}
+\subsection{Hardware Architecture}
+Describe the hardware accelerator architecture, including FFT cores, control logic, buffers, data width, pipeline stages, and interface protocols. Mention whether the design uses AXI4, AXI4-Lite, AXI-Stream, DMA, or custom interfaces.
+
+\subsection{Software Workflow}
+Describe the software running on the processing system. Include initialization, memory allocation, accelerator configuration, data transfer, interrupt or polling mechanism, and result collection.
+
+\subsection{Data Transfer and Memory Organization}
+Explain how image data is stored and transferred between memory, the PS, and the PL. Discuss input/output buffers, alignment, data format, and possible bottlenecks.
+
+\section{Experimental Setup}\label{sec:experimental-setup}
+Describe the experimental environment used to evaluate the design. Include the development tools, target board, clock frequency, input image sizes, baseline software implementation, and evaluation metrics.
+
+\begin{table}[htbp]
+    \caption{Experimental Configuration Template}
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Item}      & \textbf{Description}                    \\
+            \hline
+            Target platform    & Zynq-7000 board/model                   \\
+            \hline
+            Input image size   & e.g., $256\times256$, $512\times512$    \\
+            \hline
+            Clock frequency    & e.g., 100 MHz                           \\
+            \hline
+            Evaluation metrics & Execution time, speedup, resource usage \\
+            \hline
+        \end{tabular}
+        \label{tab:experimental-config}
+    \end{center}
+\end{table}
+
+\section{Results and Discussion}\label{sec:results}
+\subsection{Performance Evaluation}
+Present execution time results for the software-only implementation and the proposed hardware/software implementation. Discuss speedup, latency reduction, and how image size affects performance.
+
+\subsection{Resource Utilization}
+Report FPGA resource usage, such as LUTs, flip-flops, BRAMs, DSPs, and timing information. Discuss whether the design meets the target constraints.
+
+\subsection{Output Verification}
+Compare the accelerator output with a reference software result. Discuss numerical error, image quality, and correctness of the 2D FFT processing flow.
+
+\section{Conclusion}\label{sec:conclusion}
+Summarize the proposed 2D FFT image-processing accelerator and the main findings. Highlight the benefits of the hardware/software co-design approach and mention possible future improvements, such as larger image support, optimized memory transfer, or real-time video processing.
+
+\section*{Acknowledgment}
+The authors would like to thank the course instructor and laboratory members for their guidance and support during this project.
+
+\begin{thebibliography}{00}
+    \bibitem{ref:cooley} J. W. Cooley and J. W. Tukey, ``An algorithm for the machine calculation of complex Fourier series,'' \textit{Mathematics of Computation}, vol. 19, no. 90, pp. 297--301, 1965.
+    \bibitem{ref:zynq} Xilinx, \textit{Zynq-7000 SoC Technical Reference Manual}, UG585.
+\end{thebibliography}
+
+\end{document}

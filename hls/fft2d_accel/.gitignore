@@ -1,0 +1,9 @@
+build/
+output/
+fft2d_accel_prj/
+fft2d_accel_apfixed_*_prj/
+fft2d_accel_apfixed_*_synth_prj/
+fft2d_accel_apfixed_*_cosim_*_prj/
+*_hls_prep_fft_*_2d.txt
+hls_square_64x64_*.txt
+write_test_root.txt

@@ -1,0 +1,17 @@
+hls/fft2d_accel/_ide/
+hls/fft2d_accel/build/
+hls/fft2d_accel/export/
+hls/fft2d_accel/logs/
+hls/fft2d_accel/fft2d_accel_prj/
+hls/fft2d_accel/hls_component/.cache/
+hls/fft2d_accel/hls_component/build/
+hls/fft2d_accel/hls_component/export/
+hls/fft2d_accel/hls_component/logs/
+hls/fft2d_accel/hls_component/fft2d_fixed_top/
+*.log
+*.lock
+*.o
+*.d
+*.bin
+*.pdi
+.vitisWorkspace.json
