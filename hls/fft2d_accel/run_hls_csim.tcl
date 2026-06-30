@@ -19,13 +19,23 @@ create_clock -period 10 -name default
 
 set project_root [file normalize ../..]
 set hls_root [file normalize .]
-set input_matrix "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_matrix_2d.txt"
-set ref_real "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_fft_real_2d.txt"
-set ref_imag "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_fft_imag_2d.txt"
-set out_real "$hls_root/hls_square_64x64_real.txt"
-set out_imag "$hls_root/hls_square_64x64_imag.txt"
+set input_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_r_matrix_2d.txt"
+set input_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_g_matrix_2d.txt"
+set input_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_b_matrix_2d.txt"
+set ref_real_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_real_2d.txt"
+set ref_real_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_real_2d.txt"
+set ref_real_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_real_2d.txt"
+set ref_imag_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_imag_2d.txt"
+set ref_imag_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_imag_2d.txt"
+set ref_imag_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_imag_2d.txt"
+set out_real_r "$hls_root/hls_square_64x64_r_real.txt"
+set out_real_g "$hls_root/hls_square_64x64_g_real.txt"
+set out_real_b "$hls_root/hls_square_64x64_b_real.txt"
+set out_imag_r "$hls_root/hls_square_64x64_r_imag.txt"
+set out_imag_g "$hls_root/hls_square_64x64_g_imag.txt"
+set out_imag_b "$hls_root/hls_square_64x64_b_imag.txt"
 
-csim_design -argv "$input_matrix $ref_real $ref_imag $out_real $out_imag"
+csim_design -argv "$input_r $input_g $input_b $ref_real_r $ref_real_g $ref_real_b $ref_imag_r $ref_imag_g $ref_imag_b $out_real_r $out_real_g $out_real_b $out_imag_r $out_imag_g $out_imag_b"
 
 # After C simulation passes, uncomment these one at a time.
 # csynth_design

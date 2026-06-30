@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vitis HLS Report for 'fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10'
+================================================================
+* Date:           Mon Jun 29 12:38:35 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        fft2d_accel_rgb_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.757 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |       66|       66|  0.660 us|  0.660 us|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_205_10  |       64|       64|         2|          1|          1|    64|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 6.75>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%r = alloca i32 1" [src/fft2d_fixed.cpp:205]   --->   Operation 5 'alloca' 'r' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln204_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln204"   --->   Operation 6 'read' 'zext_ln204_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%zext_ln206_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln206"   --->   Operation 7 'read' 'zext_ln206_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.58ns)   --->   "%store_ln205 = store i7 0, i7 %r" [src/fft2d_fixed.cpp:205]   --->   Operation 8 'store' 'store_ln205' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc134"   --->   Operation 9 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%r_2 = load i7 %r" [src/fft2d_fixed.cpp:205]   --->   Operation 10 'load' 'r_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.87ns)   --->   "%icmp_ln205 = icmp_eq  i7 %r_2, i7 64" [src/fft2d_fixed.cpp:205]   --->   Operation 11 'icmp' 'icmp_ln205' <Predicate = true> <Delay = 1.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (1.87ns)   --->   "%add_ln205 = add i7 %r_2, i7 1" [src/fft2d_fixed.cpp:205]   --->   Operation 12 'add' 'add_ln205' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln205 = br i1 %icmp_ln205, void %for.inc134.split, void %VITIS_LOOP_211_11.exitStub" [src/fft2d_fixed.cpp:205]   --->   Operation 13 'br' 'br_ln205' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln206_1 = zext i7 %r_2" [src/fft2d_fixed.cpp:206]   --->   Operation 14 'zext' 'zext_ln206_1' <Predicate = (!icmp_ln205)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (1.91ns)   --->   "%add_ln206 = add i8 %zext_ln206_read, i8 %zext_ln206_1" [src/fft2d_fixed.cpp:206]   --->   Operation 15 'add' 'add_ln206' <Predicate = (!icmp_ln205)> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%add_ln206_1 = bitconcatenate i14 @_ssdm_op_BitConcatenate.i14.i8.i6, i8 %add_ln206, i6 %zext_ln204_read" [src/fft2d_fixed.cpp:206]   --->   Operation 16 'bitconcatenate' 'add_ln206_1' <Predicate = (!icmp_ln205)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln206_2 = zext i14 %add_ln206_1" [src/fft2d_fixed.cpp:206]   --->   Operation 17 'zext' 'zext_ln206_2' <Predicate = (!icmp_ln205)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%matrix_imag_addr = getelementptr i32 %matrix_imag, i64 0, i64 %zext_ln206_2" [src/fft2d_fixed.cpp:206]   --->   Operation 18 'getelementptr' 'matrix_imag_addr' <Predicate = (!icmp_ln205)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%matrix_real_addr = getelementptr i32 %matrix_real, i64 0, i64 %zext_ln206_2" [src/fft2d_fixed.cpp:206]   --->   Operation 19 'getelementptr' 'matrix_real_addr' <Predicate = (!icmp_ln205)> <Delay = 0.00>
+ST_1 : Operation 20 [2/2] (3.25ns)   --->   "%matrix_real_load = load i14 %matrix_real_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 20 'load' 'matrix_real_load' <Predicate = (!icmp_ln205)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12288> <RAM>
+ST_1 : Operation 21 [2/2] (3.25ns)   --->   "%matrix_imag_load = load i14 %matrix_imag_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 21 'load' 'matrix_imag_load' <Predicate = (!icmp_ln205)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12288> <RAM>
+ST_1 : Operation 22 [1/1] (1.58ns)   --->   "%store_ln205 = store i7 %add_ln205, i7 %r" [src/fft2d_fixed.cpp:205]   --->   Operation 22 'store' 'store_ln205' <Predicate = (!icmp_ln205)> <Delay = 1.58>
+ST_1 : Operation 34 [1/1] (1.58ns)   --->   "%ret_ln0 = ret"   --->   Operation 34 'ret' 'ret_ln0' <Predicate = (icmp_ln205)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 6.50>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln205 = zext i7 %r_2" [src/fft2d_fixed.cpp:205]   --->   Operation 23 'zext' 'zext_ln205' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln205 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, i32 4294967295, void @empty" [src/fft2d_fixed.cpp:205]   --->   Operation 24 'specpipeline' 'specpipeline_ln205' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%speclooptripcount_ln205 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 64, i64 64, i64 64" [src/fft2d_fixed.cpp:205]   --->   Operation 25 'speclooptripcount' 'speclooptripcount_ln205' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln205 = specloopname void @_ssdm_op_SpecLoopName, void @empty_25" [src/fft2d_fixed.cpp:205]   --->   Operation 26 'specloopname' 'specloopname_ln205' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%col_buffer_real_addr = getelementptr i32 %col_buffer_real, i64 0, i64 %zext_ln205" [src/fft2d_fixed.cpp:206]   --->   Operation 27 'getelementptr' 'col_buffer_real_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%col_buffer_imag_addr = getelementptr i32 %col_buffer_imag, i64 0, i64 %zext_ln205" [src/fft2d_fixed.cpp:206]   --->   Operation 28 'getelementptr' 'col_buffer_imag_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/2] ( I:3.25ns O:3.25ns )   --->   "%matrix_real_load = load i14 %matrix_real_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 29 'load' 'matrix_real_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12288> <RAM>
+ST_2 : Operation 30 [1/2] ( I:3.25ns O:3.25ns )   --->   "%matrix_imag_load = load i14 %matrix_imag_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 30 'load' 'matrix_imag_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12288> <RAM>
+ST_2 : Operation 31 [1/1] ( I:3.25ns O:3.25ns )   --->   "%store_ln206 = store i32 %matrix_real_load, i6 %col_buffer_real_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 31 'store' 'store_ln206' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 32 [1/1] ( I:3.25ns O:3.25ns )   --->   "%store_ln206 = store i32 %matrix_imag_load, i6 %col_buffer_imag_addr" [src/fft2d_fixed.cpp:206]   --->   Operation 32 'store' 'store_ln206' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln205 = br void %for.inc134" [src/fft2d_fixed.cpp:205]   --->   Operation 33 'br' 'br_ln205' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 6.757ns
+The critical path consists of the following:
+	'store' operation ('store_ln205', src/fft2d_fixed.cpp:205) of constant 0 7 bit on local variable 'r', src/fft2d_fixed.cpp:205 [10]  (1.588 ns)
+	'load' operation 7 bit ('r', src/fft2d_fixed.cpp:205) on local variable 'r', src/fft2d_fixed.cpp:205 [13]  (0.000 ns)
+	'add' operation 8 bit ('add_ln206', src/fft2d_fixed.cpp:206) [20]  (1.915 ns)
+	'getelementptr' operation 14 bit ('matrix_real_addr', src/fft2d_fixed.cpp:206) [24]  (0.000 ns)
+	'load' operation 32 bit ('matrix_real_load', src/fft2d_fixed.cpp:206) on array 'matrix_real' [30]  (3.254 ns)
+
+ <State 2>: 6.508ns
+The critical path consists of the following:
+	'load' operation 32 bit ('matrix_real_load', src/fft2d_fixed.cpp:206) on array 'matrix_real' [30]  (3.254 ns)
+	'store' operation ('store_ln206', src/fft2d_fixed.cpp:206) of variable 'matrix_real_load', src/fft2d_fixed.cpp:206 32 bit on array 'col_buffer_real' [32]  (3.254 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

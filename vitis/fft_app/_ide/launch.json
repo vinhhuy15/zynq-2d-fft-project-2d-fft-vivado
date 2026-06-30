@@ -28,7 +28,7 @@
           "psDevice": "Auto Detect"
         },
         "resetAPU": false,
-        "bitstreamFile": "${workspaceFolder}\\fft_app\\_ide\\bitstream\\design_1_wrapper.bit",
+        "bitstreamFile": "${workspaceFolder}\\fft_platform\\hw\\sdt\\fft_rgb.bit",
         "zynqInitialization": {
           "isFsbl": false,
           "usingFSBL": {

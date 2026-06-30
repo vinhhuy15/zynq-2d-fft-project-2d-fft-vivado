@@ -1,0 +1,24 @@
+[
+  {
+    "csim": false,
+    "functionLabel": "",
+    "functionName": "fft2d_fixed_top",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "fft2d_fixed_top"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/run_hls_export_ip.tcl",
+    "sourceLine": 40,
+    "success": true
+  }
+]

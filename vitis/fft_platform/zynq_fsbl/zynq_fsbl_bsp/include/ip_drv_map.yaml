@@ -1,6 +1,6 @@
-fft2d_fixed_top_0:
+fft2d_fixed_top_1:
 - fft2d_fixed_top
-- None
+- fft2d_fixed_top
 ps7_afi_0:
 - ps7_afi
 - None

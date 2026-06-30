@@ -1,0 +1,119 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/run_hls_export_ip.tcl:40:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=fft2d_fixed_top" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:168:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=input offset=slave bundle=gmem0" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:169:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=output_real offset=slave bundle=gmem1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:170:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=output_imag offset=slave bundle=gmem2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:171:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=input bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:172:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=output_real bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:173:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=output_imag bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:174:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft2d_fixed_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INTERFACE" msg_id="214-366" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:178:18" msg_body="Duplicating function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design.">
+        <args Name="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INTERFACE" msg_id="214-366" msg_severity="WARNING" msg_loc="src/fft2d_fixed.cpp:177:18" msg_body="Duplicating function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design.">
+        <args Name="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:79:0" msg_body="Inlining function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' into 'twiddle_at(int, int)'">
+        <args Callee="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)" Callee-DebugLoc="File {include\fft2d_fixed.hpp} Line 35 Column 0" Caller="twiddle_at(int, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 79 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:92:0" msg_body="Inlining function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' into 'complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)'">
+        <args Callee="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)" Callee-DebugLoc="File {include\fft2d_fixed.hpp} Line 35 Column 0" Caller="complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 92 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:84:0" msg_body="Inlining function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' into 'complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)'">
+        <args Callee="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)" Callee-DebugLoc="File {include\fft2d_fixed.hpp} Line 35 Column 0" Caller="complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 84 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:88:0" msg_body="Inlining function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)' into 'complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)'">
+        <args Callee="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35)" Callee-DebugLoc="File {include\fft2d_fixed.hpp} Line 35 Column 0" Caller="complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 88 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:99:0" msg_body="Inlining function 'twiddle_at(int, int)' into 'fft1d_fixed(ComplexFixed*, int)'">
+        <args Callee="twiddle_at(int, int)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 79 Column 0" Caller="fft1d_fixed(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 99 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:99:0" msg_body="Inlining function 'complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed(ComplexFixed*, int)'">
+        <args Callee="complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 92 Column 0" Caller="fft1d_fixed(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 99 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:99:0" msg_body="Inlining function 'complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed(ComplexFixed*, int)'">
+        <args Callee="complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 84 Column 0" Caller="fft1d_fixed(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 99 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:99:0" msg_body="Inlining function 'complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed(ComplexFixed*, int)'">
+        <args Callee="complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 88 Column 0" Caller="fft1d_fixed(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 99 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:131:0" msg_body="Inlining function 'twiddle_at(int, int)' into 'fft1d_fixed_col(ComplexFixed*, int)'">
+        <args Callee="twiddle_at(int, int)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 79 Column 0" Caller="fft1d_fixed_col(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 131 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:131:0" msg_body="Inlining function 'complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed_col(ComplexFixed*, int)'">
+        <args Callee="complex_mul(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 92 Column 0" Caller="fft1d_fixed_col(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 131 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:131:0" msg_body="Inlining function 'complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed_col(ComplexFixed*, int)'">
+        <args Callee="complex_add(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 84 Column 0" Caller="fft1d_fixed_col(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 131 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:131:0" msg_body="Inlining function 'complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)' into 'fft1d_fixed_col(ComplexFixed*, int)'">
+        <args Callee="complex_sub(ComplexFixed const&amp;, ComplexFixed const&amp;)" Callee-DebugLoc="File src/fft2d_fixed.cpp Line 88 Column 0" Caller="fft1d_fixed_col(ComplexFixed*, int)" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 131 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:167:0" msg_body="Inlining function 'ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35.160)' into 'fft2d_fixed_top(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64], ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64], ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64])'">
+        <args Callee="ComplexFixed::ComplexFixed(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;, ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt;) (.11.14.15.16.23.29.35.160)" Callee-DebugLoc="File {include\fft2d_fixed.hpp} Line 35 Column 0" Caller="fft2d_fixed_top(ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64], ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64], ap_fixed&lt;32, 20, (ap_q_mode)0, (ap_o_mode)0, 0&gt; (*) [64][64])" Caller-DebugLoc="File src/fft2d_fixed.cpp Line 167 Column 0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:135:27" msg_body="pipeline   1 fft1d_fixed_col config_compile -pipeline_loops 64VITIS_LOOP_135_2 src/fft2d_fixed.cpp:135:27">
+        <args LoopLoc="src/fft2d_fixed.cpp:135:27" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 135 Column 27" LoopName="VITIS_LOOP_135_2" PragmaFunction="fft1d_fixed_col" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:151:31" msg_body="pipeline   1 fft1d_fixed_col config_compile -pipeline_loops 64VITIS_LOOP_151_5 src/fft2d_fixed.cpp:151:31">
+        <args LoopLoc="src/fft2d_fixed.cpp:151:31" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 151 Column 31" LoopName="VITIS_LOOP_151_5" PragmaFunction="fft1d_fixed_col" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:103:27" msg_body="pipeline   1 fft1d_fixed config_compile -pipeline_loops 64VITIS_LOOP_103_2 src/fft2d_fixed.cpp:103:27">
+        <args LoopLoc="src/fft2d_fixed.cpp:103:27" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 103 Column 27" LoopName="VITIS_LOOP_103_2" PragmaFunction="fft1d_fixed" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:119:31" msg_body="pipeline   1 fft1d_fixed config_compile -pipeline_loops 64VITIS_LOOP_119_5 src/fft2d_fixed.cpp:119:31">
+        <args LoopLoc="src/fft2d_fixed.cpp:119:31" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 119 Column 31" LoopName="VITIS_LOOP_119_5" PragmaFunction="fft1d_fixed" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:177:18" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64anonymous src/fft2d_fixed.cpp:177:18">
+        <args LoopLoc="src/fft2d_fixed.cpp:177:18" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 177 Column 18" LoopName="anonymous" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:178:18" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64anonymous src/fft2d_fixed.cpp:178:18">
+        <args LoopLoc="src/fft2d_fixed.cpp:178:18" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 178 Column 18" LoopName="anonymous" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:182:31" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_182_3 src/fft2d_fixed.cpp:182:31">
+        <args LoopLoc="src/fft2d_fixed.cpp:182:31" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 182 Column 31" LoopName="VITIS_LOOP_182_3" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:197:31" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_197_7 src/fft2d_fixed.cpp:197:31">
+        <args LoopLoc="src/fft2d_fixed.cpp:197:31" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 197 Column 31" LoopName="VITIS_LOOP_197_7" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:191:31" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_191_6 src/fft2d_fixed.cpp:191:31">
+        <args LoopLoc="src/fft2d_fixed.cpp:191:31" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 191 Column 31" LoopName="VITIS_LOOP_191_6" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:211:32" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_211_11 src/fft2d_fixed.cpp:211:32">
+        <args LoopLoc="src/fft2d_fixed.cpp:211:32" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 211 Column 32" LoopName="VITIS_LOOP_211_11" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:205:32" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_205_10 src/fft2d_fixed.cpp:205:32">
+        <args LoopLoc="src/fft2d_fixed.cpp:205:32" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 205 Column 32" LoopName="VITIS_LOOP_205_10" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:219:32" msg_body="pipeline   1 fft2d_fixed_top config_compile -pipeline_loops 64VITIS_LOOP_219_14 src/fft2d_fixed.cpp:219:32">
+        <args LoopLoc="src/fft2d_fixed.cpp:219:32" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 219 Column 32" LoopName="VITIS_LOOP_219_14" PragmaFunction="fft2d_fixed_top" PragmaInferReason="config_compile -pipeline_loops 64" PragmaIsAuto="1" PragmaType="pipeline"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:100:23" msg_body="Disabling loop flattening for loop 'VITIS_LOOP_100_1'.">
+        <args LoopName="VITIS_LOOP_100_1"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:100:23" msg_body="loop_flatten off  1 fft1d_fixed VITIS_LOOP_100_1 src/fft2d_fixed.cpp:100:23">
+        <args LoopLoc="src/fft2d_fixed.cpp:100:23" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 100 Column 23" LoopName="VITIS_LOOP_100_1" PragmaFunction="fft1d_fixed" PragmaIsAuto="1" PragmaOptions="off" PragmaType="loop_flatten"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:132:23" msg_body="Disabling loop flattening for loop 'VITIS_LOOP_132_1'.">
+        <args LoopName="VITIS_LOOP_132_1"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/fft2d_fixed.cpp:132:23" msg_body="loop_flatten off  1 fft1d_fixed_col VITIS_LOOP_132_1 src/fft2d_fixed.cpp:132:23">
+        <args LoopLoc="src/fft2d_fixed.cpp:132:23" LoopLoc-DebugLoc="File src/fft2d_fixed.cpp Line 132 Column 23" LoopName="VITIS_LOOP_132_1" PragmaFunction="fft1d_fixed_col" PragmaIsAuto="1" PragmaOptions="off" PragmaType="loop_flatten"/>
+    </msg>
+</xilinx:hls_fe_msgs>

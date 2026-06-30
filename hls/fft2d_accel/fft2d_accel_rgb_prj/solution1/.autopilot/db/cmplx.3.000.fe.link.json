@@ -1,0 +1,168 @@
+{
+  "0": {
+    "basicblocks": 102,
+    "calls": "5 5 5 6 4",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 163,
+    "instructions": 305,
+    "loads": {
+      "G": 5,
+      "L": 3,
+      "T": 1
+    },
+    "memory_accesses": 26,
+    "name": "fft2d_fixed_top",
+    "stores": {
+      "G": 5,
+      "L": 2,
+      "T": 2
+    },
+    "total_instructions": 8589
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "fft2d_fixed.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 33,
+    "memory_accesses": 0,
+    "name": "__cxx_global_var_init.1",
+    "total_instructions": 22369
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "fft2d_fixed.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 33,
+    "memory_accesses": 0,
+    "name": "__cxx_global_var_init",
+    "total_instructions": 22369
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "10 1",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "fft2d_fixed.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 3,
+    "memory_accesses": 0,
+    "name": "",
+    "total_instructions": 44741
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "5",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 92,
+    "instructions": 64,
+    "memory_accesses": 0,
+    "name": "complex_mul",
+    "total_instructions": 1675
+  },
+  "4": {
+    "basicblocks": 31,
+    "calls": "9 3 8 7",
+    "control_depth": 1,
+    "def_use_depth": 3,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 131,
+    "instructions": 117,
+    "loads": {
+      "L": 5
+    },
+    "memory_accesses": 10,
+    "name": "fft1d_fixed_col",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 3099
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft2d_fixed.hpp",
+    "fileloc": 35,
+    "instructions": 7,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 0,
+    "name": "ComplexFixed",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 7
+  },
+  "6": {
+    "basicblocks": 31,
+    "calls": "9 3 8 7",
+    "control_depth": 1,
+    "def_use_depth": 3,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 99,
+    "instructions": 117,
+    "loads": {
+      "L": 5
+    },
+    "memory_accesses": 10,
+    "name": "fft1d_fixed",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 3099
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "5",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 88,
+    "instructions": 28,
+    "memory_accesses": 0,
+    "name": "complex_sub",
+    "total_instructions": 643
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "5",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 84,
+    "instructions": 28,
+    "memory_accesses": 0,
+    "name": "complex_add",
+    "total_instructions": 643
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "5",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 79,
+    "instructions": 14,
+    "loads": {
+      "G": 2
+    },
+    "memory_accesses": 0,
+    "name": "twiddle_at",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 21
+  }
+}

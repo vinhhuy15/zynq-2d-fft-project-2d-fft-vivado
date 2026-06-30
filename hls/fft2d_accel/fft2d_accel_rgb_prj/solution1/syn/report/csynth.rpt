@@ -1,0 +1,470 @@
+
+
+================================================================
+== Synthesis Summary Report of 'fft2d_fixed_top'
+================================================================
++ General Information: 
+    * Date:           Mon Jun 29 12:38:48 2026
+    * Version:        2025.2 (Build 6295257 on Nov 14 2025)
+    * Project:        fft2d_accel_rgb_prj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
+* Performance & Resource Estimates: 
++-----------------------------------------------------------------------------------+------+-------------------+------------+---------+------------+----------+------------+-----------+------+----------+--------+------------+-------------+-----+
+|                                      Modules                                      | Issue|                   |  Iteration |         |    Trip    |          |         Latency        |      |          |        |            |             |     |
+|                                      & Loops                                      | Type |   Violation Type  |   Latency  | Interval|    Count   | Pipelined|  (cycles)  |    (ns)   | Slack|   BRAM   |   DSP  |     FF     |     LUT     | URAM|
++-----------------------------------------------------------------------------------+------+-------------------+------------+---------+------------+----------+------------+-----------+------+----------+--------+------------+-------------+-----+
+|+ fft2d_fixed_top                                                                  |     -|                  -|           -|        -|           -|        no|           -|          -|  0.00|  74 (26%)|  8 (3%)|  10387 (9%)|  12479 (23%)|    -|
+| + fft2d_fixed_top_Pipeline_1                                                      |     -|                  -|           -|        -|           -|       yes|          65|    650.000|  2.30|         -|       -|     8 (~0%)|     55 (~0%)|    -|
+|  o Loop 1                                                                         |     -|                  -|           1|        1|          64|       yes|          63|    630.000|  7.30|         -|       -|           -|            -|    -|
+| + fft2d_fixed_top_Pipeline_2                                                      |     -|                  -|           -|        -|           -|       yes|          65|    650.000|  2.30|         -|       -|     8 (~0%)|     55 (~0%)|    -|
+|  o Loop 1                                                                         |     -|                  -|           1|        1|          64|       yes|          63|    630.000|  7.30|         -|       -|           -|            -|    -|
+| + fft2d_fixed_top_Pipeline_VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3     |     -|                  -|           -|        -|           -|       yes|       12291|  1.229e+05|  0.00|         -|       -|    98 (~0%)|    283 (~0%)|    -|
+|  o VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3                             |     -|                  -|           3|        1|       12288|       yes|       12289|  1.229e+05|  7.30|         -|       -|           -|            -|    -|
+| + fft2d_fixed_top_Outline_VITIS_LOOP_189_4                                        |     -|                  -|           -|        -|           -|        no|           -|          -|  0.32|         -|       -|   3501 (3%)|    4223 (7%)|    -|
+|  o VITIS_LOOP_189_4                                                               |     -|                  -|           -|        -|           3|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|   o VITIS_LOOP_190_5                                                              |     -|                  -|           -|        -|          64|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|    + fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6                                    |     -|                  -|           -|        -|           -|       yes|          66|    660.000|  0.65|         -|       -|    17 (~0%)|     84 (~0%)|    -|
+|     o VITIS_LOOP_191_6                                                            |     -|                  -|           2|        1|          64|       yes|          64|    640.000|  7.30|         -|       -|           -|            -|    -|
+|    + fft1d_fixed                                                                  |     -|                  -|           -|        -|           -|        no|           -|          -|  0.39|         -|       -|   3428 (3%)|    3661 (6%)|    -|
+|     o VITIS_LOOP_100_1                                                            |     -|                  -|           -|        -|          63|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|      + fft1d_fixed_Pipeline_VITIS_LOOP_103_2                                      |     -|                  -|           -|        -|           -|       yes|           -|          -|  3.16|         -|       -|    65 (~0%)|    141 (~0%)|    -|
+|       o VITIS_LOOP_103_2                                                          |     -|                  -|           1|        1|           -|       yes|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|     o VITIS_LOOP_117_3                                                            |     -|                  -|           -|        -|           6|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|      o VITIS_LOOP_118_4                                                           |     -|                  -|  7516192781|        -|           -|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|       + fft1d_fixed_Pipeline_VITIS_LOOP_119_5                                     |     -|                  -|           -|        -|           -|       yes|  7516192778|  7.516e+10|  0.39|         -|       -|   2956 (2%)|    2904 (5%)|    -|
+|        o VITIS_LOOP_119_5                                                         |    II|  Memory Dependency|          23|        7|  1073741823|       yes|  7516192776|  7.516e+10|  7.30|         -|       -|           -|            -|    -|
+|    + fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7                                    |     -|                  -|           -|        -|           -|       yes|          66|    660.000|  0.79|         -|       -|    17 (~0%)|     84 (~0%)|    -|
+|     o VITIS_LOOP_197_7                                                            |     -|                  -|           2|        1|          64|       yes|          64|    640.000|  7.30|         -|       -|           -|            -|    -|
+| + fft2d_fixed_top_Pipeline_VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14  |     -|                  -|           -|        -|           -|       yes|       12293|  1.229e+05|  0.00|         -|       -|   133 (~0%)|    294 (~0%)|    -|
+|  o VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14                          |     -|                  -|           5|        1|       12288|       yes|       12291|  1.229e+05|  7.30|         -|       -|           -|            -|    -|
+| o VITIS_LOOP_203_8                                                                |     -|                  -|           -|        -|           3|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|  o VITIS_LOOP_204_9                                                               |     -|                  -|           -|        -|          64|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|   + fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10                                    |     -|                  -|           -|        -|           -|       yes|          66|    660.000|  0.54|         -|       -|    17 (~0%)|     82 (~0%)|    -|
+|    o VITIS_LOOP_205_10                                                            |     -|                  -|           2|        1|          64|       yes|          64|    640.000|  7.30|         -|       -|           -|            -|    -|
+|   + fft1d_fixed_col                                                               |     -|                  -|           -|        -|           -|        no|           -|          -|  0.39|         -|       -|   3428 (3%)|    3661 (6%)|    -|
+|    o VITIS_LOOP_132_1                                                             |     -|                  -|           -|        -|          63|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|     + fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2                                   |     -|                  -|           -|        -|           -|       yes|           -|          -|  3.16|         -|       -|    65 (~0%)|    141 (~0%)|    -|
+|      o VITIS_LOOP_135_2                                                           |     -|                  -|           1|        1|           -|       yes|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|    o VITIS_LOOP_149_3                                                             |     -|                  -|           -|        -|           6|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|     o VITIS_LOOP_150_4                                                            |     -|                  -|  7516192781|        -|           -|        no|           -|          -|  7.30|         -|       -|           -|            -|    -|
+|      + fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5                                  |     -|                  -|           -|        -|           -|       yes|  7516192778|  7.516e+10|  0.39|         -|       -|   2956 (2%)|    2904 (5%)|    -|
+|       o VITIS_LOOP_151_5                                                          |    II|  Memory Dependency|          23|        7|  1073741823|       yes|  7516192776|  7.516e+10|  7.30|         -|       -|           -|            -|    -|
+|   + fft2d_fixed_top_Pipeline_VITIS_LOOP_211_11                                    |     -|                  -|           -|        -|           -|       yes|          66|    660.000|  0.79|         -|       -|    18 (~0%)|     82 (~0%)|    -|
+|    o VITIS_LOOP_211_11                                                            |     -|                  -|           2|        1|          64|       yes|          64|    640.000|  7.30|         -|       -|           -|            -|    -|
++-----------------------------------------------------------------------------------+------+-------------------+------------+---------+------------+----------+------------+-----------+------+----------+--------+------------+-------------+-----+
+    II Violation Information: docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+    Name Prefix: '+' for module, 'o' for loop, '*' for dataflow
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface   | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|             |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++-------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem0 | READ_ONLY  | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_gmem1 | WRITE_ONLY | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |                   |
+| m_axi_gmem2 | WRITE_ONLY | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |                   |
++-------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++------------+------------+---------------+--------+----------+
+| Interface  | Data Width | Address Width | Offset | Register |
++------------+------------+---------------+--------+----------+
+| s_axi_CTRL | 32         | 6             | 16     | 0        |
++------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++------------+---------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface  | Register      | Offset | Width | Access | Description                      | Bit Fields                                                           |
++------------+---------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_CTRL | CTRL          | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_CTRL | GIER          | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_CTRL | IP_IER        | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_CTRL | IP_ISR        | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_CTRL | input_r_1     | 0x10   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_CTRL | input_r_2     | 0x14   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_CTRL | output_real_1 | 0x1c   | 32    | W      | Data signal of output_real       |                                                                      |
+| s_axi_CTRL | output_real_2 | 0x20   | 32    | W      | Data signal of output_real       |                                                                      |
+| s_axi_CTRL | output_imag_1 | 0x28   | 32    | W      | Data signal of output_imag       |                                                                      |
+| s_axi_CTRL | output_imag_2 | 0x2c   | 32    | W      | Data signal of output_imag       |                                                                      |
++------------+---------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------+-----------+--------------------------------------------------+
+| Argument    | Direction | Datatype                                         |
++-------------+-----------+--------------------------------------------------+
+| input       | in        | ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>* |
+| output_real | out       | ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>* |
+| output_imag | out       | ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>* |
++-------------+-----------+--------------------------------------------------+
+
+* SW-to-HW Mapping
++-------------+--------------+-----------+----------+-----------------------------------------+
+| Argument    | HW Interface | HW Type   | HW Usage | HW Info                                 |
++-------------+--------------+-----------+----------+-----------------------------------------+
+| input       | m_axi_gmem0  | interface |          | channel=0                               |
+| input       | s_axi_CTRL   | register  | offset   | name=input_r_1 offset=0x10 range=32     |
+| input       | s_axi_CTRL   | register  | offset   | name=input_r_2 offset=0x14 range=32     |
+| output_real | m_axi_gmem1  | interface |          | channel=0                               |
+| output_real | s_axi_CTRL   | register  | offset   | name=output_real_1 offset=0x1c range=32 |
+| output_real | s_axi_CTRL   | register  | offset   | name=output_real_2 offset=0x20 range=32 |
+| output_imag | m_axi_gmem2  | interface |          | channel=0                               |
+| output_imag | s_axi_CTRL   | register  | offset   | name=output_imag_1 offset=0x28 range=32 |
+| output_imag | s_axi_CTRL   | register  | offset   | name=output_imag_2 offset=0x2c range=32 |
++-------------+--------------+-----------+----------+-----------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+-------------------+----------------------------+
+| HW Interface | Direction | Length | Width | Loop              | Loop Location              |
++--------------+-----------+--------+-------+-------------------+----------------------------+
+| m_axi_gmem0  | read      | 12288  | 32    | VITIS_LOOP_180_1  | src/fft2d_fixed.cpp:180:23 |
+| m_axi_gmem1  | write     | 12288  | 32    | VITIS_LOOP_217_12 | src/fft2d_fixed.cpp:217:24 |
+| m_axi_gmem2  | write     | 12288  | 32    | VITIS_LOOP_217_12 | src/fft2d_fixed.cpp:217:24 |
++--------------+-----------+--------+-------+-------------------+----------------------------+
+
+* All M_AXI Variable Accesses
++--------------+-------------+----------------------------+-----------+--------------+--------+-------------------+----------------------------+------------+-------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable    | Access Location            | Direction | Burst Status | Length | Loop              | Loop Location              | Resolution | Problem                                                                                               |
++--------------+-------------+----------------------------+-----------+--------------+--------+-------------------+----------------------------+------------+-------------------------------------------------------------------------------------------------------+
+| m_axi_gmem0  | input       | src/fft2d_fixed.cpp:183:39 | read      | Widen Fail   |        | VITIS_LOOP_182_3  | src/fft2d_fixed.cpp:182:31 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem0  | input       | src/fft2d_fixed.cpp:183:39 | read      | Inferred     | 12288  | VITIS_LOOP_180_1  | src/fft2d_fixed.cpp:180:23 |            |                                                                                                       |
+| m_axi_gmem1  | output_real | src/fft2d_fixed.cpp:220:39 | write     | Widen Fail   |        | VITIS_LOOP_219_14 | src/fft2d_fixed.cpp:219:32 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem1  | output_real | src/fft2d_fixed.cpp:220:39 | write     | Inferred     | 12288  | VITIS_LOOP_217_12 | src/fft2d_fixed.cpp:217:24 |            |                                                                                                       |
+| m_axi_gmem2  | output_imag | src/fft2d_fixed.cpp:221:39 | write     | Widen Fail   |        | VITIS_LOOP_219_14 | src/fft2d_fixed.cpp:219:32 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem2  | output_imag | src/fft2d_fixed.cpp:221:39 | write     | Inferred     | 12288  | VITIS_LOOP_217_12 | src/fft2d_fixed.cpp:217:24 |            |                                                                                                       |
++--------------+-------------+----------------------------+-----------+--------------+--------+-------------------+----------------------------+------------+-------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------------------------------------------------+-----+--------+----------------+--------+----------+---------+
+| Name                                                                              | DSP | Pragma | Variable       | Op     | Impl     | Latency |
++-----------------------------------------------------------------------------------+-----+--------+----------------+--------+----------+---------+
+| + fft2d_fixed_top                                                                 | 8   |        |                |        |          |         |
+|   icmp_ln203_fu_323_p2                                                            |     |        | icmp_ln203     | seteq  | auto     | 0       |
+|   add_ln203_fu_329_p2                                                             |     |        | add_ln203      | add    | fabric   | 0       |
+|   mul_32s_13s_45_2_1_U86                                                          |     |        | icmp_ln204     | seteq  | auto     | 0       |
+|   mul_32s_14s_44_2_1_U88                                                          |     |        | add_ln204      | add    | fabric   | 0       |
+|  + fft2d_fixed_top_Pipeline_1                                                     | 0   |        |                |        |          |         |
+|    add_ln177_fu_72_p2                                                             |     |        | add_ln177      | add    | fabric   | 0       |
+|    icmp_ln177_fu_78_p2                                                            |     |        | icmp_ln177     | seteq  | auto     | 0       |
+|  + fft2d_fixed_top_Pipeline_2                                                     | 0   |        |                |        |          |         |
+|    add_ln178_fu_72_p2                                                             |     |        | add_ln178      | add    | fabric   | 0       |
+|    icmp_ln178_fu_78_p2                                                            |     |        | icmp_ln178     | seteq  | auto     | 0       |
+|  + fft2d_fixed_top_Pipeline_VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3    | 0   |        |                |        |          |         |
+|    icmp_ln180_fu_162_p2                                                           |     |        | icmp_ln180     | seteq  | auto     | 0       |
+|    add_ln180_1_fu_168_p2                                                          |     |        | add_ln180_1    | add    | fabric   | 0       |
+|    add_ln180_fu_197_p2                                                            |     |        | add_ln180      | add    | fabric   | 0       |
+|    icmp_ln181_fu_203_p2                                                           |     |        | icmp_ln181     | seteq  | auto     | 0       |
+|    select_ln180_fu_209_p3                                                         |     |        | select_ln180   | select | auto_sel | 0       |
+|    xor_ln180_fu_217_p2                                                            |     |        | xor_ln180      | xor    | auto     | 0       |
+|    icmp_ln182_fu_223_p2                                                           |     |        | icmp_ln182     | seteq  | auto     | 0       |
+|    and_ln180_fu_229_p2                                                            |     |        | and_ln180      | and    | auto     | 0       |
+|    select_ln180_1_fu_235_p3                                                       |     |        | select_ln180_1 | select | auto_sel | 0       |
+|    add_ln181_fu_243_p2                                                            |     |        | add_ln181      | add    | fabric   | 0       |
+|    empty_fu_249_p2                                                                |     |        | empty          | or     | auto     | 0       |
+|    c_mid2_fu_255_p3                                                               |     |        | c_mid2         | select | auto_sel | 0       |
+|    select_ln181_fu_263_p3                                                         |     |        | select_ln181   | select | auto_sel | 0       |
+|    add_ln184_fu_321_p2                                                            |     |        | add_ln184      | add    | fabric   | 0       |
+|    add_ln184_1_fu_338_p2                                                          |     |        | add_ln184_1    | add    | fabric   | 0       |
+|    add_ln182_fu_271_p2                                                            |     |        | add_ln182      | add    | fabric   | 0       |
+|    add_ln181_1_fu_277_p2                                                          |     |        | add_ln181_1    | add    | fabric   | 0       |
+|    select_ln181_1_fu_283_p3                                                       |     |        | select_ln181_1 | select | auto_sel | 0       |
+|  + fft2d_fixed_top_Outline_VITIS_LOOP_189_4                                       | 0   |        |                |        |          |         |
+|    icmp_ln189_fu_111_p2                                                           |     |        | icmp_ln189     | seteq  | auto     | 0       |
+|    add_ln189_fu_117_p2                                                            |     |        | add_ln189      | add    | fabric   | 0       |
+|    icmp_ln190_fu_131_p2                                                           |     |        | icmp_ln190     | seteq  | auto     | 0       |
+|    add_ln190_fu_137_p2                                                            |     |        | add_ln190      | add    | fabric   | 0       |
+|    add_ln192_fu_147_p2                                                            |     |        | add_ln192      | add    | fabric   | 0       |
+|   + fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6                                     | 0   |        |                |        |          |         |
+|     icmp_ln191_fu_110_p2                                                          |     |        | icmp_ln191     | seteq  | auto     | 0       |
+|     add_ln191_fu_116_p2                                                           |     |        | add_ln191      | add    | fabric   | 0       |
+|     add_ln192_fu_126_p2                                                           |     |        | add_ln192      | add    | fabric   | 0       |
+|   + fft1d_fixed                                                                   | 0   |        |                |        |          |         |
+|     icmp_ln100_fu_162_p2                                                          |     |        | icmp_ln100     | seteq  | auto     | 0       |
+|     icmp_ln110_fu_194_p2                                                          |     |        | icmp_ln110     | setlt  | auto     | 0       |
+|     add_ln100_fu_200_p2                                                           |     |        | add_ln100      | add    | fabric   | 0       |
+|     icmp_ln117_fu_217_p2                                                          |     |        | icmp_ln117     | setlt  | auto     | 0       |
+|     sub_ln119_fu_231_p2                                                           |     |        | sub_ln119      | sub    | fabric   | 0       |
+|     sub_ln119_1_fu_247_p2                                                         |     |        | sub_ln119_1    | sub    | fabric   | 0       |
+|     select_ln119_fu_263_p3                                                        |     |        | select_ln119   | select | auto_sel | 0       |
+|     icmp_ln118_fu_289_p2                                                          |     |        | icmp_ln118     | setlt  | auto     | 0       |
+|     add_ln118_fu_299_p2                                                           |     |        | add_ln118      | add    | fabric   | 0       |
+|    + fft1d_fixed_Pipeline_VITIS_LOOP_103_2                                        | 0   |        |                |        |          |         |
+|      and_ln103_fu_69_p2                                                           |     |        | and_ln103      | and    | auto     | 0       |
+|      icmp_ln103_fu_75_p2                                                          |     |        | icmp_ln103     | seteq  | auto     | 0       |
+|      j_6_fu_81_p2                                                                 |     |        | j_6            | xor    | auto     | 0       |
+|    + fft1d_fixed_Pipeline_VITIS_LOOP_119_5                                        | 0   |        |                |        |          |         |
+|      icmp_ln119_fu_216_p2                                                         |     |        | icmp_ln119     | setlt  | auto     | 0       |
+|      add_ln119_fu_222_p2                                                          |     |        | add_ln119      | add    | fabric   | 0       |
+|      sdiv_12ns_32ns_5_16_1_U20                                                    |     |        | index          | sdiv   | auto     | 15      |
+|      add_ln121_fu_254_p2                                                          |     |        | add_ln121      | add    | fabric   | 0       |
+|      add_ln122_fu_275_p2                                                          |     |        | add_ln122      | add    | fabric   | 0       |
+|      sub_ln94_fu_323_p2                                                           |     |        | sub_ln94       | sub    | fabric   | 0       |
+|      add_ln94_fu_407_p2                                                           |     |        | add_ln94       | add    | fabric   | 0       |
+|      xor_ln94_fu_420_p2                                                           |     |        | xor_ln94       | xor    | auto     | 0       |
+|      and_ln94_fu_426_p2                                                           |     |        | and_ln94       | and    | auto     | 0       |
+|      xor_ln94_7_fu_431_p2                                                         |     |        | xor_ln94_7     | xor    | auto     | 0       |
+|      or_ln94_4_fu_436_p2                                                          |     |        | or_ln94_4      | or     | auto     | 0       |
+|      xor_ln94_6_fu_442_p2                                                         |     |        | xor_ln94_6     | xor    | auto     | 0       |
+|      xor_ln94_9_fu_447_p2                                                         |     |        | xor_ln94_9     | xor    | auto     | 0       |
+|      xor_ln94_8_fu_452_p2                                                         |     |        | xor_ln94_8     | xor    | auto     | 0       |
+|      or_ln94_fu_458_p2                                                            |     |        | or_ln94        | or     | auto     | 0       |
+|      and_ln94_3_fu_464_p2                                                         |     |        | and_ln94_3     | and    | auto     | 0       |
+|      or_ln94_5_fu_470_p2                                                          |     |        | or_ln94_5      | or     | auto     | 0       |
+|      xor_ln94_10_fu_476_p2                                                        |     |        | xor_ln94_10    | xor    | auto     | 0       |
+|      and_ln94_4_fu_482_p2                                                         |     |        | and_ln94_4     | and    | auto     | 0       |
+|      select_ln94_fu_487_p3                                                        |     |        | select_ln94    | select | auto_sel | 0       |
+|      or_ln94_2_fu_495_p2                                                          |     |        | or_ln94_2      | or     | auto     | 0       |
+|      v_real_fu_501_p3                                                             |     |        | v_real         | select | auto_sel | 0       |
+|      add_ln95_fu_365_p2                                                           |     |        | add_ln95       | add    | fabric   | 0       |
+|      add_ln95_2_fu_512_p2                                                         |     |        | add_ln95_2     | add    | fabric   | 0       |
+|      xor_ln95_fu_525_p2                                                           |     |        | xor_ln95       | xor    | auto     | 0       |
+|      and_ln95_fu_531_p2                                                           |     |        | and_ln95       | and    | auto     | 0       |
+|      xor_ln95_7_fu_536_p2                                                         |     |        | xor_ln95_7     | xor    | auto     | 0       |
+|      or_ln95_4_fu_541_p2                                                          |     |        | or_ln95_4      | or     | auto     | 0       |
+|      xor_ln95_6_fu_547_p2                                                         |     |        | xor_ln95_6     | xor    | auto     | 0       |
+|      xor_ln95_9_fu_552_p2                                                         |     |        | xor_ln95_9     | xor    | auto     | 0       |
+|      xor_ln95_8_fu_557_p2                                                         |     |        | xor_ln95_8     | xor    | auto     | 0       |
+|      or_ln95_fu_563_p2                                                            |     |        | or_ln95        | or     | auto     | 0       |
+|      and_ln95_3_fu_569_p2                                                         |     |        | and_ln95_3     | and    | auto     | 0       |
+|      or_ln95_5_fu_575_p2                                                          |     |        | or_ln95_5      | or     | auto     | 0       |
+|      xor_ln95_10_fu_581_p2                                                        |     |        | xor_ln95_10    | xor    | auto     | 0       |
+|      and_ln95_4_fu_587_p2                                                         |     |        | and_ln95_4     | and    | auto     | 0       |
+|      select_ln95_fu_592_p3                                                        |     |        | select_ln95    | select | auto_sel | 0       |
+|      or_ln95_2_fu_600_p2                                                          |     |        | or_ln95_2      | or     | auto     | 0       |
+|      v_imag_fu_606_p3                                                             |     |        | v_imag         | select | auto_sel | 0       |
+|      add_ln85_fu_621_p2                                                           |     |        | add_ln85       | add    | fabric   | 0       |
+|      xor_ln85_fu_647_p2                                                           |     |        | xor_ln85       | xor    | auto     | 0       |
+|      and_ln85_fu_653_p2                                                           |     |        | and_ln85       | and    | auto     | 0       |
+|      xor_ln85_4_fu_659_p2                                                         |     |        | xor_ln85_4     | xor    | auto     | 0       |
+|      select_ln85_fu_665_p3                                                        |     |        | select_ln85    | select | auto_sel | 0       |
+|      select_ln85_4_fu_673_p3                                                      |     |        | select_ln85_4  | select | auto_sel | 0       |
+|      add_ln85_2_fu_689_p2                                                         |     |        | add_ln85_2     | add    | fabric   | 0       |
+|      xor_ln85_5_fu_715_p2                                                         |     |        | xor_ln85_5     | xor    | auto     | 0       |
+|      and_ln85_2_fu_721_p2                                                         |     |        | and_ln85_2     | and    | auto     | 0       |
+|      xor_ln85_6_fu_727_p2                                                         |     |        | xor_ln85_6     | xor    | auto     | 0       |
+|      select_ln85_5_fu_733_p3                                                      |     |        | select_ln85_5  | select | auto_sel | 0       |
+|      select_ln85_6_fu_741_p3                                                      |     |        | select_ln85_6  | select | auto_sel | 0       |
+|      sub_ln89_fu_750_p2                                                           |     |        | sub_ln89       | sub    | fabric   | 0       |
+|      xor_ln89_fu_776_p2                                                           |     |        | xor_ln89       | xor    | auto     | 0       |
+|      and_ln89_fu_782_p2                                                           |     |        | and_ln89       | and    | auto     | 0       |
+|      xor_ln89_4_fu_788_p2                                                         |     |        | xor_ln89_4     | xor    | auto     | 0       |
+|      select_ln89_fu_794_p3                                                        |     |        | select_ln89    | select | auto_sel | 0       |
+|      select_ln89_4_fu_802_p3                                                      |     |        | select_ln89_4  | select | auto_sel | 0       |
+|      sub_ln89_2_fu_810_p2                                                         |     |        | sub_ln89_2     | sub    | fabric   | 0       |
+|      xor_ln89_5_fu_836_p2                                                         |     |        | xor_ln89_5     | xor    | auto     | 0       |
+|      and_ln89_2_fu_842_p2                                                         |     |        | and_ln89_2     | and    | auto     | 0       |
+|      xor_ln89_6_fu_848_p2                                                         |     |        | xor_ln89_6     | xor    | auto     | 0       |
+|      select_ln89_5_fu_854_p3                                                      |     |        | select_ln89_5  | select | auto_sel | 0       |
+|      select_ln89_6_fu_862_p3                                                      |     |        | select_ln89_6  | select | auto_sel | 0       |
+|   + fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7                                     | 0   |        |                |        |          |         |
+|     icmp_ln197_fu_110_p2                                                          |     |        | icmp_ln197     | seteq  | auto     | 0       |
+|     add_ln197_fu_116_p2                                                           |     |        | add_ln197      | add    | fabric   | 0       |
+|     add_ln198_fu_136_p2                                                           |     |        | add_ln198      | add    | fabric   | 0       |
+|  + fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10                                     | 0   |        |                |        |          |         |
+|    icmp_ln205_fu_122_p2                                                           |     |        | icmp_ln205     | seteq  | auto     | 0       |
+|    add_ln205_fu_128_p2                                                            |     |        | add_ln205      | add    | fabric   | 0       |
+|    add_ln206_fu_138_p2                                                            |     |        | add_ln206      | add    | fabric   | 0       |
+|  + fft1d_fixed_col                                                                | 0   |        |                |        |          |         |
+|    icmp_ln132_fu_162_p2                                                           |     |        | icmp_ln132     | seteq  | auto     | 0       |
+|    icmp_ln142_fu_194_p2                                                           |     |        | icmp_ln142     | setlt  | auto     | 0       |
+|    add_ln132_fu_200_p2                                                            |     |        | add_ln132      | add    | fabric   | 0       |
+|    icmp_ln149_fu_217_p2                                                           |     |        | icmp_ln149     | setlt  | auto     | 0       |
+|    sub_ln151_fu_231_p2                                                            |     |        | sub_ln151      | sub    | fabric   | 0       |
+|    sub_ln151_1_fu_247_p2                                                          |     |        | sub_ln151_1    | sub    | fabric   | 0       |
+|    select_ln151_fu_263_p3                                                         |     |        | select_ln151   | select | auto_sel | 0       |
+|    icmp_ln150_fu_289_p2                                                           |     |        | icmp_ln150     | setlt  | auto     | 0       |
+|    add_ln150_fu_299_p2                                                            |     |        | add_ln150      | add    | fabric   | 0       |
+|   + fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2                                     | 0   |        |                |        |          |         |
+|     and_ln135_fu_69_p2                                                            |     |        | and_ln135      | and    | auto     | 0       |
+|     icmp_ln135_fu_75_p2                                                           |     |        | icmp_ln135     | seteq  | auto     | 0       |
+|     j_3_fu_81_p2                                                                  |     |        | j_3            | xor    | auto     | 0       |
+|   + fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5                                     | 0   |        |                |        |          |         |
+|     icmp_ln151_fu_216_p2                                                          |     |        | icmp_ln151     | setlt  | auto     | 0       |
+|     add_ln151_fu_222_p2                                                           |     |        | add_ln151      | add    | fabric   | 0       |
+|     sdiv_12ns_32ns_5_16_1_U61                                                     |     |        | index          | sdiv   | auto     | 15      |
+|     add_ln153_fu_254_p2                                                           |     |        | add_ln153      | add    | fabric   | 0       |
+|     add_ln154_fu_275_p2                                                           |     |        | add_ln154      | add    | fabric   | 0       |
+|     sub_ln94_fu_323_p2                                                            |     |        | sub_ln94       | sub    | fabric   | 0       |
+|     add_ln94_fu_407_p2                                                            |     |        | add_ln94       | add    | fabric   | 0       |
+|     xor_ln94_fu_420_p2                                                            |     |        | xor_ln94       | xor    | auto     | 0       |
+|     and_ln94_fu_426_p2                                                            |     |        | and_ln94       | and    | auto     | 0       |
+|     xor_ln94_2_fu_431_p2                                                          |     |        | xor_ln94_2     | xor    | auto     | 0       |
+|     or_ln94_2_fu_436_p2                                                           |     |        | or_ln94_2      | or     | auto     | 0       |
+|     xor_ln94_1_fu_442_p2                                                          |     |        | xor_ln94_1     | xor    | auto     | 0       |
+|     xor_ln94_4_fu_447_p2                                                          |     |        | xor_ln94_4     | xor    | auto     | 0       |
+|     xor_ln94_3_fu_452_p2                                                          |     |        | xor_ln94_3     | xor    | auto     | 0       |
+|     or_ln94_fu_458_p2                                                             |     |        | or_ln94        | or     | auto     | 0       |
+|     and_ln94_1_fu_464_p2                                                          |     |        | and_ln94_1     | and    | auto     | 0       |
+|     or_ln94_3_fu_470_p2                                                           |     |        | or_ln94_3      | or     | auto     | 0       |
+|     xor_ln94_5_fu_476_p2                                                          |     |        | xor_ln94_5     | xor    | auto     | 0       |
+|     and_ln94_2_fu_482_p2                                                          |     |        | and_ln94_2     | and    | auto     | 0       |
+|     select_ln94_fu_487_p3                                                         |     |        | select_ln94    | select | auto_sel | 0       |
+|     or_ln94_1_fu_495_p2                                                           |     |        | or_ln94_1      | or     | auto     | 0       |
+|     v_real_fu_501_p3                                                              |     |        | v_real         | select | auto_sel | 0       |
+|     add_ln95_fu_365_p2                                                            |     |        | add_ln95       | add    | fabric   | 0       |
+|     add_ln95_1_fu_512_p2                                                          |     |        | add_ln95_1     | add    | fabric   | 0       |
+|     xor_ln95_fu_525_p2                                                            |     |        | xor_ln95       | xor    | auto     | 0       |
+|     and_ln95_fu_531_p2                                                            |     |        | and_ln95       | and    | auto     | 0       |
+|     xor_ln95_2_fu_536_p2                                                          |     |        | xor_ln95_2     | xor    | auto     | 0       |
+|     or_ln95_2_fu_541_p2                                                           |     |        | or_ln95_2      | or     | auto     | 0       |
+|     xor_ln95_1_fu_547_p2                                                          |     |        | xor_ln95_1     | xor    | auto     | 0       |
+|     xor_ln95_4_fu_552_p2                                                          |     |        | xor_ln95_4     | xor    | auto     | 0       |
+|     xor_ln95_3_fu_557_p2                                                          |     |        | xor_ln95_3     | xor    | auto     | 0       |
+|     or_ln95_fu_563_p2                                                             |     |        | or_ln95        | or     | auto     | 0       |
+|     and_ln95_1_fu_569_p2                                                          |     |        | and_ln95_1     | and    | auto     | 0       |
+|     or_ln95_3_fu_575_p2                                                           |     |        | or_ln95_3      | or     | auto     | 0       |
+|     xor_ln95_5_fu_581_p2                                                          |     |        | xor_ln95_5     | xor    | auto     | 0       |
+|     and_ln95_2_fu_587_p2                                                          |     |        | and_ln95_2     | and    | auto     | 0       |
+|     select_ln95_fu_592_p3                                                         |     |        | select_ln95    | select | auto_sel | 0       |
+|     or_ln95_1_fu_600_p2                                                           |     |        | or_ln95_1      | or     | auto     | 0       |
+|     v_imag_fu_606_p3                                                              |     |        | v_imag         | select | auto_sel | 0       |
+|     add_ln85_fu_621_p2                                                            |     |        | add_ln85       | add    | fabric   | 0       |
+|     xor_ln85_fu_647_p2                                                            |     |        | xor_ln85       | xor    | auto     | 0       |
+|     and_ln85_fu_653_p2                                                            |     |        | and_ln85       | and    | auto     | 0       |
+|     xor_ln85_1_fu_659_p2                                                          |     |        | xor_ln85_1     | xor    | auto     | 0       |
+|     select_ln85_fu_665_p3                                                         |     |        | select_ln85    | select | auto_sel | 0       |
+|     select_ln85_1_fu_673_p3                                                       |     |        | select_ln85_1  | select | auto_sel | 0       |
+|     add_ln85_1_fu_689_p2                                                          |     |        | add_ln85_1     | add    | fabric   | 0       |
+|     xor_ln85_2_fu_715_p2                                                          |     |        | xor_ln85_2     | xor    | auto     | 0       |
+|     and_ln85_1_fu_721_p2                                                          |     |        | and_ln85_1     | and    | auto     | 0       |
+|     xor_ln85_3_fu_727_p2                                                          |     |        | xor_ln85_3     | xor    | auto     | 0       |
+|     select_ln85_2_fu_733_p3                                                       |     |        | select_ln85_2  | select | auto_sel | 0       |
+|     select_ln85_3_fu_741_p3                                                       |     |        | select_ln85_3  | select | auto_sel | 0       |
+|     sub_ln89_fu_750_p2                                                            |     |        | sub_ln89       | sub    | fabric   | 0       |
+|     xor_ln89_fu_776_p2                                                            |     |        | xor_ln89       | xor    | auto     | 0       |
+|     and_ln89_fu_782_p2                                                            |     |        | and_ln89       | and    | auto     | 0       |
+|     xor_ln89_1_fu_788_p2                                                          |     |        | xor_ln89_1     | xor    | auto     | 0       |
+|     select_ln89_fu_794_p3                                                         |     |        | select_ln89    | select | auto_sel | 0       |
+|     select_ln89_1_fu_802_p3                                                       |     |        | select_ln89_1  | select | auto_sel | 0       |
+|     sub_ln89_1_fu_810_p2                                                          |     |        | sub_ln89_1     | sub    | fabric   | 0       |
+|     xor_ln89_2_fu_836_p2                                                          |     |        | xor_ln89_2     | xor    | auto     | 0       |
+|     and_ln89_1_fu_842_p2                                                          |     |        | and_ln89_1     | and    | auto     | 0       |
+|     xor_ln89_3_fu_848_p2                                                          |     |        | xor_ln89_3     | xor    | auto     | 0       |
+|     select_ln89_2_fu_854_p3                                                       |     |        | select_ln89_2  | select | auto_sel | 0       |
+|     select_ln89_3_fu_862_p3                                                       |     |        | select_ln89_3  | select | auto_sel | 0       |
+|  + fft2d_fixed_top_Pipeline_VITIS_LOOP_211_11                                     | 0   |        |                |        |          |         |
+|    icmp_ln211_fu_122_p2                                                           |     |        | icmp_ln211     | seteq  | auto     | 0       |
+|    add_ln211_fu_128_p2                                                            |     |        | add_ln211      | add    | fabric   | 0       |
+|    add_ln212_fu_144_p2                                                            |     |        | add_ln212      | add    | fabric   | 0       |
+|  + fft2d_fixed_top_Pipeline_VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14 | 0   |        |                |        |          |         |
+|    icmp_ln217_fu_190_p2                                                           |     |        | icmp_ln217     | seteq  | auto     | 0       |
+|    add_ln217_1_fu_196_p2                                                          |     |        | add_ln217_1    | add    | fabric   | 0       |
+|    add_ln217_fu_219_p2                                                            |     |        | add_ln217      | add    | fabric   | 0       |
+|    icmp_ln218_fu_225_p2                                                           |     |        | icmp_ln218     | seteq  | auto     | 0       |
+|    select_ln217_fu_231_p3                                                         |     |        | select_ln217   | select | auto_sel | 0       |
+|    xor_ln217_fu_239_p2                                                            |     |        | xor_ln217      | xor    | auto     | 0       |
+|    icmp_ln219_fu_245_p2                                                           |     |        | icmp_ln219     | seteq  | auto     | 0       |
+|    and_ln217_fu_251_p2                                                            |     |        | and_ln217      | and    | auto     | 0       |
+|    select_ln217_1_fu_257_p3                                                       |     |        | select_ln217_1 | select | auto_sel | 0       |
+|    add_ln218_fu_265_p2                                                            |     |        | add_ln218      | add    | fabric   | 0       |
+|    empty_fu_271_p2                                                                |     |        | empty          | or     | auto     | 0       |
+|    c_4_mid2_fu_277_p3                                                             |     |        | c_4_mid2       | select | auto_sel | 0       |
+|    select_ln218_fu_285_p3                                                         |     |        | select_ln218   | select | auto_sel | 0       |
+|    add_ln221_fu_343_p2                                                            |     |        | add_ln221      | add    | fabric   | 0       |
+|    add_ln221_1_fu_360_p2                                                          |     |        | add_ln221_1    | add    | fabric   | 0       |
+|    add_ln219_fu_293_p2                                                            |     |        | add_ln219      | add    | fabric   | 0       |
+|    add_ln218_1_fu_299_p2                                                          |     |        | add_ln218_1    | add    | fabric   | 0       |
+|    select_ln218_1_fu_305_p3                                                       |     |        | select_ln218_1 | select | auto_sel | 0       |
++-----------------------------------------------------------------------------------+-----+--------+----------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-----------------------------------------------+--------------+-----------+------+------+--------+-----------------+------+---------+------------------+
+| Name                                          | Usage        | Type      | BRAM | URAM | Pragma | Variable        | Impl | Latency | Bitwidth, Depth, |
+|                                               |              |           |      |      |        |                 |      |         | Banks            |
++-----------------------------------------------+--------------+-----------+------+------+--------+-----------------+------+---------+------------------+
+| + fft2d_fixed_top                             |              |           | 74   | 0    |        |                 |      |         |                  |
+|   CTRL_s_axi_U                                | interface    | s_axilite |      |      |        |                 |      |         |                  |
+|   gmem0_m_axi_U                               | interface    | m_axi     | 2    |      |        |                 |      |         |                  |
+|   gmem1_m_axi_U                               | interface    | m_axi     |      |      |        |                 |      |         |                  |
+|   gmem2_m_axi_U                               | interface    | m_axi     |      |      |        |                 |      |         |                  |
+|   row_buffer_real_U                           | ram_2p array |           | 2    |      |        | row_buffer_real | auto | 1       | 32, 64, 1        |
+|   row_buffer_imag_U                           | ram_2p array |           | 2    |      |        | row_buffer_imag | auto | 1       | 32, 64, 1        |
+|   col_buffer_real_U                           | ram_2p array |           | 2    |      |        | col_buffer_real | auto | 1       | 32, 64, 1        |
+|   col_buffer_imag_U                           | ram_2p array |           | 2    |      |        | col_buffer_imag | auto | 1       | 32, 64, 1        |
+|   matrix_real_U                               | ram_1p       |           | 32   |      |        | matrix_real     | auto | 1       | 32, 12288, 1     |
+|   matrix_imag_U                               | ram_1p       |           | 32   |      |        | matrix_imag     | auto | 1       | 32, 12288, 1     |
+|  + fft2d_fixed_top_Outline_VITIS_LOOP_189_4   |              |           | 0    | 0    |        |                 |      |         |                  |
+|   + fft1d_fixed                               |              |           | 0    | 0    |        |                 |      |         |                  |
+|    + fft1d_fixed_Pipeline_VITIS_LOOP_119_5    |              |           | 0    | 0    |        |                 |      |         |                  |
+|      TWIDDLE_REAL_U                           | rom_1p       |           |      |      |        | TWIDDLE_REAL    | auto | 1       | 14, 32, 1        |
+|      TWIDDLE_IMAG_U                           | rom_1p       |           |      |      |        | TWIDDLE_IMAG    | auto | 1       | 13, 32, 1        |
+|  + fft1d_fixed_col                            |              |           | 0    | 0    |        |                 |      |         |                  |
+|   + fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5 |              |           | 0    | 0    |        |                 |      |         |                  |
+|     TWIDDLE_REAL_U                            | rom_1p       |           |      |      |        | TWIDDLE_REAL    | auto | 1       | 14, 32, 1        |
+|     TWIDDLE_IMAG_U                            | rom_1p       |           |      |      |        | TWIDDLE_IMAG    | auto | 1       | 13, 32, 1        |
++-----------------------------------------------+--------------+-----------+------+------+--------+-----------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Inferred Pragmas
++--------------+---------+--------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| Type         | Options | Location                                                                                         | Inferred From                                           |
++--------------+---------+--------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| LOOP_FLATTEN |         | loop VITIS_LOOP_181_2 (src/fft2d_fixed.cpp:181:27) in fft2d_fixed_top (src/fft2d_fixed.cpp:181)  | pipeline src/fft2d_fixed.cpp:182 (Performance Budgeter) |
+| LOOP_FLATTEN |         | loop VITIS_LOOP_180_1 (src/fft2d_fixed.cpp:180:23) in fft2d_fixed_top (src/fft2d_fixed.cpp:180)  | pipeline src/fft2d_fixed.cpp:182 (Performance Budgeter) |
+| LOOP_FLATTEN |         | loop VITIS_LOOP_218_13 (src/fft2d_fixed.cpp:218:28) in fft2d_fixed_top (src/fft2d_fixed.cpp:218) | pipeline src/fft2d_fixed.cpp:219 (Performance Budgeter) |
+| LOOP_FLATTEN |         | loop VITIS_LOOP_217_12 (src/fft2d_fixed.cpp:217:24) in fft2d_fixed_top (src/fft2d_fixed.cpp:217) | pipeline src/fft2d_fixed.cpp:219 (Performance Budgeter) |
+| PIPELINE     |         | loop VITIS_LOOP_135_2 (src/fft2d_fixed.cpp:135:27) in fft1d_fixed_col (src/fft2d_fixed.cpp:135)  | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_151_5 (src/fft2d_fixed.cpp:151:31) in fft1d_fixed_col (src/fft2d_fixed.cpp:151)  | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_103_2 (src/fft2d_fixed.cpp:103:27) in fft1d_fixed (src/fft2d_fixed.cpp:103)      | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_119_5 (src/fft2d_fixed.cpp:119:31) in fft1d_fixed (src/fft2d_fixed.cpp:119)      | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop anonymous (src/fft2d_fixed.cpp:177:18) in fft2d_fixed_top (src/fft2d_fixed.cpp:177)         | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop anonymous (src/fft2d_fixed.cpp:178:18) in fft2d_fixed_top (src/fft2d_fixed.cpp:178)         | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_182_3 (src/fft2d_fixed.cpp:182:31) in fft2d_fixed_top (src/fft2d_fixed.cpp:182)  | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_197_7 (src/fft2d_fixed.cpp:197:31) in fft2d_fixed_top (src/fft2d_fixed.cpp:197)  | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_191_6 (src/fft2d_fixed.cpp:191:31) in fft2d_fixed_top (src/fft2d_fixed.cpp:191)  | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_211_11 (src/fft2d_fixed.cpp:211:32) in fft2d_fixed_top (src/fft2d_fixed.cpp:211) | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_205_10 (src/fft2d_fixed.cpp:205:32) in fft2d_fixed_top (src/fft2d_fixed.cpp:205) | syn.compile.pipeline_loops=64                           |
+| PIPELINE     |         | loop VITIS_LOOP_219_14 (src/fft2d_fixed.cpp:219:32) in fft2d_fixed_top (src/fft2d_fixed.cpp:219) | syn.compile.pipeline_loops=64                           |
++--------------+---------+--------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------+--------------------------------------------------+----------------------------------------------+
+| Type      | Options                                          | Location                                     |
++-----------+--------------------------------------------------+----------------------------------------------+
+| INTERFACE | m_axi port=input offset=slave bundle=gmem0       | in fft2d_fixed_top (src/fft2d_fixed.cpp:168) |
+| INTERFACE | m_axi port=output_real offset=slave bundle=gmem1 | in fft2d_fixed_top (src/fft2d_fixed.cpp:169) |
+| INTERFACE | m_axi port=output_imag offset=slave bundle=gmem2 | in fft2d_fixed_top (src/fft2d_fixed.cpp:170) |
+| INTERFACE | s_axilite port=input bundle=CTRL                 | in fft2d_fixed_top (src/fft2d_fixed.cpp:171) |
+| INTERFACE | s_axilite port=output_real bundle=CTRL           | in fft2d_fixed_top (src/fft2d_fixed.cpp:172) |
+| INTERFACE | s_axilite port=output_imag bundle=CTRL           | in fft2d_fixed_top (src/fft2d_fixed.cpp:173) |
+| INTERFACE | s_axilite port=return bundle=CTRL                | in fft2d_fixed_top (src/fft2d_fixed.cpp:174) |
++-----------+--------------------------------------------------+----------------------------------------------+
+
+

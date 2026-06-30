@@ -1,0 +1,200 @@
+
+
+================================================================
+== Vitis HLS Report for 'fft2d_fixed_top_Outline_VITIS_LOOP_189_4'
+================================================================
+* Date:           Mon Jun 29 12:38:33 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        fft2d_accel_rgb_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.981 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_189_4   |        ?|        ?|         ?|          -|          -|     3|        no|
+        | + VITIS_LOOP_190_5  |        ?|        ?|         ?|          -|          -|    64|        no|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 3 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%ch = alloca i32 1" [src/fft2d_fixed.cpp:189]   --->   Operation 9 'alloca' 'ch' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.58ns)   --->   "%store_ln189 = store i2 0, i2 %ch" [src/fft2d_fixed.cpp:189]   --->   Operation 10 'store' 'store_ln189' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln0 = br void %VITIS_LOOP_190_5"   --->   Operation 11 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.15>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%ch_1 = load i2 %ch" [src/fft2d_fixed.cpp:189]   --->   Operation 12 'load' 'ch_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (1.56ns)   --->   "%icmp_ln189 = icmp_eq  i2 %ch_1, i2 3" [src/fft2d_fixed.cpp:189]   --->   Operation 13 'icmp' 'icmp_ln189' <Predicate = true> <Delay = 1.56> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (1.56ns)   --->   "%add_ln189 = add i2 %ch_1, i2 1" [src/fft2d_fixed.cpp:189]   --->   Operation 14 'add' 'add_ln189' <Predicate = true> <Delay = 1.56> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%br_ln189 = br i1 %icmp_ln189, void %VITIS_LOOP_190_5.split, void %VITIS_LOOP_204_9.preheader.exitStub" [src/fft2d_fixed.cpp:189]   --->   Operation 15 'br' 'br_ln189' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_3 = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i2.i6, i2 %ch_1, i6 0" [src/fft2d_fixed.cpp:192]   --->   Operation 16 'bitconcatenate' 'tmp_3' <Predicate = (!icmp_ln189)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%speclooptripcount_ln189 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 3, i64 3, i64 3" [src/fft2d_fixed.cpp:189]   --->   Operation 17 'speclooptripcount' 'speclooptripcount_ln189' <Predicate = (!icmp_ln189)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%specloopname_ln189 = specloopname void @_ssdm_op_SpecLoopName, void @empty_11" [src/fft2d_fixed.cpp:189]   --->   Operation 18 'specloopname' 'specloopname_ln189' <Predicate = (!icmp_ln189)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.58ns)   --->   "%br_ln190 = br void %VITIS_LOOP_191_6" [src/fft2d_fixed.cpp:190]   --->   Operation 19 'br' 'br_ln190' <Predicate = (!icmp_ln189)> <Delay = 1.58>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 20 'ret' 'ret_ln0' <Predicate = (icmp_ln189)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 6.98>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%r_1 = phi i7 0, void %VITIS_LOOP_190_5.split, i7 %add_ln190, void %VITIS_LOOP_191_6.split" [src/fft2d_fixed.cpp:190]   --->   Operation 21 'phi' 'r_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (1.87ns)   --->   "%icmp_ln190 = icmp_eq  i7 %r_1, i7 64" [src/fft2d_fixed.cpp:190]   --->   Operation 22 'icmp' 'icmp_ln190' <Predicate = true> <Delay = 1.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 23 [1/1] (1.87ns)   --->   "%add_ln190 = add i7 %r_1, i7 1" [src/fft2d_fixed.cpp:190]   --->   Operation 23 'add' 'add_ln190' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln190 = br i1 %icmp_ln190, void %VITIS_LOOP_191_6.split, void %for.inc108" [src/fft2d_fixed.cpp:190]   --->   Operation 24 'br' 'br_ln190' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln192 = zext i7 %r_1" [src/fft2d_fixed.cpp:192]   --->   Operation 25 'zext' 'zext_ln192' <Predicate = (!icmp_ln190)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (1.91ns)   --->   "%add_ln192 = add i8 %tmp_3, i8 %zext_ln192" [src/fft2d_fixed.cpp:192]   --->   Operation 26 'add' 'add_ln192' <Predicate = (!icmp_ln190)> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i14 @_ssdm_op_BitConcatenate.i14.i8.i6, i8 %add_ln192, i6 0" [src/fft2d_fixed.cpp:192]   --->   Operation 27 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln190)> <Delay = 0.00>
+ST_3 : Operation 28 [2/2] (5.06ns)   --->   "%call_ln192 = call void @fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6, i14 %tmp, i32 %row_buffer_real, i32 %row_buffer_imag, i32 %matrix_real, i32 %matrix_imag" [src/fft2d_fixed.cpp:192]   --->   Operation 28 'call' 'call_ln192' <Predicate = (!icmp_ln190)> <Delay = 5.06> <CoreType = "Generic">   --->   Generic Core
+ST_3 : Operation 29 [1/1] (1.58ns)   --->   "%store_ln189 = store i2 %add_ln189, i2 %ch" [src/fft2d_fixed.cpp:189]   --->   Operation 29 'store' 'store_ln189' <Predicate = (icmp_ln190)> <Delay = 1.58>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln189 = br void %VITIS_LOOP_190_5" [src/fft2d_fixed.cpp:189]   --->   Operation 30 'br' 'br_ln189' <Predicate = (icmp_ln190)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 5.04>
+ST_4 : Operation 31 [1/2] (5.04ns)   --->   "%call_ln192 = call void @fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6, i14 %tmp, i32 %row_buffer_real, i32 %row_buffer_imag, i32 %matrix_real, i32 %matrix_imag" [src/fft2d_fixed.cpp:192]   --->   Operation 31 'call' 'call_ln192' <Predicate = true> <Delay = 5.04> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 32 [2/2] (0.00ns)   --->   "%call_ln195 = call void @fft1d_fixed, i32 %row_buffer_real, i32 %row_buffer_imag, i14 %TWIDDLE_REAL, i13 %TWIDDLE_IMAG" [src/fft2d_fixed.cpp:195]   --->   Operation 32 'call' 'call_ln195' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 6 <SV = 5> <Delay = 2.55>
+ST_6 : Operation 33 [1/2] (2.55ns)   --->   "%call_ln195 = call void @fft1d_fixed, i32 %row_buffer_real, i32 %row_buffer_imag, i14 %TWIDDLE_REAL, i13 %TWIDDLE_IMAG" [src/fft2d_fixed.cpp:195]   --->   Operation 33 'call' 'call_ln195' <Predicate = true> <Delay = 2.55> <CoreType = "Generic">   --->   Generic Core
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 34 [2/2] (0.00ns)   --->   "%call_ln192 = call void @fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7, i14 %tmp, i32 %row_buffer_real, i32 %row_buffer_imag, i32 %matrix_real, i32 %matrix_imag" [src/fft2d_fixed.cpp:192]   --->   Operation 34 'call' 'call_ln192' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 8 <SV = 7> <Delay = 5.04>
+ST_8 : Operation 35 [1/1] (0.00ns)   --->   "%speclooptripcount_ln190 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 64, i64 64, i64 64" [src/fft2d_fixed.cpp:190]   --->   Operation 35 'speclooptripcount' 'speclooptripcount_ln190' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 36 [1/1] (0.00ns)   --->   "%specloopname_ln190 = specloopname void @_ssdm_op_SpecLoopName, void @empty_30" [src/fft2d_fixed.cpp:190]   --->   Operation 36 'specloopname' 'specloopname_ln190' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 37 [1/2] (5.04ns)   --->   "%call_ln192 = call void @fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7, i14 %tmp, i32 %row_buffer_real, i32 %row_buffer_imag, i32 %matrix_real, i32 %matrix_imag" [src/fft2d_fixed.cpp:192]   --->   Operation 37 'call' 'call_ln192' <Predicate = true> <Delay = 5.04> <CoreType = "Generic">   --->   Generic Core
+ST_8 : Operation 38 [1/1] (0.00ns)   --->   "%br_ln190 = br void %VITIS_LOOP_191_6" [src/fft2d_fixed.cpp:190]   --->   Operation 38 'br' 'br_ln190' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.588ns
+The critical path consists of the following:
+	'alloca' operation 2 bit ('ch', src/fft2d_fixed.cpp:189) [7]  (0.000 ns)
+	'store' operation ('store_ln189', src/fft2d_fixed.cpp:189) of constant 0 2 bit on local variable 'ch', src/fft2d_fixed.cpp:189 [8]  (1.588 ns)
+
+ <State 2>: 3.153ns
+The critical path consists of the following:
+	'load' operation 2 bit ('ch', src/fft2d_fixed.cpp:189) on local variable 'ch', src/fft2d_fixed.cpp:189 [11]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln189', src/fft2d_fixed.cpp:189) [12]  (1.565 ns)
+	multiplexor before 'phi' operation 7 bit ('r', src/fft2d_fixed.cpp:190) with incoming values : ('add_ln190', src/fft2d_fixed.cpp:190) [21]  (1.588 ns)
+	'br' operation ('br_ln190', src/fft2d_fixed.cpp:190) [19]  (1.588 ns)
+
+ <State 3>: 6.981ns
+The critical path consists of the following:
+	'phi' operation 7 bit ('r', src/fft2d_fixed.cpp:190) with incoming values : ('add_ln190', src/fft2d_fixed.cpp:190) [21]  (0.000 ns)
+	'add' operation 8 bit ('add_ln192', src/fft2d_fixed.cpp:192) [27]  (1.915 ns)
+	'call' operation ('call_ln192', src/fft2d_fixed.cpp:192) to 'fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6' [31]  (5.066 ns)
+
+ <State 4>: 5.046ns
+The critical path consists of the following:
+	'call' operation ('call_ln192', src/fft2d_fixed.cpp:192) to 'fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6' [31]  (5.046 ns)
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 2.552ns
+The critical path consists of the following:
+	'call' operation ('call_ln195', src/fft2d_fixed.cpp:195) to 'fft1d_fixed' [32]  (2.552 ns)
+
+ <State 7>: 0.000ns
+The critical path consists of the following:
+
+ <State 8>: 5.046ns
+The critical path consists of the following:
+	'call' operation ('call_ln192', src/fft2d_fixed.cpp:192) to 'fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7' [33]  (5.046 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

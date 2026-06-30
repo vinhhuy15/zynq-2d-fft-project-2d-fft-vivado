@@ -1,0 +1,12 @@
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" top="fft2d_fixed_top" name="fft2d_accel_rgb_prj" ideType="classic">
+    <files>
+        <file name="src/fft2d_fixed.cpp" sc="0" tb="false" cflags="-Iinclude -DUSE_AP_FIXED" csimflags="" blackbox="false"/>
+        <file name="../../tb/testbench.cpp" sc="0" tb="1" cflags="-I../../include -DUSE_AP_FIXED -Wno-unknown-pragmas" csimflags="" blackbox="false"/>
+    </files>
+    <solutions>
+        <solution name="solution1" status=""/>
+    </solutions>
+    <Simulation argv="D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_r_matrix_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_g_matrix_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_b_matrix_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_real_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_real_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_real_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_imag_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_imag_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_imag_2d.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_r_real.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_g_real.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_b_real.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_r_imag.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_g_imag.txt D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/hls_square_64x64_b_imag.txt">
+        <SimFlow name="csim" setup="false" optimizeCompile="false" clean="false" ldflags="" mflags=""/>
+    </Simulation>
+</AutoPilot:project>

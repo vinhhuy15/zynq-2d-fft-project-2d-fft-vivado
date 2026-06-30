@@ -1,0 +1,50 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'fft2d_fixed_top_Outline_VITIS_LOOP_189_4'" level="0">
+<item name = "Date">Mon Jun 29 12:38:33 2026
+</item>
+<item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
+<item name = "Project">fft2d_accel_rgb_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 6.981 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6_fu_65">fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6, 66, 66, 0.660 us, 0.660 us, 0, 0, loop pipeline stp</column>
+<column name="grp_fft1d_fixed_fu_78">fft1d_fixed, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7_fu_90">fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7, 66, 66, 0.660 us, 0.660 us, 0, 0, loop pipeline stp</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_189_4">?, ?, ?, -, -, 3, no</column>
+<column name=" + VITIS_LOOP_190_5">?, ?, ?, -, -, 64, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

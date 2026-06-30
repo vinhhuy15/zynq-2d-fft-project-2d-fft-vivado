@@ -5,7 +5,7 @@ This folder is the next project step after the verified Python and C++ reference
 The goal is to reshape the working C++ 2D FFT into a Vitis-HLS-friendly top function:
 
 ```text
-input grayscale matrix -> 2D FFT -> raw real/imag FFT output
+input RGB channel matrices -> 2D FFT per channel -> raw real/imag FFT output per channel
 ```
 
 ## What is implemented
@@ -15,13 +15,14 @@ input grayscale matrix -> 2D FFT -> raw real/imag FFT output
 
 ```cpp
 void fft2d_fixed_top(
-    data_t input[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_real[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_imag[FFT2D_HEIGHT][FFT2D_WIDTH]
+    data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
 );
 ```
 
-- Row FFT followed by column FFT.
+- `FFT2D_CHANNELS` defaults to 3 for RGB.
+- Row FFT followed by column FFT for each channel independently.
 - Raw real and imaginary output, not log magnitude.
 - Desktop testbench that compares against the Python NumPy reference.
 - 64-point twiddle lookup tables for the FFT rotation factors, avoiding runtime `sin/cos` in the HLS datapath.
@@ -53,7 +54,7 @@ From this folder:
 The script builds the desktop testbench, runs the 64x64 `square`, `gradient`, `checker`, and `circle` samples, and writes a CSV summary:
 
 ```text
-results/hls_prep_accuracy_64x64.csv
+results/hls_prep_color_accuracy_64x64.csv
 ```
 
 Expected result for the desktop `double` check is near-zero error against the Python reference.
@@ -61,8 +62,12 @@ Expected result for the desktop `double` check is near-zero error against the Py
 The script also writes per-sample output matrices:
 
 ```text
-*_64x64_hls_prep_fft_real_2d.txt
-*_64x64_hls_prep_fft_imag_2d.txt
+*_64x64_r_hls_prep_fft_real_2d.txt
+*_64x64_g_hls_prep_fft_real_2d.txt
+*_64x64_b_hls_prep_fft_real_2d.txt
+*_64x64_r_hls_prep_fft_imag_2d.txt
+*_64x64_g_hls_prep_fft_imag_2d.txt
+*_64x64_b_hls_prep_fft_imag_2d.txt
 ```
 
 ## Run on Linux / WSL / MSYS2
@@ -105,7 +110,7 @@ To run C simulation, C synthesis, and C/RTL co-simulation:
 C:\AMDDesignTools\2025.2\Vitis\bin\vitis-run.bat --mode hls --tcl run_hls_cosim.tcl
 ```
 
-The Tcl scripts create `fft2d_accel_prj`, set `fft2d_fixed_top` as the top function, enable `USE_AP_FIXED`, and test against the `square_64x64` Python reference.
+The Tcl scripts create `fft2d_accel_prj`, set `fft2d_fixed_top` as the top function, enable `USE_AP_FIXED`, and test against the RGB `square_64x64` Python reference.
 
 To run C/RTL co-simulation for the selected `ap_fixed<28,20>` format on all four 64x64 samples:
 

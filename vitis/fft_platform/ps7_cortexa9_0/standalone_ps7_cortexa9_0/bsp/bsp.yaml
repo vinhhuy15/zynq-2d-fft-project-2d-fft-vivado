@@ -152,7 +152,10 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
-  fft2d_fixed_top_0: None
+  fft2d_fixed_top_1:
+    driver: fft2d_fixed_top
+    ip_name: fft2d_fixed_top
+    path: D:\zynq-2d-fft-project-2d-fft-vivado\vitis\fft_platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\hw_artifacts\drivers\fft2d_fixed_top_v1_0
   ps7_afi_0: None
   ps7_afi_1: None
   ps7_afi_2: None

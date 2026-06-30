@@ -1,0 +1,39 @@
+set SynModuleInfo {
+  {SRCNAME fft2d_fixed_top_Pipeline_1 MODELNAME fft2d_fixed_top_Pipeline_1 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_1
+    SUBMODULES {
+      {MODELNAME fft2d_fixed_top_flow_control_loop_pipe_sequential_init RTLNAME fft2d_fixed_top_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME fft2d_fixed_top_flow_control_loop_pipe_sequential_init_U}
+    }
+  }
+  {SRCNAME fft2d_fixed_top_Pipeline_2 MODELNAME fft2d_fixed_top_Pipeline_2 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_2}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_180_1_VITIS_LOOP_181_2_VITIS_LOOP_182_3}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_191_6}
+  {SRCNAME fft1d_fixed_Pipeline_VITIS_LOOP_103_2 MODELNAME fft1d_fixed_Pipeline_VITIS_LOOP_103_2 RTLNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_103_2}
+  {SRCNAME fft1d_fixed_Pipeline_VITIS_LOOP_119_5 MODELNAME fft1d_fixed_Pipeline_VITIS_LOOP_119_5 RTLNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_119_5
+    SUBMODULES {
+      {MODELNAME fft2d_fixed_top_sdiv_12ns_32ns_5_16_1 RTLNAME fft2d_fixed_top_sdiv_12ns_32ns_5_16_1 BINDTYPE op TYPE sdiv IMPL auto LATENCY 15 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_119_5_TWIDDLE_REAL_ROM_AUTO_1R RTLNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_119_5_TWIDDLE_REAL_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_119_5_TWIDDLE_IMAG_ROM_AUTO_1R RTLNAME fft2d_fixed_top_fft1d_fixed_Pipeline_VITIS_LOOP_119_5_TWIDDLE_IMAG_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME fft1d_fixed MODELNAME fft1d_fixed RTLNAME fft2d_fixed_top_fft1d_fixed}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_197_7}
+  {SRCNAME fft2d_fixed_top_Outline_VITIS_LOOP_189_4 MODELNAME fft2d_fixed_top_Outline_VITIS_LOOP_189_4 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Outline_VITIS_LOOP_189_4}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_205_10}
+  {SRCNAME fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2 MODELNAME fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2 RTLNAME fft2d_fixed_top_fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2}
+  {SRCNAME fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5 MODELNAME fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5 RTLNAME fft2d_fixed_top_fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5}
+  {SRCNAME fft1d_fixed_col MODELNAME fft1d_fixed_col RTLNAME fft2d_fixed_top_fft1d_fixed_col}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_211_11 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_211_11 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_211_11}
+  {SRCNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14 MODELNAME fft2d_fixed_top_Pipeline_VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14 RTLNAME fft2d_fixed_top_fft2d_fixed_top_Pipeline_VITIS_LOOP_217_12_VITIS_LOOP_218_13_VITIS_LOOP_219_14}
+  {SRCNAME fft2d_fixed_top MODELNAME fft2d_fixed_top RTLNAME fft2d_fixed_top IS_TOP 1
+    SUBMODULES {
+      {MODELNAME fft2d_fixed_top_mul_32s_13s_45_2_1 RTLNAME fft2d_fixed_top_mul_32s_13s_45_2_1 BINDTYPE op TYPE mul IMPL auto LATENCY 1 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_mul_32s_14s_44_2_1 RTLNAME fft2d_fixed_top_mul_32s_14s_44_2_1 BINDTYPE op TYPE mul IMPL auto LATENCY 1 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_matrix_real_RAM_AUTO_1R1W RTLNAME fft2d_fixed_top_matrix_real_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_row_buffer_real_RAM_AUTO_1R1W RTLNAME fft2d_fixed_top_row_buffer_real_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME fft2d_fixed_top_gmem0_m_axi RTLNAME fft2d_fixed_top_gmem0_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME fft2d_fixed_top_gmem1_m_axi RTLNAME fft2d_fixed_top_gmem1_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME fft2d_fixed_top_gmem2_m_axi RTLNAME fft2d_fixed_top_gmem2_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME fft2d_fixed_top_CTRL_s_axi RTLNAME fft2d_fixed_top_CTRL_s_axi BINDTYPE interface TYPE interface_s_axilite}
+    }
+  }
+}

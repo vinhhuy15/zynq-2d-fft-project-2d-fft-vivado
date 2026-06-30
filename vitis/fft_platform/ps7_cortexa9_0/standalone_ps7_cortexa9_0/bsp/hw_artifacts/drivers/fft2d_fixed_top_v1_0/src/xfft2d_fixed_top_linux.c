@@ -1,9 +1,9 @@
 // ==============================================================
-// File generated on Thu Jun 25 21:35:17 +0700 2026
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
-// SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-// IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.2 (64-bit)
+// Tool Version Limit: 2025.11
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
 // ==============================================================
 #ifdef __linux__
 
@@ -18,7 +18,7 @@
 
 /**************************** Type Definitions ******************************/
 typedef struct {
-    u32 addr;
+    u64 addr;
     u32 size;
 } XFft2d_fixed_top_uio_map;
 
@@ -126,7 +126,7 @@ int XFft2d_fixed_top_Initialize(XFft2d_fixed_top *InstancePtr, const char* Insta
     }
 
     // NOTE: slave interface 'Ctrl' should be mapped to uioX/map0
-    InstancePtr->Ctrl_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
+    InstancePtr->Ctrl_BaseAddress = (u64)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->Ctrl_BaseAddress);
 
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;

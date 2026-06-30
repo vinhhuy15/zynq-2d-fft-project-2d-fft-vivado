@@ -4,7 +4,7 @@
 		compatible = "simple-bus";
 		#address-cells = <1>;
 		#size-cells = <1>;
-		firmware-name = "design_1_wrapper.bit.bin";
+		firmware-name = "fft_rgb.bit.bin";
 		clocking0: clocking0 {
 			compatible = "xlnx,fclk";
 			assigned-clocks = <&clkc 15>;
@@ -21,14 +21,14 @@
 			#size-cells = <0>;
 			xlnx,afi-width = <0>;
 		};
-		fft2d_fixed_top_0: fft2d_fixed_top@43c00000 {
+		fft2d_fixed_top_1: fft2d_fixed_top@40000000 {
 			interrupts = < 0 29 4 >;
 			compatible = "xlnx,fft2d-fixed-top-1.0";
-			xlnx,ii = "x";
+			xlnx,ii = "undef";
 			xlnx,machine = <64>;
 			interrupt-parent = <&intc>;
 			xlnx,ip-name = "fft2d_fixed_top";
-			reg = <0x43c00000 0x10000>;
+			reg = <0x40000000 0x10000>;
 			clocks = <&clkc 15>;
 			xlnx,s-axi-ctrl-addr-width = <6>;
 			xlnx,clk-period = <10>;
@@ -39,7 +39,7 @@
 			xlnx,combinational = <0>;
 			xlnx,s-axi-ctrl-data-width = <32>;
 			xlnx,latency = "undef";
-			xlnx,name = "fft2d_fixed_top_0";
+			xlnx,name = "fft2d_fixed_top_1";
 		};
 	};
 };

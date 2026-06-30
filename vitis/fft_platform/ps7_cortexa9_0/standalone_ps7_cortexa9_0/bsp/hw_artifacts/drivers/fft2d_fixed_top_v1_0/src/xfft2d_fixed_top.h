@@ -1,9 +1,9 @@
 // ==============================================================
-// File generated on Thu Jun 25 21:35:17 +0700 2026
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
-// SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-// IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.2 (64-bit)
+// Tool Version Limit: 2025.11
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
 // ==============================================================
 #ifndef XFFT2D_FIXED_TOP_H
 #define XFFT2D_FIXED_TOP_H
@@ -37,17 +37,24 @@ extern "C" {
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
+typedef uint64_t u64;
 #else
 typedef struct {
+#ifdef SDT
+    char *Name;
+#else
     u16 DeviceId;
-    u32 Ctrl_BaseAddress;
+#endif
+    u64 Ctrl_BaseAddress;
 } XFft2d_fixed_top_Config;
 #endif
 
 typedef struct {
-    u32 Ctrl_BaseAddress;
+    u64 Ctrl_BaseAddress;
     u32 IsReady;
 } XFft2d_fixed_top;
+
+typedef u32 word_type;
 
 /***************** Macros (Inline Functions) Definitions *********************/
 #ifndef __linux__
@@ -72,8 +79,13 @@ typedef struct {
 
 /************************** Function Prototypes *****************************/
 #ifndef __linux__
+#ifdef SDT
+int XFft2d_fixed_top_Initialize(XFft2d_fixed_top *InstancePtr, UINTPTR BaseAddress);
+XFft2d_fixed_top_Config* XFft2d_fixed_top_LookupConfig(UINTPTR BaseAddress);
+#else
 int XFft2d_fixed_top_Initialize(XFft2d_fixed_top *InstancePtr, u16 DeviceId);
 XFft2d_fixed_top_Config* XFft2d_fixed_top_LookupConfig(u16 DeviceId);
+#endif
 int XFft2d_fixed_top_CfgInitialize(XFft2d_fixed_top *InstancePtr, XFft2d_fixed_top_Config *ConfigPtr);
 #else
 int XFft2d_fixed_top_Initialize(XFft2d_fixed_top *InstancePtr, const char* InstanceName);
@@ -87,12 +99,12 @@ u32 XFft2d_fixed_top_IsReady(XFft2d_fixed_top *InstancePtr);
 void XFft2d_fixed_top_EnableAutoRestart(XFft2d_fixed_top *InstancePtr);
 void XFft2d_fixed_top_DisableAutoRestart(XFft2d_fixed_top *InstancePtr);
 
-void XFft2d_fixed_top_Set_input_V(XFft2d_fixed_top *InstancePtr, u32 Data);
-u32 XFft2d_fixed_top_Get_input_V(XFft2d_fixed_top *InstancePtr);
-void XFft2d_fixed_top_Set_output_real_V(XFft2d_fixed_top *InstancePtr, u32 Data);
-u32 XFft2d_fixed_top_Get_output_real_V(XFft2d_fixed_top *InstancePtr);
-void XFft2d_fixed_top_Set_output_imag_V(XFft2d_fixed_top *InstancePtr, u32 Data);
-u32 XFft2d_fixed_top_Get_output_imag_V(XFft2d_fixed_top *InstancePtr);
+void XFft2d_fixed_top_Set_input_r(XFft2d_fixed_top *InstancePtr, u64 Data);
+u64 XFft2d_fixed_top_Get_input_r(XFft2d_fixed_top *InstancePtr);
+void XFft2d_fixed_top_Set_output_real(XFft2d_fixed_top *InstancePtr, u64 Data);
+u64 XFft2d_fixed_top_Get_output_real(XFft2d_fixed_top *InstancePtr);
+void XFft2d_fixed_top_Set_output_imag(XFft2d_fixed_top *InstancePtr, u64 Data);
+u64 XFft2d_fixed_top_Get_output_imag(XFft2d_fixed_top *InstancePtr);
 
 void XFft2d_fixed_top_InterruptGlobalEnable(XFft2d_fixed_top *InstancePtr);
 void XFft2d_fixed_top_InterruptGlobalDisable(XFft2d_fixed_top *InstancePtr);

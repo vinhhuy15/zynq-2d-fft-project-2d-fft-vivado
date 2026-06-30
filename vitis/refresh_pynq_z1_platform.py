@@ -6,6 +6,7 @@ import vitis
 workspace = os.path.abspath(os.path.dirname(__file__))
 repo_root = os.path.abspath(os.path.join(workspace, os.pardir))
 xsa_path = os.path.join(repo_root, "vivado_2d_FFT", "fft_wrapper.xsa")
+xsa_path = os.path.join(repo_root, "vivado_2d_FFT", "fft_rgb.xsa")
 
 client = vitis.create_client()
 
@@ -20,11 +21,11 @@ try:
     platform.update_hw(hw_design=xsa_path)
     platform.build()
 
-    app = client.get_component(name="fft_application")
+    app = client.get_component(name="fft_app")
     if app is None:
-        raise RuntimeError("Vitis application component 'fft_application' was not found.")
+        raise RuntimeError("Vitis application component 'fft_app' was not found.")
 
-    print("Building fft_application...")
+    print("Building fft_app...")
     app.build()
 finally:
     vitis.dispose()

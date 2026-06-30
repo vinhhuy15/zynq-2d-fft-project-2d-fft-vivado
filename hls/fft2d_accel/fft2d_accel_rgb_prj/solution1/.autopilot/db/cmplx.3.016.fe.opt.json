@@ -1,0 +1,60 @@
+{
+  "0": {
+    "basicblocks": 47,
+    "calls": "2 1",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 163,
+    "instructions": 215,
+    "loads": {
+      "G": 6,
+      "L": 4
+    },
+    "memory_accesses": 27,
+    "name": "fft2d_fixed_top",
+    "stores": {
+      "G": 6,
+      "L": 8
+    },
+    "total_instructions": 693
+  },
+  "1": {
+    "basicblocks": 18,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 26,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 131,
+    "instructions": 239,
+    "loads": {
+      "G": 2,
+      "L": 8
+    },
+    "memory_accesses": 10,
+    "name": "fft1d_fixed_col",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 239
+  },
+  "2": {
+    "basicblocks": 18,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 26,
+    "file": "fft2d_fixed.cpp",
+    "fileloc": 99,
+    "instructions": 239,
+    "loads": {
+      "G": 2,
+      "L": 8
+    },
+    "memory_accesses": 10,
+    "name": "fft1d_fixed",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 239
+  }
+}

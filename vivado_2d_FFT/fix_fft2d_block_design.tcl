@@ -1,7 +1,7 @@
 set project_dir [file normalize [file dirname [info script]]]
 set project_file [file join $project_dir project_1.xpr]
 set bd_file [file join $project_dir project_1.srcs sources_1 bd design_1 design_1.bd]
-set fft_ip_repo [file normalize {D:/2D_FFT/zynq-2d-fft/hls/fft2d_accel/fft2d_accel_prj_2018/solution1/impl/ip}]
+set fft_ip_repo [file normalize [file join $project_dir .. hls fft2d_accel fft2d_accel_rgb_prj solution1 impl ip]]
 
 proc has_bd_cell {cell_name} {
     expr {[llength [get_bd_cells -quiet $cell_name]] != 0}

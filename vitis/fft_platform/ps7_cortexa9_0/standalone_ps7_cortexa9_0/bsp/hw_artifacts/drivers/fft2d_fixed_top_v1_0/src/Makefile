@@ -1,35 +1,60 @@
 # ==============================================================
-# File generated on Thu Jun 25 21:35:17 +0700 2026
-# Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
-# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+# Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.2 (64-bit)
+# Tool Version Limit: 2025.11
+# Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+# Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+# 
 # ==============================================================
 COMPILER=
 ARCHIVER=
 CP=cp
+RM=rm
 COMPILER_FLAGS=
 EXTRA_COMPILER_FLAGS=
-LIB=libxil.a
+ARCHIVER_FLAGS=
+
+CORENAME=fft2d_fixed_top
 
 RELEASEDIR=../../../lib
+OBJDIR=$(RELEASEDIR)
+LIBDIR=$(RELEASEDIR)
 INCLUDEDIR=../../../include
-INCLUDES=-I./. -I${INCLUDEDIR}
+INCLUDES=-I./. -I$(INCLUDEDIR)
 
-INCLUDEFILES=*.h
-LIBSOURCES=*.c
-OUTS = *.o 
+# Source files
+SRCS := $(wildcard *.c)
+HEADERS := $(wildcard *.h)
 
+# Generated files
+LIB := $(LIBDIR)/libxil.a
+OBJS := $(addprefix $(OBJDIR)/,$(addsuffix .o,$(basename $(SRCS))))
+RELEASE_HEADERS := $(addprefix $(INCLUDEDIR)/,$(notdir $(HEADERS)))
 
-libs:
-	echo "Compiling fft2d_fixed_top"
-	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) $(LIBSOURCES)
-	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} $(OUTS)
-	make clean
+# Rules to compile and link
+$(OBJDIR)/%.o: %.c
+	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) -o $@ $<
+$(LIB): $(OBJS)
+	$(ARCHIVER) $(ARCHIVER_FLAGS) -r $@ $^
 
-include: 
-	${CP} $(INCLUDEFILES) $(INCLUDEDIR)
+# Rule to release include files
+$(INCLUDEDIR)/%.h: %.h
+	$(CP) $< $@
 
+# Dependencies between sources and objects
+$(OBJS): $(SRCS) | $(HEADERS)
+
+# Named targets for use by others
+include: $(RELEASE_HEADERS)
+includes: include
+libs: $(LIB) banner
+objs: $(OBJS)
+
+# Helper targets
 clean:
-	rm -rf ${OUTS}
+	$(RM) -f $(LIB) $(OBJS) $(RELEASE_HEADERS) 
+banner:
+	echo "Building $(CORENAME)"
+
+.PHONY: clean include objs libs includes banner
+
 

@@ -1,5 +1,43 @@
 # Quy trình thực hiện project Zynq 2D FFT
 
+## Cap nhat workflow anh mau RGB
+
+Project hien tai da duoc chuyen tu workflow anh xam sang workflow FFT anh mau RGB:
+
+```text
+Anh mau RGB dau vao
+    -> tach thanh 3 ma tran R, G, B
+    -> chay 2D FFT rieng cho tung kenh
+    -> xuat real/imag rieng cho R, G, B
+    -> so sanh tung kenh voi Python NumPy reference
+```
+
+Quy uoc file moi:
+
+```text
+data/input/*_r_matrix_2d.txt
+data/input/*_g_matrix_2d.txt
+data/input/*_b_matrix_2d.txt
+data/reference/*_r_fft_real_2d.txt
+data/reference/*_g_fft_real_2d.txt
+data/reference/*_b_fft_real_2d.txt
+data/reference/*_r_fft_imag_2d.txt
+data/reference/*_g_fft_imag_2d.txt
+data/reference/*_b_fft_imag_2d.txt
+```
+
+HLS top function moi:
+
+```cpp
+void fft2d_fixed_top(
+    data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
+);
+```
+
+Trong do `FFT2D_CHANNELS = 3`. Cac phan phia duoi tai lieu co the van nhac den anh xam vi do la workflow cu; khi chay project hien tai hay dung quy uoc RGB o phan cap nhat nay.
+
 Tài liệu này giải thích lại toàn bộ quy trình đã làm trong project `zynq-2d-fft`: từ ý tưởng ban đầu, tạo dữ liệu chuẩn bằng Python, kiểm chứng thuật toán bằng C++, chuyển sang phiên bản phù hợp với Vitis HLS, chạy mô phỏng/tổng hợp HLS, và định hướng các bước tiếp theo để đưa lên Zynq.
 
 Mục tiêu của project là xây dựng một bộ tăng tốc 2D FFT cho ảnh xám kích thước nhỏ, phù hợp với FPGA Zynq-7000. Thay vì làm ngay luồng camera thời gian thực phức tạp, project chọn hướng an toàn hơn: xử lý ảnh tĩnh 32x32 hoặc 64x64, kiểm tra kết quả thật kỹ, rồi mới tính đến tích hợp Vivado/Vitis.

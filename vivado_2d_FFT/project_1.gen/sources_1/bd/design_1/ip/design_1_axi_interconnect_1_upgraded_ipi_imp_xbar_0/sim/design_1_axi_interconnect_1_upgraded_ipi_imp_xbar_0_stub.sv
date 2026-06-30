@@ -69,7 +69,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (
   input bit_as_bool aclk,
   input bit_as_bool aresetn,
   input bit [5 : 0] s_axi_awid,
-  input bit [95 : 0] s_axi_awaddr,
+  input bit [191 : 0] s_axi_awaddr,
   input bit [11 : 0] s_axi_awlen,
   input bit [8 : 0] s_axi_awsize,
   input bit [5 : 0] s_axi_awburst,
@@ -90,7 +90,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (
   output bit [2 : 0] s_axi_bvalid,
   input bit [2 : 0] s_axi_bready,
   input bit [5 : 0] s_axi_arid,
-  input bit [95 : 0] s_axi_araddr,
+  input bit [191 : 0] s_axi_araddr,
   input bit [11 : 0] s_axi_arlen,
   input bit [8 : 0] s_axi_arsize,
   input bit [5 : 0] s_axi_arburst,
@@ -107,7 +107,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (
   output bit [2 : 0] s_axi_rvalid,
   input bit [2 : 0] s_axi_rready,
   output bit [1 : 0] m_axi_awid,
-  output bit [31 : 0] m_axi_awaddr,
+  output bit [63 : 0] m_axi_awaddr,
   output bit [3 : 0] m_axi_awlen,
   output bit [2 : 0] m_axi_awsize,
   output bit [1 : 0] m_axi_awburst,
@@ -128,7 +128,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (
   input bit [0 : 0] m_axi_bvalid,
   output bit [0 : 0] m_axi_bready,
   output bit [1 : 0] m_axi_arid,
-  output bit [31 : 0] m_axi_araddr,
+  output bit [63 : 0] m_axi_araddr,
   output bit [3 : 0] m_axi_arlen,
   output bit [2 : 0] m_axi_arsize,
   output bit [1 : 0] m_axi_arburst,
@@ -156,7 +156,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (aclk,aresetn,s_axi_a
   input bit aclk;
   input bit aresetn;
   input bit [5 : 0] s_axi_awid;
-  input bit [95 : 0] s_axi_awaddr;
+  input bit [191 : 0] s_axi_awaddr;
   input bit [11 : 0] s_axi_awlen;
   input bit [8 : 0] s_axi_awsize;
   input bit [5 : 0] s_axi_awburst;
@@ -177,7 +177,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (aclk,aresetn,s_axi_a
   output wire [2 : 0] s_axi_bvalid;
   input bit [2 : 0] s_axi_bready;
   input bit [5 : 0] s_axi_arid;
-  input bit [95 : 0] s_axi_araddr;
+  input bit [191 : 0] s_axi_araddr;
   input bit [11 : 0] s_axi_arlen;
   input bit [8 : 0] s_axi_arsize;
   input bit [5 : 0] s_axi_arburst;
@@ -194,7 +194,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (aclk,aresetn,s_axi_a
   output wire [2 : 0] s_axi_rvalid;
   input bit [2 : 0] s_axi_rready;
   output wire [1 : 0] m_axi_awid;
-  output wire [31 : 0] m_axi_awaddr;
+  output wire [63 : 0] m_axi_awaddr;
   output wire [3 : 0] m_axi_awlen;
   output wire [2 : 0] m_axi_awsize;
   output wire [1 : 0] m_axi_awburst;
@@ -215,7 +215,7 @@ module design_1_axi_interconnect_1_upgraded_ipi_imp_xbar_0 (aclk,aresetn,s_axi_a
   input bit [0 : 0] m_axi_bvalid;
   output wire [0 : 0] m_axi_bready;
   output wire [1 : 0] m_axi_arid;
-  output wire [31 : 0] m_axi_araddr;
+  output wire [63 : 0] m_axi_araddr;
   output wire [3 : 0] m_axi_arlen;
   output wire [2 : 0] m_axi_arsize;
   output wire [1 : 0] m_axi_arburst;

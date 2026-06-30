@@ -1,0 +1,1571 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                   Line: 0, Column: 0 }
+Function:        _GLOBAL__sub_I_fft2d_fixed.pp.0.cpp
+Args:            
+  - Callee:          __cxx_global_var_init
+    DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                       Line: 0, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          _GLOBAL__sub_I_fft2d_fixed.pp.0.cpp
+    DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                       Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                   Line: 0, Column: 0 }
+Function:        _GLOBAL__sub_I_fft2d_fixed.pp.0.cpp
+Args:            
+  - Callee:          __cxx_global_var_init.1
+    DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                       Line: 0, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          _GLOBAL__sub_I_fft2d_fixed.pp.0.cpp
+    DebugLoc:        { File: 'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db\fft2d_fixed.pp.0.cpp', 
+                       Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 81, Column: 12 }
+Function:        _ZL10twiddle_atii
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 93, Column: 12 }
+Function:        _ZL11complex_mulRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 85, Column: 12 }
+Function:        _ZL11complex_addRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 89, Column: 12 }
+Function:        _ZL11complex_subRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 120, Column: 40 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 122, Column: 40 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 124, Column: 31 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 125, Column: 41 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 152, Column: 40 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 154, Column: 40 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 156, Column: 31 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 157, Column: 41 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 209, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 195, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 176, Column: 25 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Failure
+Pass:            reflow-function-uniquification
+Name:            FunctionUniquification
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 178, Column: 18 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Duplicating function '''
+  - Name:            'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+  - String:          ''' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design.'
+...
+--- !Failure
+Pass:            reflow-function-uniquification
+Name:            FunctionUniquification
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 177, Column: 18 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Duplicating function '''
+  - Name:            'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+  - String:          ''' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design.'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 81, Column: 12 }
+Function:        _ZL10twiddle_atii
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 93, Column: 12 }
+Function:        _ZL11complex_mulRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 85, Column: 12 }
+Function:        _ZL11complex_addRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 89, Column: 12 }
+Function:        _ZL11complex_subRK12ComplexFixedS1_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 120, Column: 40 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 122, Column: 40 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 124, Column: 31 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 125, Column: 41 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 152, Column: 40 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 154, Column: 40 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 156, Column: 31 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 157, Column: 41 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 177, Column: 18 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35.160)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 195, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 209, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_fft2d_fixed_top_ir
+Args:            
+  - Callee:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_fft2d_fixed_top_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+Function:        _ZL10twiddle_atii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+Function:        _ZL11complex_mulRK12ComplexFixedS1_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+Function:        _ZL11complex_addRK12ComplexFixedS1_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+Function:        _ZL11complex_subRK12ComplexFixedS1_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'twiddle_at(int, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 79, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_mul(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 92, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_add(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 84, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'complex_sub(ComplexFixed const&, ComplexFixed const&)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 88, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ComplexFixed::ComplexFixed(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0>) (.11.14.15.16.23.29.35.160)'
+    DebugLoc:        { File: 'include\fft2d_fixed.hpp', Line: 35, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_fft2d_fixed_top_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        maxi
+  - String:          ' variable '''
+  - Name:            output_imag
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=none'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_fft2d_fixed_top_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        maxi
+  - String:          ' variable '''
+  - Name:            output_real
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=none'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_fft2d_fixed_top_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        maxi
+  - String:          ' variable '''
+  - Name:            input
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=none'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 180, Column: 23 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        input1seq
+  - ArrayName:       input
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_180_1
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:180:23'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 183, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          for.body40.load.6
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        output_real2seq
+  - ArrayName:       output_real
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 220, Column: 39 }
+  - OrigDirection:   write
+  - OrigID:          for.inc201.store.8
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        output_imag3seq
+  - ArrayName:       output_imag
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 221, Column: 39 }
+  - OrigDirection:   write
+  - OrigID:          for.inc201.store.15
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 103, Column: 27 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_103_2
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:103:27'
+  - String:          ' '
+  - Function:        'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 118, Column: 27 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_118_4
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:118:27'
+  - String:          ' '
+  - Function:        'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 135, Column: 27 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_135_2
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:135:27'
+  - String:          ' '
+  - Function:        'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 150, Column: 27 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_150_4
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:150:27'
+  - String:          ' '
+  - Function:        'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i32
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          output_real2seq
+  - ArrayName:       output_real
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_219_14
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:219:32'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i32
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          output_imag3seq
+  - ArrayName:       output_imag
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_219_14
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:219:32'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 180, Column: 23 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i32
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 180, Column: 23 }
+  - OrigDirection:   read
+  - OrigID:          input1seq
+  - ArrayName:       input
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_182_3
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:182:31'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 117, Column: 23 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_117_3
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:117:23'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 103, Column: 27 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_103_2
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:103:27'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 149, Column: 23 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_149_3
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:149:23'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 135, Column: 27 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_135_2
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:135:27'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_135_2
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:135:27'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 135, Column: 27 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed_col
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_135_2
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:135:27'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 135, Column: 27 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_151_5
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:151:31'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 151, Column: 31 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed_col
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_151_5
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:151:31'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 151, Column: 31 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_103_2
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:103:27'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 103, Column: 27 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_103_2
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:103:27'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 103, Column: 27 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_119_5
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:119:31'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 119, Column: 31 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_119_5
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:119:31'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 119, Column: 31 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:177:18'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 177, Column: 18 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:177:18'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 177, Column: 18 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:178:18'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 178, Column: 18 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:178:18'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 178, Column: 18 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_182_3
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:182:31'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 182, Column: 31 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_182_3
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:182:31'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 182, Column: 31 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_197_7
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:197:31'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 197, Column: 31 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_197_7
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:197:31'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 197, Column: 31 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_191_6
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:191:31'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 191, Column: 31 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_191_6
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:191:31'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 191, Column: 31 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_211_11
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:211:32'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 211, Column: 32 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_211_11
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:211:32'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 211, Column: 32 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_205_10
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:205:32'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 205, Column: 32 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_205_10
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:205:32'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 205, Column: 32 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'Pipelining loop< '
+  - LoopName:        VITIS_LOOP_219_14
+  - String:          '> at '
+  - LoopLoc:         'src/fft2d_fixed.cpp:219:32'
+  - String:          ' due to pipeline_loops threshold'
+...
+--- !Passed
+Pass:            reflow-auto-loop-pipeline
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 219, Column: 32 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - PragmaType:      pipeline
+  - String:          ' '
+  - PragmaOptions:   ' '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft2d_fixed_top
+  - String:          ' '
+  - PragmaInferReason: config_compile -pipeline_loops 64
+  - LoopName:        VITIS_LOOP_219_14
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:219:32'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 219, Column: 32 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            FlattenOffInference
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 100, Column: 23 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - String:          'Disabling loop flattening for loop '''
+  - LoopName:        VITIS_LOOP_100_1
+  - String:          '''.'
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 100, Column: 23 }
+Function:        _ZL11fft1d_fixedP12ComplexFixedi
+Args:            
+  - PragmaType:      loop_flatten
+  - String:          ' '
+  - PragmaOptions:   'off '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_100_1
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:100:23'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 100, Column: 23 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            FlattenOffInference
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 132, Column: 23 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - String:          'Disabling loop flattening for loop '''
+  - LoopName:        VITIS_LOOP_132_1
+  - String:          '''.'
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 132, Column: 23 }
+Function:        _ZL15fft1d_fixed_colP12ComplexFixedi
+Args:            
+  - PragmaType:      loop_flatten
+  - String:          ' '
+  - PragmaOptions:   'off '
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  fft1d_fixed_col
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_132_1
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:132:23'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 132, Column: 23 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 180, Column: 23 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_180_1
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:180:23'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 180, Column: 23 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_180_1
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:180:23'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          ' '
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ' '
+  - Function:        'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 217, Column: 24 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '12288'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_217_12
+  - String:          '''('
+  - LoopLoc:         'src/fft2d_fixed.cpp:217:24'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem2
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 195, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 99, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 209, Column: 13 }
+Function:        _Z15fft2d_fixed_topPA64_A64_8ap_fixedILi32ELi20EL9ap_q_mode0EL9ap_o_mode0ELi0EES5_S5_
+Args:            
+  - Callee:          'fft1d_fixed_col(ComplexFixed*, int)'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 131, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft2d_fixed_top(ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64], ap_fixed<32, 20, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [64][64])'
+    DebugLoc:        { File: src/fft2d_fixed.cpp, Line: 167, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...

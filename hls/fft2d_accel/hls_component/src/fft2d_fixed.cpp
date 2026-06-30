@@ -161,9 +161,9 @@ static void fft1d_fixed_col(ComplexFixed data[FFT2D_HEIGHT], int n) {
 }
 
 void fft2d_fixed_top(
-    data_t input[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_real[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_imag[FFT2D_HEIGHT][FFT2D_WIDTH]
+    data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
 ) {
 #pragma HLS INTERFACE m_axi port=input offset=slave bundle=gmem0
 #pragma HLS INTERFACE m_axi port=output_real offset=slave bundle=gmem1
@@ -173,45 +173,53 @@ void fft2d_fixed_top(
 #pragma HLS INTERFACE s_axilite port=output_imag bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
-    static ComplexFixed matrix[FFT2D_HEIGHT][FFT2D_WIDTH];
+    static ComplexFixed matrix[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
     ComplexFixed row_buffer[FFT2D_WIDTH];
     ComplexFixed col_buffer[FFT2D_HEIGHT];
 
-    for (int r = 0; r < FFT2D_HEIGHT; r++) {
-        for (int c = 0; c < FFT2D_WIDTH; c++) {
-            matrix[r][c].real = input[r][c];
-            matrix[r][c].imag = 0;
-        }
-    }
-
-    for (int r = 0; r < FFT2D_HEIGHT; r++) {
-        for (int c = 0; c < FFT2D_WIDTH; c++) {
-            row_buffer[c] = matrix[r][c];
-        }
-
-        fft1d_fixed(row_buffer, FFT2D_WIDTH);
-
-        for (int c = 0; c < FFT2D_WIDTH; c++) {
-            matrix[r][c] = row_buffer[c];
-        }
-    }
-
-    for (int c = 0; c < FFT2D_WIDTH; c++) {
+    for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
         for (int r = 0; r < FFT2D_HEIGHT; r++) {
-            col_buffer[r] = matrix[r][c];
-        }
-
-        fft1d_fixed_col(col_buffer, FFT2D_HEIGHT);
-
-        for (int r = 0; r < FFT2D_HEIGHT; r++) {
-            matrix[r][c] = col_buffer[r];
+            for (int c = 0; c < FFT2D_WIDTH; c++) {
+                matrix[ch][r][c].real = input[ch][r][c];
+                matrix[ch][r][c].imag = 0;
+            }
         }
     }
 
-    for (int r = 0; r < FFT2D_HEIGHT; r++) {
+    for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+        for (int r = 0; r < FFT2D_HEIGHT; r++) {
+            for (int c = 0; c < FFT2D_WIDTH; c++) {
+                row_buffer[c] = matrix[ch][r][c];
+            }
+
+            fft1d_fixed(row_buffer, FFT2D_WIDTH);
+
+            for (int c = 0; c < FFT2D_WIDTH; c++) {
+                matrix[ch][r][c] = row_buffer[c];
+            }
+        }
+    }
+
+    for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
         for (int c = 0; c < FFT2D_WIDTH; c++) {
-            output_real[r][c] = matrix[r][c].real;
-            output_imag[r][c] = matrix[r][c].imag;
+            for (int r = 0; r < FFT2D_HEIGHT; r++) {
+                col_buffer[r] = matrix[ch][r][c];
+            }
+
+            fft1d_fixed_col(col_buffer, FFT2D_HEIGHT);
+
+            for (int r = 0; r < FFT2D_HEIGHT; r++) {
+                matrix[ch][r][c] = col_buffer[r];
+            }
+        }
+    }
+
+    for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+        for (int r = 0; r < FFT2D_HEIGHT; r++) {
+            for (int c = 0; c < FFT2D_WIDTH; c++) {
+                output_real[ch][r][c] = matrix[ch][r][c].real;
+                output_imag[ch][r][c] = matrix[ch][r][c].imag;
+            }
         }
     }
 }

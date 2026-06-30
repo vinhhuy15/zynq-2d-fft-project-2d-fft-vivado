@@ -11,6 +11,10 @@
 #define FFT2D_WIDTH 64
 #endif
 
+#ifndef FFT2D_CHANNELS
+#define FFT2D_CHANNELS 3
+#endif
+
 #if defined(USE_AP_FIXED)
 #include <ap_fixed.h>
 #ifndef FFT2D_FIXED_TOTAL_BITS
@@ -32,9 +36,9 @@ struct ComplexFixed {
 };
 
 void fft2d_fixed_top(
-    data_t input[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_real[FFT2D_HEIGHT][FFT2D_WIDTH],
-    data_t output_imag[FFT2D_HEIGHT][FFT2D_WIDTH]
+    data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
+    data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
 );
 
 #endif

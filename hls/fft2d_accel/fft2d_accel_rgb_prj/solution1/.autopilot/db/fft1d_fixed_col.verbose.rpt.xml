@@ -1,0 +1,196 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'fft1d_fixed_col'" level="0">
+<item name = "Date">Mon Jun 29 12:38:44 2026
+</item>
+<item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
+<item name = "Project">fft2d_accel_rgb_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 6.912 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2_fu_127">fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2, ?, ?, ?, ?, 0, 0, loop pipeline stp</column>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5_fu_133">fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5, 2, 7516192778, 20.000 ns, 75.162 sec, 0, 0, loop pipeline stp</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_132_1">?, ?, ?, -, -, 63, no</column>
+<column name="- VITIS_LOOP_149_3">?, ?, ?, -, -, 6, no</column>
+<column name=" + VITIS_LOOP_150_4">?, ?, 5 ~ 7516192781, -, -, ?, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 355, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">0, -, 3021, 3045, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, 0, 261, -</column>
+<column name="Register">-, -, 407, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 3, 6, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2_fu_127">fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2, 0, 0, 65, 141, 0</column>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5_fu_133">fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5, 0, 0, 2956, 2904, 0</column>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln132_fu_200_p2">+, 0, 0, 14, 7, 1</column>
+<column name="add_ln150_fu_299_p2">+, 0, 0, 71, 64, 64</column>
+<column name="sub_ln151_1_fu_247_p2">-, 0, 0, 38, 1, 31</column>
+<column name="sub_ln151_fu_231_p2">-, 0, 0, 39, 1, 32</column>
+<column name="icmp_ln132_fu_162_p2">icmp, 0, 0, 15, 7, 8</column>
+<column name="icmp_ln142_fu_194_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="icmp_ln149_fu_217_p2">icmp, 0, 0, 39, 32, 7</column>
+<column name="icmp_ln150_fu_289_p2">icmp, 0, 0, 65, 58, 1</column>
+<column name="data_imag_we0">or, 0, 0, 2, 1, 1</column>
+<column name="data_real_we0">or, 0, 0, 2, 1, 1</column>
+<column name="select_ln151_fu_263_p3">select, 0, 0, 31, 1, 31</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">59, 11, 1, 11</column>
+<column name="data_imag_address0">9, 2, 6, 12</column>
+<column name="data_imag_address0_local">20, 4, 6, 24</column>
+<column name="data_imag_ce0">9, 2, 1, 2</column>
+<column name="data_imag_ce1">9, 2, 1, 2</column>
+<column name="data_imag_d0">9, 2, 32, 64</column>
+<column name="data_imag_we0">9, 2, 1, 2</column>
+<column name="data_real_address0">9, 2, 6, 12</column>
+<column name="data_real_address0_local">20, 4, 6, 24</column>
+<column name="data_real_ce0">9, 2, 1, 2</column>
+<column name="data_real_ce1">9, 2, 1, 2</column>
+<column name="data_real_d0">9, 2, 32, 64</column>
+<column name="data_real_we0">9, 2, 1, 2</column>
+<column name="grp_fu_413_ce">9, 2, 1, 2</column>
+<column name="grp_fu_417_ce">9, 2, 1, 2</column>
+<column name="grp_fu_421_ce">9, 2, 1, 2</column>
+<column name="grp_fu_425_ce">9, 2, 1, 2</column>
+<column name="i_1_reg_116">9, 2, 64, 128</column>
+<column name="i_fu_62">9, 2, 7, 14</column>
+<column name="j_fu_58">9, 2, 32, 64</column>
+<column name="len_fu_70">9, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="add_ln150_reg_408">64, 0, 64, 0</column>
+<column name="ap_CS_fsm">10, 0, 10, 0</column>
+<column name="data_imag_addr_1_reg_372">6, 0, 6, 0</column>
+<column name="data_imag_addr_reg_362">6, 0, 6, 0</column>
+<column name="data_real_addr_1_reg_367">6, 0, 6, 0</column>
+<column name="data_real_addr_reg_357">6, 0, 6, 0</column>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_135_2_fu_127_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_fft1d_fixed_col_Pipeline_VITIS_LOOP_151_5_fu_133_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_1_reg_116">64, 0, 64, 0</column>
+<column name="i_fu_62">7, 0, 7, 0</column>
+<column name="icmp_ln142_reg_353">1, 0, 1, 0</column>
+<column name="j_2_loc_fu_66">32, 0, 32, 0</column>
+<column name="j_fu_58">32, 0, 32, 0</column>
+<column name="len_1_reg_377">32, 0, 32, 0</column>
+<column name="len_fu_70">32, 0, 32, 0</column>
+<column name="select_ln151_reg_385">31, 0, 31, 0</column>
+<column name="sext_ln150_reg_395">64, 0, 64, 0</column>
+<column name="trunc_ln150_1_reg_403">6, 0, 6, 0</column>
+<column name="trunc_ln150_reg_390">6, 0, 6, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_480_p_din0">out, 32, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_480_p_din1">out, 13, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_480_p_dout0">in, 45, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_480_p_ce">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_484_p_din0">out, 32, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_484_p_din1">out, 13, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_484_p_dout0">in, 45, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_484_p_ce">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_488_p_din0">out, 32, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_488_p_din1">out, 14, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_488_p_dout0">in, 44, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_488_p_ce">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_492_p_din0">out, 32, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_492_p_din1">out, 14, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_492_p_dout0">in, 44, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="grp_fu_492_p_ce">out, 1, ap_ctrl_hs, fft1d_fixed_col, return value</column>
+<column name="data_real_address0">out, 6, ap_memory, data_real, array</column>
+<column name="data_real_ce0">out, 1, ap_memory, data_real, array</column>
+<column name="data_real_we0">out, 1, ap_memory, data_real, array</column>
+<column name="data_real_d0">out, 32, ap_memory, data_real, array</column>
+<column name="data_real_q0">in, 32, ap_memory, data_real, array</column>
+<column name="data_real_address1">out, 6, ap_memory, data_real, array</column>
+<column name="data_real_ce1">out, 1, ap_memory, data_real, array</column>
+<column name="data_real_q1">in, 32, ap_memory, data_real, array</column>
+<column name="data_imag_address0">out, 6, ap_memory, data_imag, array</column>
+<column name="data_imag_ce0">out, 1, ap_memory, data_imag, array</column>
+<column name="data_imag_we0">out, 1, ap_memory, data_imag, array</column>
+<column name="data_imag_d0">out, 32, ap_memory, data_imag, array</column>
+<column name="data_imag_q0">in, 32, ap_memory, data_imag, array</column>
+<column name="data_imag_address1">out, 6, ap_memory, data_imag, array</column>
+<column name="data_imag_ce1">out, 1, ap_memory, data_imag, array</column>
+<column name="data_imag_q1">in, 32, ap_memory, data_imag, array</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,0 +1,46 @@
+# Run from this folder:
+#   vitis-run --mode hls --tcl run_hls_export_ip.tcl
+
+open_project -reset fft2d_accel_rgb_prj
+set_top fft2d_fixed_top
+
+add_files src/fft2d_fixed.cpp -cflags "-Iinclude -DUSE_AP_FIXED"
+add_files -tb tb/testbench.cpp -cflags "-Iinclude -DUSE_AP_FIXED"
+
+open_solution -reset solution1 -flow_target vivado
+
+# PYNQ-Z1 uses Zynq-7020 CLG400 speed grade -1.
+# This matches vivado_2d_FFT/project_1.xpr and the PYNQ-Z1 PS7 config.
+set target_part xc7z020clg400-1
+set_part $target_part
+puts "HLS target part: $target_part"
+
+create_clock -period 10 -name default
+
+set project_root [file normalize ../..]
+set hls_root [file normalize .]
+set input_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_r_matrix_2d.txt"
+set input_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_g_matrix_2d.txt"
+set input_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_b_matrix_2d.txt"
+set ref_real_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_real_2d.txt"
+set ref_real_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_real_2d.txt"
+set ref_real_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_real_2d.txt"
+set ref_imag_r "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_r_fft_imag_2d.txt"
+set ref_imag_g "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_g_fft_imag_2d.txt"
+set ref_imag_b "$project_root/software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_b_fft_imag_2d.txt"
+set out_real_r "$hls_root/hls_square_64x64_r_real.txt"
+set out_real_g "$hls_root/hls_square_64x64_g_real.txt"
+set out_real_b "$hls_root/hls_square_64x64_b_real.txt"
+set out_imag_r "$hls_root/hls_square_64x64_r_imag.txt"
+set out_imag_g "$hls_root/hls_square_64x64_g_imag.txt"
+set out_imag_b "$hls_root/hls_square_64x64_b_imag.txt"
+set csim_args "$input_r $input_g $input_b $ref_real_r $ref_real_g $ref_real_b $ref_imag_r $ref_imag_g $ref_imag_b $out_real_r $out_real_g $out_real_b $out_imag_r $out_imag_g $out_imag_b"
+
+csim_design -argv "$csim_args"
+csynth_design
+
+file mkdir "$hls_root/ip_export"
+export_design -rtl verilog -format ip_catalog -output "$hls_root/ip_export/fft2d_fixed_top_rgb"
+
+puts "Exported RGB FFT HLS IP to: $hls_root/ip_export/fft2d_fixed_top_rgb"
+exit

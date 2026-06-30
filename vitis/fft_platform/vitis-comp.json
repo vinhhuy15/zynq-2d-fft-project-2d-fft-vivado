@@ -3,8 +3,8 @@
   "type": "PLATFORM",
   "configuration": {
     "description": "",
-    "xsa": "D:/zynq-2d-fft-project-2d-fft-vivado/vivado_2d_FFT/design_1_wrapper.xsa",
-    "xsaPathInPlatform": "fft_platform/hw/design_1_wrapper.xsa",
+    "xsa": "D:/zynq-2d-fft-project-2d-fft-vivado/vivado_2d_FFT/fft_rgb.xsa",
+    "xsaPathInPlatform": "fft_platform/hw/fft_rgb.xsa",
     "emulationXsa": "",
     "emulationXsaPathInPlatform": "",
     "isCustomFSBL": false,

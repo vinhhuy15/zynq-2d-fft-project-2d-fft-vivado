@@ -2,6 +2,36 @@
 
 This file summarizes the full context of the current ChatGPT conversation so another agent can continue the project without needing to reread the whole chat.
 
+## Current RGB Update
+
+The active project workflow has been upgraded from a single grayscale matrix to RGB color FFT:
+
+```text
+RGB image input
+  -> split into R/G/B matrices
+  -> run independent 2D FFT on each channel
+  -> output raw real/imag matrices for R/G/B
+  -> compare each channel against NumPy reference
+```
+
+Important current file naming:
+
+```text
+*_r_matrix_2d.txt, *_g_matrix_2d.txt, *_b_matrix_2d.txt
+*_r_fft_real_2d.txt, *_g_fft_real_2d.txt, *_b_fft_real_2d.txt
+*_r_fft_imag_2d.txt, *_g_fft_imag_2d.txt, *_b_fft_imag_2d.txt
+```
+
+The HLS top function now uses:
+
+```cpp
+data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
+data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
+data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
+```
+
+`FFT2D_CHANNELS` defaults to 3. Older sections below may still describe the original grayscale scope; treat this RGB update as the current implementation state.
+
 ---
 
 ## 1. User Goal

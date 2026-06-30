@@ -1,0 +1,340 @@
+---
+MainSourceFile:  'D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/fft2d_accel_rgb_prj/solution1/.autopilot/db/fft2d_fixed.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          287639
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          288110
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          288582
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          631867
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_100_1:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      100
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2237293
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_100_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_103_2:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      103
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2237365
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_103_2: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_117_3:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      117
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2237598
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_117_3: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_118_4:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      118
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2237647
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_118_4: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_119_5:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      119
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2237694
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_119_5: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_132_1:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      132
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2238125
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_132_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_135_2:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      135
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2238197
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_135_2: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_149_3:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      149
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2238430
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_149_3: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_150_4:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      150
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2238479
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_150_4: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_151_5:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      151
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2238526
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_151_5: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_180_1:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      180
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2239783
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_180_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_181_2:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      181
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2239824
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_181_2: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_182_3:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      182
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2239867
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_182_3: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_189_4:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      189
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240033
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_189_4: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_190_5:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      190
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240074
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_190_5: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_191_6:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      191
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240117
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_191_6: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_197_7:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      197
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240267
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_197_7: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_203_8:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      203
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240383
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_203_8: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_204_9:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      204
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240424
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_204_9: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_205_10:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      205
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240467
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_205_10: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_211_11:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      211
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240621
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_211_11: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_217_12:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      217
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240737
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_217_12: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_218_13:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      218
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240778
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_218_13: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_219_14:  '
+      FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\src\fft2d_fixed.cpp'
+      FileOffset:      219
+      Replacements:
+        - FilePath:        'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel\fft2d_accel_rgb_prj\solution1\.autopilot\db\fft2d_fixed.pp.0.cpp'
+          Offset:          2240821
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_219_14: '
+    Level:           Remark
+    BuildDirectory:  'D:\zynq-2d-fft-project-2d-fft-vivado\hls\fft2d_accel'
+...

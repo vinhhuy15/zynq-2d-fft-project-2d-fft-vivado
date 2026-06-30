@@ -1,0 +1,21 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="fft2d_accel_rgb_prj"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <targetInfo>
+        <TargetInfo value="xc7z020:-clg400:-1"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" period="10" default="false"/>
+    </clockList>
+    <config>
+        <config_export format="ip_catalog" output="D:/zynq-2d-fft-project-2d-fft-vivado/hls/fft2d_accel/ip_export/fft2d_fixed_top_rgb" rtl="verilog"/>
+    </config>
+</AutoPilot:solution>

@@ -10,10 +10,15 @@
 #include <vector>
 
 #if defined(USE_AP_FIXED)
-static const double MAX_ABS_TOLERANCE = 1024.0;
+#ifndef HLS_TEST_MAX_ABS_TOLERANCE
+#define HLS_TEST_MAX_ABS_TOLERANCE 1024.0
+#endif
+static const double MAX_ABS_TOLERANCE = HLS_TEST_MAX_ABS_TOLERANCE;
 #else
 static const double MAX_ABS_TOLERANCE = 1e-6;
 #endif
+
+static const char* CHANNEL_NAMES[FFT2D_CHANNELS] = {"r", "g", "b"};
 
 struct Metrics {
     double mae;
@@ -118,65 +123,87 @@ static Metrics compare_matrix(
 }
 
 int main(int argc, char** argv) {
-    std::string input_path = find_project_file(
-        "software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_matrix_2d.txt");
-    std::string ref_real_path = find_project_file(
-        "software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_fft_real_2d.txt");
-    std::string ref_imag_path = find_project_file(
-        "software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_fft_imag_2d.txt");
-    std::string out_real_path = "hls_square_64x64_real.txt";
-    std::string out_imag_path = "hls_square_64x64_imag.txt";
+    std::string input_paths[FFT2D_CHANNELS];
+    std::string ref_real_paths[FFT2D_CHANNELS];
+    std::string ref_imag_paths[FFT2D_CHANNELS];
+    std::string out_real_paths[FFT2D_CHANNELS];
+    std::string out_imag_paths[FFT2D_CHANNELS];
 
-    if (argc == 6) {
-        input_path = argv[1];
-        ref_real_path = argv[2];
-        ref_imag_path = argv[3];
-        out_real_path = argv[4];
-        out_imag_path = argv[5];
+    for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+        const std::string suffix = CHANNEL_NAMES[ch];
+        input_paths[ch] = find_project_file(
+            "software/python_reference/zynq_2d_fft_python_reference/data/input/square_64x64_" + suffix + "_matrix_2d.txt");
+        ref_real_paths[ch] = find_project_file(
+            "software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_" + suffix + "_fft_real_2d.txt");
+        ref_imag_paths[ch] = find_project_file(
+            "software/python_reference/zynq_2d_fft_python_reference/data/reference/square_64x64_" + suffix + "_fft_imag_2d.txt");
+        out_real_paths[ch] = "hls_square_64x64_" + suffix + "_real.txt";
+        out_imag_paths[ch] = "hls_square_64x64_" + suffix + "_imag.txt";
+    }
+
+    if (argc == 16) {
+        for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+            input_paths[ch] = argv[1 + ch];
+            ref_real_paths[ch] = argv[4 + ch];
+            ref_imag_paths[ch] = argv[7 + ch];
+            out_real_paths[ch] = argv[10 + ch];
+            out_imag_paths[ch] = argv[13 + ch];
+        }
     } else if (argc != 1) {
         std::cerr
             << "Usage:\n"
             << "  " << argv[0]
-            << " <input_matrix> <ref_real> <ref_imag> <output_real> <output_imag>\n";
+            << " <input_r> <input_g> <input_b>"
+            << " <ref_real_r> <ref_real_g> <ref_real_b>"
+            << " <ref_imag_r> <ref_imag_g> <ref_imag_b>"
+            << " <output_real_r> <output_real_g> <output_real_b>"
+            << " <output_imag_r> <output_imag_g> <output_imag_b>\n";
         return 1;
     }
 
     try {
-        static data_t input[FFT2D_HEIGHT][FFT2D_WIDTH];
-        static data_t output_real[FFT2D_HEIGHT][FFT2D_WIDTH];
-        static data_t output_imag[FFT2D_HEIGHT][FFT2D_WIDTH];
-        static double ref_real[FFT2D_HEIGHT][FFT2D_WIDTH];
-        static double ref_imag[FFT2D_HEIGHT][FFT2D_WIDTH];
+        static data_t input[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
+        static data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
+        static data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
+        static double ref_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
+        static double ref_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
 
-        read_matrix(input_path, input);
-        read_matrix_double(ref_real_path, ref_real);
-        read_matrix_double(ref_imag_path, ref_imag);
+        for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+            read_matrix(input_paths[ch], input[ch]);
+            read_matrix_double(ref_real_paths[ch], ref_real[ch]);
+            read_matrix_double(ref_imag_paths[ch], ref_imag[ch]);
+        }
 
         fft2d_fixed_top(input, output_real, output_imag);
 
-        write_matrix(out_real_path, output_real);
-        write_matrix(out_imag_path, output_imag);
-
-        const Metrics real_metrics = compare_matrix(ref_real, output_real);
-        const Metrics imag_metrics = compare_matrix(ref_imag, output_imag);
-
         std::cout << std::fixed << std::setprecision(10);
-        std::cout << "FFT2D HLS-prep testbench complete.\n";
+        std::cout << "Color FFT2D HLS-prep testbench complete.\n";
         std::cout << "Size: " << FFT2D_WIDTH << "x" << FFT2D_HEIGHT << "\n";
-        std::cout << "Real MAE: " << real_metrics.mae
-                  << ", MSE: " << real_metrics.mse
-                  << ", RMSE: " << real_metrics.rmse
-                  << ", MaxAbs: " << real_metrics.max_abs_error << "\n";
-        std::cout << "Imag MAE: " << imag_metrics.mae
-                  << ", MSE: " << imag_metrics.mse
-                  << ", RMSE: " << imag_metrics.rmse
-                  << ", MaxAbs: " << imag_metrics.max_abs_error << "\n";
         std::cout << "Pass tolerance MaxAbs <= " << MAX_ABS_TOLERANCE << "\n";
 
-        return (
-            real_metrics.max_abs_error <= MAX_ABS_TOLERANCE &&
-            imag_metrics.max_abs_error <= MAX_ABS_TOLERANCE
-        ) ? 0 : 2;
+        bool pass = true;
+        for (int ch = 0; ch < FFT2D_CHANNELS; ch++) {
+            write_matrix(out_real_paths[ch], output_real[ch]);
+            write_matrix(out_imag_paths[ch], output_imag[ch]);
+
+            const Metrics real_metrics = compare_matrix(ref_real[ch], output_real[ch]);
+            const Metrics imag_metrics = compare_matrix(ref_imag[ch], output_imag[ch]);
+
+            std::cout << "Channel " << CHANNEL_NAMES[ch] << " Real MAE: " << real_metrics.mae
+                      << ", MSE: " << real_metrics.mse
+                      << ", RMSE: " << real_metrics.rmse
+                      << ", MaxAbs: " << real_metrics.max_abs_error << "\n";
+            std::cout << "Channel " << CHANNEL_NAMES[ch] << " Imag MAE: " << imag_metrics.mae
+                      << ", MSE: " << imag_metrics.mse
+                      << ", RMSE: " << imag_metrics.rmse
+                      << ", MaxAbs: " << imag_metrics.max_abs_error << "\n";
+
+            pass = pass &&
+                real_metrics.max_abs_error <= MAX_ABS_TOLERANCE &&
+                imag_metrics.max_abs_error <= MAX_ABS_TOLERANCE;
+        }
+
+        return pass ? 0 : 2;
     } catch (const std::exception& e) {
         std::cerr << "ERROR: " << e.what() << "\n";
         return 3;

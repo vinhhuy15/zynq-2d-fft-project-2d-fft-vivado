@@ -1,9 +1,9 @@
 // ==============================================================
-// File generated on Thu Jun 25 21:35:17 +0700 2026
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
-// SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-// IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.2 (64-bit)
+// Tool Version Limit: 2025.11
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
 // ==============================================================
 /***************************** Include Files *********************************/
 #include "xfft2d_fixed_top.h"
@@ -76,54 +76,60 @@ void XFft2d_fixed_top_DisableAutoRestart(XFft2d_fixed_top *InstancePtr) {
     XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_AP_CTRL, 0);
 }
 
-void XFft2d_fixed_top_Set_input_V(XFft2d_fixed_top *InstancePtr, u32 Data) {
+void XFft2d_fixed_top_Set_input_r(XFft2d_fixed_top *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_V_DATA, Data);
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_R_DATA, (u32)(Data));
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_R_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XFft2d_fixed_top_Get_input_V(XFft2d_fixed_top *InstancePtr) {
-    u32 Data;
+u64 XFft2d_fixed_top_Get_input_r(XFft2d_fixed_top *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_V_DATA);
+    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_R_DATA);
+    Data += (u64)XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_INPUT_R_DATA + 4) << 32;
     return Data;
 }
 
-void XFft2d_fixed_top_Set_output_real_V(XFft2d_fixed_top *InstancePtr, u32 Data) {
+void XFft2d_fixed_top_Set_output_real(XFft2d_fixed_top *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_V_DATA, Data);
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_DATA, (u32)(Data));
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XFft2d_fixed_top_Get_output_real_V(XFft2d_fixed_top *InstancePtr) {
-    u32 Data;
+u64 XFft2d_fixed_top_Get_output_real(XFft2d_fixed_top *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_V_DATA);
+    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_DATA);
+    Data += (u64)XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_REAL_DATA + 4) << 32;
     return Data;
 }
 
-void XFft2d_fixed_top_Set_output_imag_V(XFft2d_fixed_top *InstancePtr, u32 Data) {
+void XFft2d_fixed_top_Set_output_imag(XFft2d_fixed_top *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_V_DATA, Data);
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_DATA, (u32)(Data));
+    XFft2d_fixed_top_WriteReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XFft2d_fixed_top_Get_output_imag_V(XFft2d_fixed_top *InstancePtr) {
-    u32 Data;
+u64 XFft2d_fixed_top_Get_output_imag(XFft2d_fixed_top *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_V_DATA);
+    Data = XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_DATA);
+    Data += (u64)XFft2d_fixed_top_ReadReg(InstancePtr->Ctrl_BaseAddress, XFFT2D_FIXED_TOP_CTRL_ADDR_OUTPUT_IMAG_DATA + 4) << 32;
     return Data;
 }
 
