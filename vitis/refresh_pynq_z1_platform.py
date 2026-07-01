@@ -5,7 +5,6 @@ import vitis
 
 workspace = os.path.abspath(os.path.dirname(__file__))
 repo_root = os.path.abspath(os.path.join(workspace, os.pardir))
-xsa_path = os.path.join(repo_root, "vivado_2d_FFT", "fft_wrapper.xsa")
 xsa_path = os.path.join(repo_root, "vivado_2d_FFT", "fft_rgb.xsa")
 
 client = vitis.create_client()

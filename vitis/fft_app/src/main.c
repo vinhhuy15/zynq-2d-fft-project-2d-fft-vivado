@@ -40,6 +40,9 @@
 #define VERIFY_TOL_RAW (16 * FIXED_SCALE)
 #define IMAGE_VERIFY_TOL_RAW 8192U
 #define MAX_IMAGE_MISMATCH_PRINTS 8U
+#define UART_DUMP_FULL_FFT 0U
+#define PRINT_REGISTER_DEBUG 0U
+#define PRINT_DEMO_SAMPLE_BINS 0U
 
 static uint32_t input_buffer[FFT2D_TOTAL_SAMPLES] __attribute__((aligned(64)));
 static uint32_t output_real_buffer[FFT2D_TOTAL_SAMPLES] __attribute__((aligned(64)));
@@ -72,6 +75,7 @@ static void write_ptr64(uint32_t offset, uintptr_t ptr)
 
 static void print_register_snapshot(const char *stage)
 {
+#if PRINT_REGISTER_DEBUG
     xil_printf("%s register snapshot:\r\n", stage);
     xil_printf("  AP_CTRL=0x%08x\r\n", (unsigned int)Xil_In32(FFT2D_BASEADDR + AP_CTRL_REG));
     xil_printf("  0x10=0x%08x 0x14=0x%08x 0x18=0x%08x\r\n",
@@ -85,6 +89,9 @@ static void print_register_snapshot(const char *stage)
     xil_printf("  0x28=0x%08x 0x2c=0x%08x\r\n",
                (unsigned int)Xil_In32(FFT2D_BASEADDR + 0x28U),
                (unsigned int)Xil_In32(FFT2D_BASEADDR + RGB_REG_LAST));
+#else
+    (void)stage;
+#endif
 }
 
 static uint32_t sample_index(uint32_t channel, uint32_t row, uint32_t col)
@@ -140,9 +147,11 @@ static int run_fft_ip(uint32_t *cycles)
     Xil_DCacheFlushRange((UINTPTR)output_real_buffer, sizeof(output_real_buffer));
     Xil_DCacheFlushRange((UINTPTR)output_imag_buffer, sizeof(output_imag_buffer));
 
+#if PRINT_REGISTER_DEBUG
     xil_printf("Input buffer:       0x%08x\r\n", (unsigned int)(uintptr_t)input_buffer);
     xil_printf("Output real buffer: 0x%08x\r\n", (unsigned int)(uintptr_t)output_real_buffer);
     xil_printf("Output imag buffer: 0x%08x\r\n", (unsigned int)(uintptr_t)output_imag_buffer);
+#endif
 
     write_ptr64(INPUT_PTR_REG, (uintptr_t)input_buffer);
     write_ptr64(OUTPUT_REAL_PTR_REG, (uintptr_t)output_real_buffer);
@@ -243,6 +252,54 @@ static int verify_constant_rgb_fft(void)
     return (errors == 0U) ? 0 : -1;
 }
 
+static void dump_full_fft_output_uart(const char *test_name)
+{
+#if UART_DUMP_FULL_FFT
+    xil_printf("FFT_DUMP_BEGIN,%s,%u,%u,%u\r\n",
+               test_name,
+               (unsigned int)FFT2D_SIZE,
+               (unsigned int)FFT2D_SIZE,
+               (unsigned int)FFT2D_CHANNELS);
+
+    for (uint32_t ch = 0; ch < FFT2D_CHANNELS; ++ch) {
+        for (uint32_t bin = 0; bin < FFT2D_PIXELS; ++bin) {
+            uint32_t idx = ch * FFT2D_PIXELS + bin;
+            xil_printf("D,%u,%u,%08x,%08x\r\n",
+                       (unsigned int)ch,
+                       (unsigned int)bin,
+                       (unsigned int)output_real_buffer[idx],
+                       (unsigned int)output_imag_buffer[idx]);
+        }
+    }
+
+    xil_printf("FFT_DUMP_END,%s\r\n", test_name);
+#else
+    (void)test_name;
+#endif
+}
+
+static void print_demo_sample_bins(const char *test_name)
+{
+#if PRINT_DEMO_SAMPLE_BINS
+    const uint32_t sample_bins[] = {0U, 1U, 64U, 1023U, 2047U, 4095U};
+
+    xil_printf("Sample FFT output for %s:\r\n", test_name);
+    for (uint32_t ch = 0; ch < FFT2D_CHANNELS; ++ch) {
+        xil_printf("  channel %u:\r\n", (unsigned int)ch);
+        for (uint32_t i = 0; i < (sizeof(sample_bins) / sizeof(sample_bins[0])); ++i) {
+            uint32_t bin = sample_bins[i];
+            uint32_t idx = ch * FFT2D_PIXELS + bin;
+            xil_printf("    bin %u real=0x%08x imag=0x%08x\r\n",
+                       (unsigned int)bin,
+                       (unsigned int)output_real_buffer[idx],
+                       (unsigned int)output_imag_buffer[idx]);
+        }
+    }
+#else
+    (void)test_name;
+#endif
+}
+
 static int verify_rgb_image_fft(uint32_t test_index)
 {
     const rgb_fft_probe_t *probes = rgb_image_test_probes[test_index];
@@ -297,7 +354,10 @@ static int run_rgb_image_test(uint32_t test_index)
 {
     uint32_t cycles = 0U;
 
-    xil_printf("\r\nImage FFT test: %s\r\n", rgb_image_test_names[test_index]);
+    xil_printf("\r\nDemo testcase %u/%u: %s\r\n",
+               (unsigned int)(test_index + 2U),
+               (unsigned int)(RGB_IMAGE_TEST_COUNT + 1U),
+               rgb_image_test_names[test_index]);
     prepare_rgb_image_test(rgb_image_test_inputs[test_index]);
 
     if (run_fft_ip(&cycles) != 0) {
@@ -311,6 +371,8 @@ static int run_rgb_image_test(uint32_t test_index)
         return -1;
     }
 
+    print_demo_sample_bins(rgb_image_test_names[test_index]);
+    dump_full_fft_output_uart(rgb_image_test_names[test_index]);
     xil_printf("  PASS\r\n");
     return 0;
 }
@@ -321,6 +383,13 @@ int main(void)
 
     xil_printf("\r\nZynq RGB 2D FFT accelerator bare-metal test\r\n");
     xil_printf("IP base address: 0x%08x\r\n", (unsigned int)FFT2D_BASEADDR);
+    xil_printf("Demo plan: 3 testcase groups\r\n");
+    xil_printf("  1) constant_rgb_r1_g2_b3\r\n");
+    xil_printf("  2) synthetic_checker\r\n");
+    xil_printf("  3) cifar_real_image\r\n");
+    xil_printf("Demo UART mode: compact output only, full FFT dump disabled.\r\n");
+    xil_printf("\r\nDemo testcase 1/%u: constant_rgb_r1_g2_b3\r\n",
+               (unsigned int)(RGB_IMAGE_TEST_COUNT + 1U));
     xil_printf("Image: 64x64 RGB constant test, R=1 G=2 B=3\r\n");
 
     if ((Xil_In32(FFT2D_BASEADDR + AP_CTRL_REG) & AP_IDLE) == 0U) {
@@ -340,6 +409,9 @@ int main(void)
         xil_printf("\r\nRGB FFT hardware test failed.\r\n");
         return -1;
     }
+
+    print_demo_sample_bins("constant_rgb_r1_g2_b3");
+    dump_full_fft_output_uart("constant_rgb_r1_g2_b3");
 
     for (uint32_t i = 0; i < RGB_IMAGE_TEST_COUNT; ++i) {
         if (run_rgb_image_test(i) != 0) {

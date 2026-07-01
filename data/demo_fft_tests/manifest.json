@@ -1,0 +1,10 @@
+[
+  {
+    "name": "synthetic_checker",
+    "input": "input/synthetic_checker_64x64.png"
+  },
+  {
+    "name": "cifar_real_image",
+    "input": "input/cifar_real_image_64x64.png"
+  }
+]

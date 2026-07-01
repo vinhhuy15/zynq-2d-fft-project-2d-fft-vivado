@@ -1,7 +1,7 @@
 set project_dir [file normalize [file dirname [info script]]]
 set project_file [file join $project_dir project_1.xpr]
 set bd_file [file join $project_dir project_1.srcs sources_1 bd design_1 design_1.bd]
-set xsa_file [file join $project_dir fft_wrapper.xsa]
+set xsa_file [file join $project_dir fft_rgb.xsa]
 
 open_project $project_file
 open_bd_design $bd_file
