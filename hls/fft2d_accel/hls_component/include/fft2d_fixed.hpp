@@ -18,7 +18,7 @@
 #if defined(USE_AP_FIXED)
 #include <ap_fixed.h>
 #ifndef FFT2D_FIXED_TOTAL_BITS
-#define FFT2D_FIXED_TOTAL_BITS 32
+#define FFT2D_FIXED_TOTAL_BITS 28
 #endif
 #ifndef FFT2D_FIXED_INTEGER_BITS
 #define FFT2D_FIXED_INTEGER_BITS 20

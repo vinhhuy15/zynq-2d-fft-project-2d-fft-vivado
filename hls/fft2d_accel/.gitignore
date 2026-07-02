@@ -1,5 +1,10 @@
 build/
 output/
+results/
+__pycache__/
+tools/__pycache__/
+paper_*_prj/
+fig6_*_prj/
 fft2d_accel_prj/
 fft2d_accel_apfixed_*_prj/
 fft2d_accel_apfixed_*_synth_prj/

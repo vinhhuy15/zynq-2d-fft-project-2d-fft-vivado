@@ -1,23 +1,84 @@
 #include "fft2d_fixed.hpp"
 
-#include <cmath>
+#if FFT2D_WIDTH > 64 || FFT2D_HEIGHT > 64
+#error "The current twiddle lookup table supports FFT sizes up to 64 points."
+#endif
 
-/*
- * Pre-optimization reference version.
- *
- * This file keeps the same top-level interface and FFT flow as the optimized
- * implementation, but computes twiddle factors with runtime cos/sin calls.
- * Use it only for resource-comparison synthesis. Do not compile it together
- * with fft2d_fixed.cpp because both files define fft2d_fixed_top().
- */
+static const int TWIDDLE_TABLE_SIZE = 64;
 
-static ComplexFixed twiddle_runtime(int j, int len) {
-    const double pi = 3.14159265358979323846264338327950288;
-    const double angle = -2.0 * pi * static_cast<double>(j) / static_cast<double>(len);
-    return ComplexFixed(
-        static_cast<data_t>(std::cos(angle)),
-        static_cast<data_t>(std::sin(angle))
-    );
+static const data_t TWIDDLE_REAL[TWIDDLE_TABLE_SIZE / 2] = {
+    static_cast<data_t>(1.0),
+    static_cast<data_t>(0.99518472667219693),
+    static_cast<data_t>(0.98078528040323043),
+    static_cast<data_t>(0.95694033573220882),
+    static_cast<data_t>(0.92387953251128674),
+    static_cast<data_t>(0.88192126434835505),
+    static_cast<data_t>(0.83146961230254524),
+    static_cast<data_t>(0.77301045336273699),
+    static_cast<data_t>(0.70710678118654757),
+    static_cast<data_t>(0.63439328416364549),
+    static_cast<data_t>(0.55557023301960229),
+    static_cast<data_t>(0.47139673682599781),
+    static_cast<data_t>(0.38268343236508984),
+    static_cast<data_t>(0.29028467725446233),
+    static_cast<data_t>(0.19509032201612833),
+    static_cast<data_t>(0.09801714032956077),
+    static_cast<data_t>(0.0),
+    static_cast<data_t>(-0.098017140329560645),
+    static_cast<data_t>(-0.19509032201612819),
+    static_cast<data_t>(-0.29028467725446216),
+    static_cast<data_t>(-0.38268343236508973),
+    static_cast<data_t>(-0.4713967368259977),
+    static_cast<data_t>(-0.55557023301960196),
+    static_cast<data_t>(-0.63439328416364538),
+    static_cast<data_t>(-0.70710678118654746),
+    static_cast<data_t>(-0.77301045336273699),
+    static_cast<data_t>(-0.83146961230254535),
+    static_cast<data_t>(-0.88192126434835494),
+    static_cast<data_t>(-0.92387953251128674),
+    static_cast<data_t>(-0.95694033573220882),
+    static_cast<data_t>(-0.98078528040323043),
+    static_cast<data_t>(-0.99518472667219682)
+};
+
+static const data_t TWIDDLE_IMAG[TWIDDLE_TABLE_SIZE / 2] = {
+    static_cast<data_t>(0.0),
+    static_cast<data_t>(-0.098017140329560604),
+    static_cast<data_t>(-0.19509032201612825),
+    static_cast<data_t>(-0.29028467725446233),
+    static_cast<data_t>(-0.38268343236508978),
+    static_cast<data_t>(-0.47139673682599764),
+    static_cast<data_t>(-0.55557023301960218),
+    static_cast<data_t>(-0.63439328416364549),
+    static_cast<data_t>(-0.70710678118654757),
+    static_cast<data_t>(-0.77301045336273688),
+    static_cast<data_t>(-0.83146961230254524),
+    static_cast<data_t>(-0.88192126434835494),
+    static_cast<data_t>(-0.92387953251128674),
+    static_cast<data_t>(-0.95694033573220894),
+    static_cast<data_t>(-0.98078528040323043),
+    static_cast<data_t>(-0.99518472667219682),
+    static_cast<data_t>(-1.0),
+    static_cast<data_t>(-0.99518472667219693),
+    static_cast<data_t>(-0.98078528040323043),
+    static_cast<data_t>(-0.95694033573220894),
+    static_cast<data_t>(-0.92387953251128674),
+    static_cast<data_t>(-0.88192126434835505),
+    static_cast<data_t>(-0.83146961230254535),
+    static_cast<data_t>(-0.7730104533627371),
+    static_cast<data_t>(-0.70710678118654757),
+    static_cast<data_t>(-0.63439328416364549),
+    static_cast<data_t>(-0.55557023301960218),
+    static_cast<data_t>(-0.47139673682599781),
+    static_cast<data_t>(-0.38268343236508989),
+    static_cast<data_t>(-0.29028467725446239),
+    static_cast<data_t>(-0.19509032201612861),
+    static_cast<data_t>(-0.098017140329560826)
+};
+
+static ComplexFixed twiddle_at(int j, int len) {
+    const int index = (j * TWIDDLE_TABLE_SIZE) / len;
+    return ComplexFixed(TWIDDLE_REAL[index], TWIDDLE_IMAG[index]);
 }
 
 static ComplexFixed complex_add(const ComplexFixed& a, const ComplexFixed& b) {
@@ -56,7 +117,7 @@ static void fft1d_fixed(ComplexFixed data[FFT2D_WIDTH], int n) {
     for (int len = 2; len <= n; len <<= 1) {
         for (int i = 0; i < n; i += len) {
             for (int j = 0; j < len / 2; j++) {
-                const ComplexFixed w = twiddle_runtime(j, len);
+                const ComplexFixed w = twiddle_at(j, len);
                 const ComplexFixed u = data[i + j];
                 const ComplexFixed v = complex_mul(data[i + j + len / 2], w);
 
@@ -88,7 +149,7 @@ static void fft1d_fixed_col(ComplexFixed data[FFT2D_HEIGHT], int n) {
     for (int len = 2; len <= n; len <<= 1) {
         for (int i = 0; i < n; i += len) {
             for (int j = 0; j < len / 2; j++) {
-                const ComplexFixed w = twiddle_runtime(j, len);
+                const ComplexFixed w = twiddle_at(j, len);
                 const ComplexFixed u = data[i + j];
                 const ComplexFixed v = complex_mul(data[i + j + len / 2], w);
 
