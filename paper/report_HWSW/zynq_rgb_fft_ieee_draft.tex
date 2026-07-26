@@ -12,6 +12,7 @@
 \usepackage{url}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{cuted}
 \usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric}
 \setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
 \setlength{\floatsep}{6pt plus 2pt minus 2pt}
@@ -24,8 +25,8 @@
 \newcounter{algorithm}
 \newcommand{\algcaption}[1]{%
     \refstepcounter{algorithm}%
-    \vspace{0.25mm}%
-    \noindent\textbf{Thuật toán~\thealgorithm. #1}\par\vspace{0.15mm}%
+    \vspace{0.10mm}%
+    \noindent\textbf{Thuật toán~\thealgorithm. #1}\par\vspace{0.05mm}%
 }
 
 \begin{document}
@@ -34,17 +35,19 @@
 
 \author{
     \IEEEauthorblockN{
-        Giang Vinh Huy,
-        Nguyen Quang Nhon,
-        Pham Dinh Phuoc,
-        Nguyen Lam Minh Nhat,
-        Doan Nhat Hoa
+        Giang Vĩnh Huy,
+        Nguyễn Quang Nhơn,
+        Pham Đình Phước,
+        Nguyễn Lâm Minh Nhật,
+        Đoàn Nhật Hoà
     }
     \IEEEauthorblockA{
         \textit{Department of Computer Engineering}\\
         \textit{Faculty of Electrical and Electronics Engineering}\\
         Ho Chi Minh City University of Technology and Education (HCMUTE)\\
-        Ho Chi Minh City, Vietnam
+        Ho Chi Minh City, Vietnam\\[0.45em]
+        \footnotesize\textbf{Code:} \url{https://github.com/vinhhuy15/zynq-2d-fft-project-2d-fft-vivado}\\
+        \footnotesize\textbf{Demo:} \url{https://youtu.be/MT-Wih9r9Ww}
     }
 }
 
@@ -75,7 +78,7 @@ Các đóng góp chính của bài báo gồm:
     \item Kiểm chứng thiết kế bằng tham chiếu thuật toán, mô phỏng mức C, kiểm chứng C/RTL và kết quả sau triển khai.
 \end{itemize}
 
-Phần còn lại của bài báo được tổ chức như sau. Mục~\ref{sec:background} trình bày cơ sở lý thuyết, Mục~\ref{sec:methodology} mô tả kiến trúc hệ thống, Mục~\ref{sec:implementation} trình bày quá trình hiện thực, Mục~\ref{sec:results} thảo luận kết quả đánh giá, và Mục~\ref{sec:conclusion} tổng kết các hướng phát triển tiếp theo.
+Phần còn lại của bài báo được tổ chức như sau. Mục~\ref{sec:background} trình bày cơ sở lý thuyết, Mục~\ref{sec:methodology} mô tả kiến trúc hệ thống, Mục~\ref{sec:implementation} trình bày quá trình hiện thực, Mục~\ref{sec:experimental} nêu thiết lập thực nghiệm, Mục~\ref{sec:results} trình bày kết quả đánh giá, Mục~\ref{sec:discussion} thảo luận các kết quả chính, và Mục~\ref{sec:conclusion} tổng kết các hướng phát triển tiếp theo.
 
 \section{Cơ Sở Lý Thuyết Và Công Trình Liên Quan}
 \label{sec:background}
@@ -90,28 +93,29 @@ Với một ảnh $f(x,y)$ có kích thước $M\times N$, biến đổi Fourier
 
 Tính trực tiếp (\ref{eq:dft2d}) đòi hỏi chi phí tính toán lớn vì mỗi hệ số đầu ra phụ thuộc vào toàn bộ mẫu đầu vào. FFT giảm đáng kể độ phức tạp bằng cách phân rã DFT thành các phép toán butterfly nhỏ hơn và khai thác tính đối xứng của nhân Fourier~\cite{cooley_tukey_1965,oppenheim_schafer_2010}. Với dữ liệu hai chiều, phép biến đổi có thể được thực hiện theo phương pháp hàng-cột: tính 1D FFT cho từng hàng, lưu ma trận trung gian, sau đó tính 1D FFT cho từng cột. Cách tổ chức này phù hợp với thiết kế phần cứng vì dùng lặp lại cùng một nhân FFT 64 điểm, có luồng truy cập bộ nhớ rõ ràng và thuận tiện để đối chiếu với kết quả tham chiếu phần mềm.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \resizebox{\linewidth}{!}{%
-    \begin{tikzpicture}[
-            font=\scriptsize,
-            mat/.style={draw, line width=0.35pt, minimum width=1.50cm, minimum height=1.02cm, align=center, fill=white},
-            op/.style={draw, line width=0.35pt, minimum width=1.42cm, minimum height=0.70cm, align=center, fill=white},
-            bus/.style={-{Latex[length=1.8mm,width=1.2mm]}, line width=0.35pt}
-        ]
-        \node[mat] (input) at (0,0) {$f(x,y)$\\Input};
-        \node[op] (row) at (2.0,0) {Row-wise\\1D FFT};
-        \node[mat] (mid) at (4.0,0) {$G(u,y)$\\Intermediate};
-        \node[op] (col) at (6.0,0) {Column-wise\\1D FFT};
-        \node[mat] (out) at (8.0,0) {$F(u,v)$\\Output};
-        \draw[bus] (input) -- (row);
-        \draw[bus] (row) -- (mid);
-        \draw[bus] (mid) -- (col);
-        \draw[bus] (col) -- (out);
-        \node[align=center] at (4.0,-1.00) {Separable structure of 2D FFT};
-    \end{tikzpicture}%
+        \begin{tikzpicture}[
+                font=\scriptsize,
+                mat/.style={draw, line width=0.35pt, minimum width=1.50cm, minimum height=1.02cm, align=center, fill=white},
+                op/.style={draw, line width=0.35pt, minimum width=1.42cm, minimum height=0.70cm, align=center, fill=white},
+                bus/.style={-{Latex[length=1.8mm,width=1.2mm]}, line width=0.35pt}
+            ]
+            \node[mat] (input) at (0,0) {$f(x,y)$\\Input};
+            \node[op] (row) at (2.0,0) {Row-wise\\1D FFT};
+            \node[mat] (mid) at (4.0,0) {$G(u,y)$\\Intermediate};
+            \node[op] (col) at (6.0,0) {Column-wise\\1D FFT};
+            \node[mat] (out) at (8.0,0) {$F(u,v)$\\Output};
+            \draw[bus] (input) -- (row);
+            \draw[bus] (row) -- (mid);
+            \draw[bus] (mid) -- (col);
+            \draw[bus] (col) -- (out);
+            \node[align=center] at (4.0,-1.00) {Separable structure of 2D FFT};
+        \end{tikzpicture}%
     }
-    {\renewcommand{\figurename}{Fig.}\caption{Row-column decomposition of 2D FFT.}\label{fig:row_column_fft}}
+    \caption{Phân rã hàng-cột của 2D FFT.}
+    \label{fig:row_column_fft}
 \end{figure}
 
 Hình~\ref{fig:row_column_fft} minh họa cách thực hiện 2D FFT bằng hai nhóm FFT một chiều. Phép biến đổi theo hàng tạo ra ma trận trung gian $G(u,y)$, sau đó phép biến đổi theo cột tạo phổ hai chiều $F(u,v)$. Nhờ tính tách biến này, phần cứng có thể tái sử dụng cùng một nhân FFT 1D thay vì hiện thực trực tiếp toàn bộ phép biến đổi hai chiều.
@@ -141,12 +145,12 @@ Bảng~\ref{tab:related_work} đặt công trình này trong bối cảnh các h
     \setlength{\tabcolsep}{3pt}
     \begin{tabular}{p{0.17\textwidth}p{0.13\textwidth}p{0.18\textwidth}p{0.13\textwidth}p{0.26\textwidth}}
         \toprule
-        \textbf{Công trình} & \textbf{Nền tảng} & \textbf{Biến đổi} & \textbf{Kiểu dữ liệu} & \textbf{Trọng tâm} \\
+        \textbf{Công trình}                             & \textbf{Nền tảng} & \textbf{Biến đổi}             & \textbf{Kiểu dữ liệu} & \textbf{Trọng tâm}                                      \\
         \midrule
-        Mukherjee et al.~\cite{mukherjee_fft_fpga_2015} & FPGA & FFT hướng tiết kiệm diện tích & Fixed-point & Tái sử dụng tài nguyên cho FFT \\
-        Mukherjee et al.~\cite{mukherjee_2dfft_2018} & FPGA & 2D Fourier transform & Fixed-point & Kiến trúc 2D tiết kiệm tài nguyên \\
-        Pu et al.~\cite{pu_halide_zynq_2016} & Zynq & Pipeline xử lý ảnh & Phụ thuộc ứng dụng & Lập trình hệ dị thể cho xử lý ảnh \\
-        Công trình này & Zynq-7000 & RGB $64\times64$ 2D FFT & Fixed-point 28/20 & Kiến trúc nhỏ gọn, có khảo sát bit-width và twiddle LUT \\
+        Mukherjee et al.~\cite{mukherjee_fft_fpga_2015} & FPGA              & FFT hướng tiết kiệm diện tích & Fixed-point           & Tái sử dụng tài nguyên cho FFT                          \\
+        Mukherjee et al.~\cite{mukherjee_2dfft_2018}    & FPGA              & 2D Fourier transform          & Fixed-point           & Kiến trúc 2D tiết kiệm tài nguyên                       \\
+        Pu et al.~\cite{pu_halide_zynq_2016}            & Zynq              & Pipeline xử lý ảnh            & Phụ thuộc ứng dụng    & Lập trình hệ dị thể cho xử lý ảnh                       \\
+        Công trình này                                  & Zynq-7000         & RGB $64\times64$ 2D FFT       & Fixed-point 28/20     & Kiến trúc nhỏ gọn, có khảo sát bit-width và twiddle LUT \\
         \bottomrule
     \end{tabular}
 \end{table*}
@@ -158,7 +162,7 @@ Hệ thống đề xuất được tổ chức theo cấu trúc PS/PL của Zynq
 
 \begin{figure*}[t]
     \centering
-    \resizebox{0.90\textwidth}{!}{%
+    \resizebox{0.84\textwidth}{!}{%
         \begin{tikzpicture}[
                 font=\scriptsize,
                 block/.style={draw, line width=0.35pt, align=center, minimum height=0.75cm, fill=white},
@@ -235,7 +239,7 @@ Hình~\ref{fig:system_overview} nhấn mạnh sự phân chia giữa điều khi
         \draw[bus] (row) -- (col);
         \draw[bus] (col) -- (out);
         \draw[bus] (out) -- (verify);
-        \draw[optbus] (out) -- (visual);
+        \draw[optbus] (out.south) -- ++(0,-0.28) -| (visual.south);
     \end{tikzpicture}
     \caption{Luồng xử lý ảnh RGB.}
     \label{fig:rgb_pipeline}
@@ -246,22 +250,27 @@ Phổ log-magnitude hữu ích để quan sát trực quan cấu trúc miền t�
 \subsection{Phương Pháp FFT Hàng-Cột}
 2D FFT được hiện thực bằng phân rã hàng-cột. Với mỗi kênh màu, bộ tăng tốc trước hết thực hiện FFT một chiều trên từng hàng. Kết quả trung gian được lưu trong một ma trận phức nội bộ. Sau đó, bộ tăng tốc thực hiện FFT một chiều trên từng cột của ma trận trung gian và ghi hệ số phần thực/phần ảo cuối cùng vào các bộ đệm đầu ra. Cách phân rã này phù hợp với tính tách biến của 2D DFT và dễ ánh xạ sang phần cứng.
 
+\section{Hiện Thực Phần Cứng/Phần Mềm}
+\label{sec:implementation}
+\subsection{Hai Biến Thể Thuật Toán}
+Từ góc nhìn thuật toán, cả hai phiên bản đều dùng phân rã hàng-cột, giảm độ phức tạp từ 2D DFT trực tiếp $O(N^4)$ xuống khoảng $O(2N^2\log_2N)$ cho mỗi kênh $N\times N$. Khác biệt chính nằm ở cách sinh hệ số twiddle: phiên bản lượng giác tính \texttt{sin}/\texttt{cos} trong datapath, còn phiên bản bảng tra dùng hệ số cố định và tái sử dụng cho cả hai pha hàng/cột.
+
 \begin{figure}[H]
     \centering
-    \fontsize{6.8}{7.2}\selectfont
-    \renewcommand{\arraystretch}{0.90}
+    \fontsize{6.1}{6.45}\selectfont
+    \renewcommand{\arraystretch}{0.76}
     \algcaption{2D FFT RGB với tính lượng giác khi chạy}
     \label{alg:runtime_sincos}
     \begin{tabular}{p{0.95\linewidth}}
         \toprule
-        \textbf{Input:} ảnh RGB $I[c][x][y]$, $c\in\{R,G,B\}$, $x,y\in[0,63]$.\\
-        \textbf{Output:} $F_{\mathrm{real}}[c][u][v]$ và $F_{\mathrm{imag}}[c][u][v]$.\\
+        \textbf{Input:} ảnh RGB $I[c][x][y]$, $c\in\{R,G,B\}$, $x,y\in[0,63]$.         \\
+        \textbf{Output:} $F_{\mathrm{real}}[c][u][v]$ và $F_{\mathrm{imag}}[c][u][v]$. \\
         \midrule
-        1. Với từng kênh $c$, nạp ma trận đầu vào từ DDR.\\
-        2. Ở mỗi tầng butterfly, tính $W_N^k$ bằng \texttt{sin}/\texttt{cos}.\\
-        3. Tính FFT 1D trên 64 hàng và lưu kết quả trung gian.\\
-        4. Tính lại $W_N^k$, thực hiện FFT 1D trên 64 cột.\\
-        5. Ghi phổ real/imag ra DDR và kiểm tra MAE/MaxAbs.\\
+        1. Với từng kênh $c$, nạp ma trận đầu vào từ DDR.                              \\
+        2. Ở mỗi tầng butterfly, tính $W_N^k$ bằng \texttt{sin}/\texttt{cos}.          \\
+        3. Tính FFT 1D trên 64 hàng và lưu kết quả trung gian.                         \\
+        4. Tính lại $W_N^k$, thực hiện FFT 1D trên 64 cột.                             \\
+        5. Ghi phổ real/imag ra DDR và kiểm tra MAE/MaxAbs.                            \\
         \bottomrule
     \end{tabular}
 
@@ -269,22 +278,18 @@ Phổ log-magnitude hữu ích để quan sát trực quan cấu trúc miền t�
     \label{alg:twiddle_lut}
     \begin{tabular}{p{0.95\linewidth}}
         \toprule
-        \textbf{Input:} ảnh RGB $I[c][x][y]$, $c\in\{R,G,B\}$, $x,y\in[0,63]$.\\
-        \textbf{Output:} $F_{\mathrm{real}}[c][u][v]$ và $F_{\mathrm{imag}}[c][u][v]$.\\
+        \textbf{Input:} ảnh RGB $I[c][x][y]$, $c\in\{R,G,B\}$, $x,y\in[0,63]$.         \\
+        \textbf{Output:} $F_{\mathrm{real}}[c][u][v]$ và $F_{\mathrm{imag}}[c][u][v]$. \\
         \midrule
-        1. Khởi tạo bảng twiddle cố định cho FFT 64 điểm.\\
-        2. Với từng kênh $c$, nạp ma trận đầu vào từ DDR.\\
-        3. Đọc $W_N^k$ từ LUT và tính FFT 1D trên 64 hàng.\\
-        4. Tái sử dụng LUT để tính FFT 1D trên 64 cột.\\
-        5. Ghi phổ real/imag ra DDR và kiểm tra MAE/MaxAbs.\\
+        1. Khởi tạo bảng twiddle cố định cho FFT 64 điểm.                              \\
+        2. Với từng kênh $c$, nạp ma trận đầu vào từ DDR.                              \\
+        3. Đọc $W_N^k$ từ LUT và tính FFT 1D trên 64 hàng.                             \\
+        4. Tái sử dụng LUT để tính FFT 1D trên 64 cột.                                 \\
+        5. Ghi phổ real/imag ra DDR và kiểm tra MAE/MaxAbs.                            \\
         \bottomrule
     \end{tabular}
 \end{figure}
 
-Từ góc nhìn thuật toán, cả Thuật toán~\ref{alg:runtime_sincos} và Thuật toán~\ref{alg:twiddle_lut} đều dùng phân rã hàng-cột, giảm độ phức tạp từ 2D DFT trực tiếp $O(N^4)$ xuống khoảng $O(2N^2\log_2N)$ cho mỗi kênh $N\times N$. Khác biệt chính nằm ở cách sinh hệ số twiddle: phiên bản lượng giác tính \texttt{sin}/\texttt{cos} trong datapath, còn phiên bản bảng tra dùng hệ số cố định và tái sử dụng cho cả hai pha hàng/cột.
-
-\section{Hiện Thực Phần Cứng/Phần Mềm}
-\label{sec:implementation}
 \subsection{Kiến Trúc Bộ Tăng Tốc}
 Giao diện mức cao của bộ tăng tốc được mô tả như sau:
 \begin{verbatim}
@@ -345,6 +350,19 @@ Bảng~\ref{tab:partitioning} tóm tắt cách phân chia phần cứng/phần m
 \subsection{Tổ Chức Bộ Nhớ Và Giao Tiếp AXI}
 Kiến trúc được đánh giá sử dụng DDR cho các bộ đệm đầu vào và đầu ra. Bộ đệm đầu vào lưu dữ liệu ảnh RGB, trong khi hai vùng đầu ra lưu hệ số FFT phần thực và phần ảo. Các thanh ghi AXI4-Lite cung cấp thông tin điều khiển và địa chỉ bộ đệm. Các cổng AXI master memory-mapped cho phép accelerator đọc mảng đầu vào và ghi các mảng đầu ra. Cách tổ chức này ưu tiên sự đơn giản trong kiểm chứng; các phiên bản sau có thể bổ sung AXI DMA hoặc AXI Stream để tăng thông lượng.
 
+\begin{strip}
+    \vspace{-0.7em}
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/so_do_khoi.jpg}
+    \refstepcounter{figure}
+    \vspace{-0.3em}
+    {\footnotesize \figurename~\thefigure. Sơ đồ khối Vivado sau tích hợp IP FFT.\par}
+    \label{fig:vivado_block_design}
+    \vspace{-0.6em}
+\end{strip}
+
+Hình~\ref{fig:vivado_block_design} xác nhận cách ánh xạ kiến trúc đề xuất vào block design Vivado. Khối \texttt{processing\_system7\_0} đóng vai trò PS, cung cấp clock, reset, DDR và giao tiếp AXI GP/HP cho hệ thống. IP \texttt{fft2d\_fixed\_top\_1} là bộ tăng tốc 2D FFT được sinh từ HLS; cổng \texttt{s\_axi\_CTRL} dùng cho điều khiển AXI4-Lite, còn các cổng \texttt{m\_axi\_gmem0}, \texttt{m\_axi\_gmem1} và \texttt{m\_axi\_gmem2} dùng cho truy cập memory-mapped tới các vùng dữ liệu đầu vào, đầu ra phần thực và đầu ra phần ảo. Hai khối AXI interconnect thực hiện ghép nối các kênh điều khiển và dữ liệu giữa PS và IP, trong khi \texttt{proc\_sys\_reset\_0} phân phối tín hiệu reset đồng bộ cho các miền logic. Khối ILA được thêm để hỗ trợ quan sát tín hiệu trong quá trình debug sau tích hợp. Như vậy, sơ đồ Vivado này là bằng chứng triển khai cụ thể của kiến trúc trừu tượng trong Hình~\ref{fig:system_overview}, đồng thời làm rõ phạm vi số liệu sau implementation gồm cả PS, interconnect, reset và logic debug chứ không chỉ riêng IP FFT.
+
 \subsection{Luồng Kiểm Chứng}
 Thiết kế sử dụng luồng kiểm chứng nhiều tầng như Hình~\ref{fig:verification_flow}. Kết quả FFT tham chiếu được sinh bằng thư viện phần mềm độ chính xác cao. Mô tả C++ được kiểm tra trước ở mức thuật toán, sau đó được đánh giá qua mô phỏng mức C, tổng hợp phần cứng và kiểm chứng C/RTL. Cuối cùng, hệ thống được tích hợp ở mức nền tảng Zynq để kiểm tra khả năng triển khai.
 
@@ -372,6 +390,7 @@ Thiết kế sử dụng luồng kiểm chứng nhiều tầng như Hình~\ref{f
 \end{figure}
 
 \section{Thiết Lập Thực Nghiệm}
+\label{sec:experimental}
 Thực nghiệm hướng đến bo mạch PYNQ-Z1 dùng chip Zynq-7000 \texttt{xc7z020clg400-1}. Bộ tăng tốc được tổng hợp với ràng buộc clock 10 ns. Kích thước đầu vào cố định là ảnh RGB $64\times64$. Bốn mẫu tổng hợp gồm \texttt{square}, \texttt{gradient}, \texttt{checker} và \texttt{circle} được dùng để kiểm chứng định lượng. Kết quả FFT phần mềm độ chính xác cao được dùng làm tham chiếu. Sai số được đo trên hệ số FFT thô bằng MAE và MaxAbs cho cả phần thực và phần ảo.
 
 \begin{table}[htbp]
@@ -445,36 +464,36 @@ Số DSP giảm từ 197 xuống 8, tương ứng giảm xấp xỉ 95.9\%. FF v
 \begin{figure}[htbp]
     \centering
     \resizebox{\linewidth}{!}{%
-    \begin{tikzpicture}[x=1cm,y=0.034cm]
-        \scriptsize
-        \draw[->] (0,0) -- (0,112) node[above] {\%};
-        \draw[->] (0,0) -- (6.9,0);
-        \foreach \y in {20,40,60,80,100} {
-            \draw[gray!35] (0,\y) -- (6.55,\y);
-            \node[left] at (0,\y) {\y};
-        }
-        \foreach \x/\name/\runtime/\twiddle in {
-            0.85/BRAM/100/84.6,
-            2.35/DSP/100/4.1,
-            3.85/FF/100/54.0,
-            5.35/LUT/100/48.4
-        } {
-            \fill[gray!75] (\x-0.32,0) rectangle (\x-0.04,\runtime);
-            \fill[gray!25] (\x+0.04,0) rectangle (\x+0.32,\twiddle);
-            \node[rotate=90, anchor=west] at (\x+0.42,\twiddle+1.5) {\twiddle};
-            \node[below] at (\x,0) {\name};
-        }
-        \draw[fill=gray!75] (1.05,105) rectangle (1.28,110);
-        \node[right] at (1.32,107.5) {Runtime \texttt{sin}/\texttt{cos}};
-        \draw[fill=gray!25] (4.10,105) rectangle (4.33,110);
-        \node[right] at (4.37,107.5) {Twiddle LUT};
-    \end{tikzpicture}%
+        \begin{tikzpicture}[x=1cm,y=0.034cm]
+            \scriptsize
+            \draw[->] (0,0) -- (0,112) node[above] {\%};
+            \draw[->] (0,0) -- (6.9,0);
+            \foreach \y in {20,40,60,80,100} {
+                    \draw[gray!35] (0,\y) -- (6.55,\y);
+                    \node[left] at (0,\y) {\y};
+                }
+            \foreach \x/\name/\runtime/\twiddle in {
+                    0.85/BRAM/100/84.6,
+                    2.35/DSP/100/4.1,
+                    3.85/FF/100/54.0,
+                    5.35/LUT/100/48.4
+                } {
+                    \fill[gray!75] (\x-0.32,0) rectangle (\x-0.04,\runtime);
+                    \fill[gray!25] (\x+0.04,0) rectangle (\x+0.32,\twiddle);
+                    \node[rotate=90, anchor=west] at (\x+0.42,\twiddle+1.5) {\twiddle};
+                    \node[below] at (\x,0) {\name};
+                }
+            \draw[fill=gray!75] (1.05,105) rectangle (1.28,110);
+            \node[right] at (1.32,107.5) {Runtime \texttt{sin}/\texttt{cos}};
+            \draw[fill=gray!25] (4.10,105) rectangle (4.33,110);
+            \node[right] at (4.37,107.5) {Twiddle LUT};
+        \end{tikzpicture}%
     }
     \caption{Tỷ lệ tài nguyên sau tối ưu bảng tra twiddle.}
     \label{fig:twiddle_resource_chart}
 \end{figure}
 
-Hình~\ref{fig:twiddle_resource_chart} chuẩn hóa tài nguyên của phiên bản lượng giác runtime thành 100\% để làm rõ mức thay đổi của từng nhóm tài nguyên. Sau tối ưu, DSP chỉ còn khoảng 4.1\% so với phiên bản ban đầu, trong khi FF và LUT còn lần lượt khoảng 54.0\% và 48.4\%. BRAM giảm ít hơn vì bảng twiddle vẫn cần bộ nhớ lưu hệ số, nhưng mức giảm DSP mới là yếu tố quyết định đối với khả năng triển khai trên FPGA nhỏ.
+Hình~\ref{fig:twiddle_resource_chart} cho thấy tác động của bảng tra twiddle lên từng nhóm tài nguyên khi lấy phiên bản lượng giác runtime làm mốc 100\%. Sau tối ưu, DSP giảm mạnh nhất, chỉ còn khoảng 4.1\% so với ban đầu. FF và LUT cũng giảm đáng kể, còn lần lượt khoảng 54.0\% và 48.4\%. BRAM giảm ít hơn vì thiết kế vẫn cần bộ nhớ lưu hệ số twiddle, nhưng mức tiết kiệm DSP mới là kết quả quan trọng nhất đối với FPGA nhỏ như Zynq-7020.
 
 \begin{figure}[H]
     \centering
@@ -501,13 +520,13 @@ Nhiều cấu hình fixed-point được đánh giá để tìm điểm cân b�
         \toprule
         \textbf{Định dạng}        & \textbf{Pass} & \textbf{Worst Real} & \textbf{Worst Imag} & \textbf{BRAM} & \textbf{DSP} & \textbf{FF} & \textbf{LUT} & \textbf{Trạng thái} \\
         \midrule
-        \texttt{ap\_fixed<32,20>} & 4/4           & 48.1013             & 34.5814             & 74 & 8 & 10387 & 12479 & PASS \\
-        \texttt{ap\_fixed<28,20>} & 4/4           & 390.4006            & 308.7507            & 66 & 8 & 9869  & 12377 & PASS \\
-        \texttt{ap\_fixed<24,20>} & 0/4           & 4928.0017           & 3312.7220           & -- & -- & --    & --    & FAIL \\
-        \texttt{ap\_fixed<22,20>} & 0/4           & 44172.9983          & 30855.2780          & -- & -- & --    & --    & FAIL \\
-        \texttt{ap\_fixed<24,16>} & 0/4           & 489472.0039         & 295416.7260         & -- & -- & --    & --    & FAIL \\
-        \texttt{ap\_fixed<24,12>} & 0/4           & 520192.0002         & 326136.7223         & -- & -- & --    & --    & FAIL \\
-        \texttt{ap\_fixed<20,12>} & 0/4           & 520192.0039         & 326136.7260         & -- & -- & --    & --    & FAIL \\
+        \texttt{ap\_fixed<32,20>} & 4/4           & 48.1013             & 34.5814             & 74            & 8            & 10387       & 12479        & PASS                \\
+        \texttt{ap\_fixed<28,20>} & 4/4           & 390.4006            & 308.7507            & 66            & 8            & 9869        & 12377        & PASS                \\
+        \texttt{ap\_fixed<24,20>} & 0/4           & 4928.0017           & 3312.7220           & --            & --           & --          & --           & FAIL                \\
+        \texttt{ap\_fixed<22,20>} & 0/4           & 44172.9983          & 30855.2780          & --            & --           & --          & --           & FAIL                \\
+        \texttt{ap\_fixed<24,16>} & 0/4           & 489472.0039         & 295416.7260         & --            & --           & --          & --           & FAIL                \\
+        \texttt{ap\_fixed<24,12>} & 0/4           & 520192.0002         & 326136.7223         & --            & --           & --          & --           & FAIL                \\
+        \texttt{ap\_fixed<20,12>} & 0/4           & 520192.0039         & 326136.7260         & --            & --           & --          & --           & FAIL                \\
         \bottomrule
     \end{tabular}
 \end{table*}
@@ -515,44 +534,44 @@ Nhiều cấu hình fixed-point được đánh giá để tìm điểm cân b�
 \begin{figure}[htbp]
     \centering
     \resizebox{\linewidth}{!}{%
-    \begin{tikzpicture}[font=\scriptsize]
-        \draw[->] (0,0) -- (0,3.18);
-        \node[above] at (0,3.18) {\%};
-        \draw[->] (0,0) -- (3.45,0);
-        \foreach \y/\label in {0.75/25,1.50/50,2.25/75,3.00/100} {
-            \draw[gray!35] (0,\y) -- (3.25,\y);
-            \node[left] at (0,\y) {\label};
-        }
-        \foreach \x/\name/\v in {0.58/BRAM/2.68,1.36/DSP/3.00,2.14/FF/2.85,2.92/LUT/2.97} {
-            \fill[gray!25] (\x-0.16,0) rectangle (\x+0.16,\v);
-            \node[below] at (\x,-0.06) {\name};
-        }
-        \node[align=center,font=\scriptsize] at (1.72,-0.72) {Tài nguyên 28/20\\so với 32/20};
-
-        \begin{scope}[xshift=4.35cm]
+        \begin{tikzpicture}[font=\scriptsize]
             \draw[->] (0,0) -- (0,3.18);
-            \node[above right=0.5mm and 0.0mm] at (0,3.18) {MaxAbs};
-            \draw[->] (0,0) -- (2.55,0);
-            \foreach \y/\label in {0.75/256,1.50/512,2.25/768,3.00/1024} {
-                \draw[gray!35] (0,\y) -- (2.35,\y);
-                \node[left] at (0,\y) {\label};
-            }
-            \draw[dashed] (0,3.0) -- (2.35,3.0);
-            \fill[gray!75] (0.55,0) rectangle (0.95,0.14);
-            \fill[gray!25] (1.50,0) rectangle (1.90,1.14);
-            \node[above] at (0.75,0.14) {48.1};
-            \node[above] at (1.70,1.14) {390.4};
-            \node[below] at (0.75,0) {32/20};
-            \node[below] at (1.70,0) {28/20};
-            \node[align=center,font=\scriptsize] at (1.30,-0.72) {Sai số lớn nhất\\và ngưỡng PASS};
-        \end{scope}
-    \end{tikzpicture}%
+            \node[above] at (0,3.18) {\%};
+            \draw[->] (0,0) -- (3.45,0);
+            \foreach \y/\label in {0.75/25,1.50/50,2.25/75,3.00/100} {
+                    \draw[gray!35] (0,\y) -- (3.25,\y);
+                    \node[left] at (0,\y) {\label};
+                }
+            \foreach \x/\name/\v in {0.58/BRAM/2.68,1.36/DSP/3.00,2.14/FF/2.85,2.92/LUT/2.97} {
+                    \fill[gray!25] (\x-0.16,0) rectangle (\x+0.16,\v);
+                    \node[below] at (\x,-0.06) {\name};
+                }
+            \node[align=center,font=\scriptsize] at (1.72,-0.72) {Tài nguyên 28/20\\so với 32/20};
+
+            \begin{scope}[xshift=4.35cm]
+                \draw[->] (0,0) -- (0,3.18);
+                \node[above right=0.5mm and 0.0mm] at (0,3.18) {MaxAbs};
+                \draw[->] (0,0) -- (2.55,0);
+                \foreach \y/\label in {0.75/256,1.50/512,2.25/768,3.00/1024} {
+                        \draw[gray!35] (0,\y) -- (2.35,\y);
+                        \node[left] at (0,\y) {\label};
+                    }
+                \draw[dashed] (0,3.0) -- (2.35,3.0);
+                \fill[gray!75] (0.55,0) rectangle (0.95,0.14);
+                \fill[gray!25] (1.50,0) rectangle (1.90,1.14);
+                \node[above] at (0.75,0.14) {48.1};
+                \node[above] at (1.70,1.14) {390.4};
+                \node[below] at (0.75,0) {32/20};
+                \node[below] at (1.70,0) {28/20};
+                \node[align=center,font=\scriptsize] at (1.30,-0.72) {Sai số lớn nhất\\và ngưỡng PASS};
+            \end{scope}
+        \end{tikzpicture}%
     }
     \caption{Đánh đổi độ rộng bit fixed-point.}
     \label{fig:bitwidth_tradeoff}
 \end{figure}
 
-Cấu hình \texttt{ap\_fixed<28,20>} được chọn vì vượt qua cả bốn mẫu kiểm thử trong khi dùng ít bit hơn \texttt{ap\_fixed<32,20>}. Mặc dù định dạng 32/20 cho sai số thấp hơn, định dạng 28/20 giảm BRAM, FF và LUT trong quá trình khảo sát. Hình~\ref{fig:bitwidth_tradeoff} làm rõ đánh đổi này: tài nguyên của 28/20 thấp hơn hoặc xấp xỉ 32/20, trong khi sai số MaxAbs lớn nhất vẫn thấp hơn đáng kể so với ngưỡng PASS 1024. Do đó, lựa chọn 28/20 không nhằm tối thiểu hóa sai số tuyệt đối, mà nhằm đạt cấu hình đủ chính xác với chi phí phần cứng thấp hơn.
+Cấu hình \texttt{ap\_fixed<28,20>} được chọn vì vượt qua cả bốn mẫu kiểm thử trong khi dùng ít bit hơn \texttt{ap\_fixed<32,20>}. Mặc dù định dạng 32/20 cho sai số thấp hơn, định dạng 28/20 giảm BRAM, FF và LUT trong quá trình khảo sát. Hình~\ref{fig:bitwidth_tradeoff} cho thấy tài nguyên của 28/20 thấp hơn hoặc xấp xỉ 32/20 ở hầu hết nhóm tài nguyên, trong khi MaxAbs lớn nhất tăng từ 48.1 lên 390.4 nhưng vẫn thấp hơn nhiều so với ngưỡng PASS 1024. Vì vậy, cấu hình 28/20 là điểm cân bằng hợp lý giữa độ chính xác và chi phí phần cứng, thay vì là cấu hình có sai số nhỏ nhất.
 
 Các số liệu tài nguyên của cấu hình 28/20 trong Bảng~\ref{tab:bitwidth} được lấy từ cùng báo cáo tổng hợp trong Vitis IDE với Hình~\ref{fig:hls_twiddle_report}, nhờ đó giữ nhất quán giữa khảo sát bit-width và đánh giá tối ưu twiddle. Các cấu hình thất bại cho thấy dải biểu diễn phần nguyên quan trọng hơn việc chỉ tăng độ chính xác phần thập phân đối với kích thước FFT được đánh giá.
 
@@ -589,54 +608,59 @@ Ngoài tài nguyên logic, timing closure và công suất là ba yếu tố qua
 
 \begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}[x=1cm,y=0.045cm]
+    \begin{tikzpicture}[x=0.17cm,y=0.55cm]
         \scriptsize
-        \draw[->] (0,0) -- (0,34) node[above] {\%};
-        \draw[->] (0,0) -- (6.4,0);
-        \foreach \y in {10,20,30} {
-            \draw[gray!35] (0,\y) -- (6.05,\y);
-            \node[left] at (0,\y) {\y};
-        }
-        \foreach \x/\name/\val in {
-            0.85/LUT/15.9,
-            2.15/FF/10.9,
-            3.55/BRAM/28.2,
-            4.95/DSP/3.6
-        } {
-            \fill[gray!55] (\x-0.32,0) rectangle (\x+0.32,\val);
-            \node[above] at (\x,\val) {\val};
-            \node[below] at (\x,0) {\name};
-        }
+        \draw[->] (0,-0.70) -- (32,-0.70) node[right] {\%};
+        \foreach \x/\tick in {0/0,10/10,20/20,30/30} {
+                \draw[gray!35] (\x,-0.45) -- (\x,3.65);
+                \node[below] at (\x,-0.78) {\tick};
+            }
+        \foreach \pct/\y/\name/\used/\total in {
+                15.9/3/LUT/8461/53200,
+                10.9/2/FF/11552/106400,
+                28.2/1/BRAM/39.5/140,
+                3.6/0/DSP/8/220
+            } {
+                \node[left] at (-0.6,\y) {\name};
+                \fill[gray!55] (0,\y-0.17) rectangle (\pct,\y+0.17);
+                \draw[black] (0,\y-0.17) rectangle (\pct,\y+0.17);
+                \node[right] at (\pct+0.6,\y) {\used/\total\;(\pct\%)};
+            }
+        \node[align=center] at (15.8,-1.75) {Dùng/tổng và tỷ lệ sử dụng};
     \end{tikzpicture}
-    \caption{Tỷ lệ sử dụng tài nguyên sau triển khai.}
+    \caption{Biểu đồ chi tiết tài nguyên sau triển khai.}
     \label{fig:post_utilization_chart}
 \end{figure}
 
-Hình~\ref{fig:vivado_utilization_report} cho thấy hệ thống sau triển khai sử dụng 8461 LUT, 11552 FF, 39.5 block RAM tile và 8 DSP. Khi quy đổi theo tài nguyên của xc7z020clg400-1, Hình~\ref{fig:post_utilization_chart} cho thấy BRAM là nhóm chiếm tỷ lệ cao nhất, khoảng 28.2\%, tiếp theo là LUT khoảng 15.9\% và FF khoảng 10.9\%. DSP chỉ ở mức 3.6\%, phù hợp với kết quả HLS ở phần trước: tối ưu Twiddle LUT đã loại bỏ phần lớn nhu cầu DSP của datapath FFT. Do đó, giới hạn mở rộng của thiết kế hiện tại nhiều khả năng sẽ đến từ bộ nhớ on-chip và logic điều khiển hơn là từ tài nguyên nhân DSP.
+Hình~\ref{fig:vivado_utilization_report} cho thấy hệ thống sau triển khai sử dụng 8461 LUT, 11552 FF, 39.5 block RAM tile và 8 DSP. Hình~\ref{fig:post_utilization_chart} tách các số này thành tỷ lệ sử dụng để dễ xác định nhóm tài nguyên chi phối. BRAM là nhóm cao nhất, đạt 28.2\%, tiếp theo là LUT 15.9\% và FF 10.9\%. DSP chỉ đạt 3.6\%, xác nhận rằng tối ưu Twiddle LUT đã làm giảm áp lực lên tài nguyên nhân. Vì vậy, nếu mở rộng thiết kế lên ảnh lớn hơn hoặc pipeline nhiều kênh hơn, giới hạn đáng chú ý nhiều khả năng là bộ nhớ on-chip và logic điều khiển, không phải DSP.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.94\linewidth]{figures/vivado_timing_summary_report.png}
+    \includegraphics[width=\linewidth]{figures/vivado_timing_summary_report.png}
+    \vspace{-0.5em}
     \caption{Báo cáo timing sau triển khai.}
     \label{fig:timing_report}
 \end{figure}
+\vspace{-1.0em}
 
 \begin{table}[H]
     \caption{Tóm tắt timing sau triển khai}
+    \vspace{-0.4em}
     \centering
     \label{tab:timing_summary}
     \begin{tabular}{lrl}
         \toprule
-        \textbf{Chỉ số} & \textbf{Giá trị} & \textbf{Ý nghĩa} \\
+        \textbf{Chỉ số}   & \textbf{Giá trị} & \textbf{Ý nghĩa}     \\
         \midrule
-        WNS & 0.668 ns & Slack setup dương \\
-        WHS & 0.012 ns & Slack hold dương \\
-        Endpoint thất bại & 0 & Đạt ràng buộc timing \\
-        Ràng buộc clock & 10 ns & Mục tiêu 100 MHz \\
-        Trạng thái timing & PASS & Không vi phạm STA \\
+        WNS               & 0.668 ns         & Slack setup dương    \\
+        WHS               & 0.012 ns         & Slack hold dương     \\
+        Endpoint thất bại & 0                & Đạt ràng buộc timing \\
+        Ràng buộc clock   & 10 ns            & Mục tiêu 100 MHz     \\
+        Trạng thái timing & PASS             & Không vi phạm STA    \\
         \bottomrule
     \end{tabular}
 \end{table}
+\vspace{-0.7em}
 
 Kết quả timing trong Bảng~\ref{tab:timing_summary} cho thấy tất cả ràng buộc thời gian đều được đáp ứng sau implementation. WNS dương 0.668 ns chứng tỏ đường setup tới hạn vẫn còn biên an toàn ở chu kỳ clock 10 ns, trong khi WHS dương 0.012 ns cho thấy không xuất hiện vi phạm hold. Việc không có endpoint thất bại làm rõ rằng thiết kế có thể đóng timing ở cấu hình hiện tại, thay vì chỉ dừng ở mức mô phỏng hoặc tổng hợp HLS.
 
@@ -653,13 +677,13 @@ Kết quả timing trong Bảng~\ref{tab:timing_summary} cho thấy tất cả r
     \label{tab:power_summary}
     \begin{tabular}{lrl}
         \toprule
-        \textbf{Thành phần} & \textbf{Giá trị} & \textbf{Ghi chú} \\
+        \textbf{Thành phần} & \textbf{Giá trị} & \textbf{Ghi chú}         \\
         \midrule
-        Công suất động & 1.355 W & Ước lượng sau triển khai \\
-        Công suất tĩnh & 0.138 W & Ước lượng thiết bị \\
-        Tổng on-chip & 1.493 W & 100\% \\
-        Động / tổng & 90.8\% & Thành phần chi phối \\
-        Tĩnh / tổng & 9.2\% & Nền công suất thiết bị \\
+        Công suất động      & 1.355 W          & Ước lượng sau triển khai \\
+        Công suất tĩnh      & 0.138 W          & Ước lượng thiết bị       \\
+        Tổng on-chip        & 1.493 W          & 100\%                    \\
+        Động / tổng         & 90.8\%           & Thành phần chi phối      \\
+        Tĩnh / tổng         & 9.2\%            & Nền công suất thiết bị   \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -673,9 +697,9 @@ Về công suất, Bảng~\ref{tab:power_summary} cho thấy ước lượng t�
         \draw[->] (0,0) -- (0,3.0) node[above] {W};
         \draw[->] (0,0) -- (5.7,0);
         \foreach \y/\label in {0.5/0.5,1.0/1.0,1.5/1.5,2.0/2.0,2.5/2.5} {
-            \draw[gray!35] (0,\y) -- (5.35,\y);
-            \node[left] at (0,\y) {\label};
-        }
+                \draw[gray!35] (0,\y) -- (5.35,\y);
+                \node[left] at (0,\y) {\label};
+            }
         \fill[gray!25] (0.75,0) rectangle (1.55,1.355);
         \fill[gray!55] (2.45,0) rectangle (3.25,0.138);
         \fill[gray!80] (4.15,0) rectangle (4.95,1.493);
@@ -690,7 +714,7 @@ Về công suất, Bảng~\ref{tab:power_summary} cho thấy ước lượng t�
     \label{fig:power_comparison}
 \end{figure}
 
-Hình~\ref{fig:power_comparison} trực quan hóa quan hệ giữa công suất động, công suất tĩnh và tổng công suất on-chip. Biểu đồ này không thay thế báo cáo power gốc ở Hình~\ref{fig:power_report}, mà chỉ chuẩn hóa các giá trị chính để thuận tiện so sánh trong phần phân tích. Do kết quả power được suy ra từ ràng buộc và activity mặc định, các giá trị này nên được xem là ước lượng sau triển khai; đo công suất thực tế trên bo mạch sẽ là bước cần bổ sung nếu muốn đánh giá năng lượng chính xác hơn.
+Hình~\ref{fig:power_comparison} cho thấy phần lớn công suất on-chip đến từ thành phần động. Cụ thể, công suất động đạt 1.355 W, chiếm khoảng 90.8\% tổng công suất 1.493 W, trong khi công suất tĩnh chỉ 0.138 W, tương đương 9.2\%. Điều này cho thấy công suất của hệ thống chủ yếu bị chi phối bởi hoạt động chuyển mạch sau triển khai, không phải bởi nền tĩnh của thiết bị. Tuy nhiên, các giá trị này vẫn là ước lượng Vivado dựa trên ràng buộc và activity mặc định; nếu cần kết luận về năng lượng thực tế, cần đo bổ sung trên bo mạch.
 
 \subsection{Kiểm Chứng Trực Quan}
 \begin{figure}[H]
@@ -708,25 +732,61 @@ Hình~\ref{fig:power_comparison} trực quan hóa quan hệ giữa công suất 
     \label{fig:visual_fft}
 \end{figure}
 
-Bên cạnh so sánh định lượng, phổ trực quan giúp xác nhận phép biến đổi tạo ra cấu trúc miền tần số hợp lý. Hình~\ref{fig:visual_fft} minh họa ảnh checker tổng hợp và phổ log-magnitude tham chiếu cho các kênh R, G, B sau khi dịch tâm tần số.
+Bên cạnh so sánh định lượng, Hình~\ref{fig:visual_fft} cho thấy phổ log-magnitude của ảnh checker có cấu trúc miền tần số hợp lý trên ba kênh R, G, B sau khi dịch tâm tần số. Hình này chỉ dùng để kiểm tra định tính vì các bước lấy magnitude, lấy log và chuẩn hóa ảnh có thể che khuất sai số hệ số; tiêu chí đúng sai vẫn dựa trên hệ số thực và ảo của FFT.
 
-Phần hiển thị trực quan không được dùng làm tiêu chí đúng sai chính vì các bước lấy magnitude, lấy log và chuẩn hóa ảnh có thể che khuất sai số ở mức hệ số. Do đó, kết quả định lượng vẫn dựa trên hệ số thực và ảo của FFT.
+\begin{table}[H]
+    \caption{So sánh runtime sin/cos trên PS và FPGA}
+    \centering
+    \label{tab:board_runtime_sincos}
+    \begin{tabular}{crrr}
+        \toprule
+        \textbf{Lần} & \textbf{PS sin/cos} & \textbf{FPGA} & \textbf{Tăng tốc} \\
+                     & \textbf{($\mu$s)}   & \textbf{($\mu$s)} &                  \\
+        \midrule
+        1            & 6968                & 3162          & 2.20$\times$      \\
+        2            & 6970                & 3162          & 2.20$\times$      \\
+        3            & 6978                & 3162          & 2.20$\times$      \\
+        \midrule
+        Trung bình   & 6972                & 3162          & 2.20$\times$      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.92\columnwidth}{!}{%
+    \begin{tikzpicture}[font=\scriptsize]
+        \draw[->] (0,0) -- (5.8,0) node[right] {$\mu$s};
+        \draw[->] (0,0) -- (0,3.2);
+        \foreach \x/\lab in {0/0,1.2/3000,2.4/6000}
+        {
+            \draw[gray!45] (\x,0) -- (\x,2.8);
+            \node[below] at (\x,0) {\lab};
+        }
+        \draw[fill=gray!35] (0,2.00) rectangle (5.58,2.48);
+        \draw[fill=gray!70] (0,0.78) rectangle (2.53,1.26);
+        \node[left] at (0,2.24) {PS sin/cos};
+        \node[left] at (0,1.02) {FPGA};
+        \node[right] at (5.58,2.24) {6972};
+        \node[right] at (2.53,1.02) {3162};
+    \end{tikzpicture}}
+    \caption{Thời gian trung bình trên board.}
+    \label{fig:board_runtime_sincos_chart}
+\end{figure}
+
+Bảng~\ref{tab:board_runtime_sincos} và Hình~\ref{fig:board_runtime_sincos_chart} đánh giá thời gian thực thi trên board cho ảnh checker trong ba lần chạy liên tiếp. Baseline PS dùng số thực và tính \texttt{sin}/\texttt{cos} khi chạy dao động từ 6968 đến 6978~$\mu$s, tương ứng biên dao động chỉ 10~$\mu$s so với giá trị trung bình 6972~$\mu$s. Thời gian của FPGA giữ ở mức 3162~$\mu$s trong cả ba lần đo theo độ phân giải microsecond của bộ đếm. So với baseline này, FPGA giảm thời gian thực thi khoảng 54.6\% và đạt hệ số tăng tốc trung bình 2.20 lần.
 
 \section{Thảo Luận}
-Kết quả thực nghiệm cho thấy bộ tăng tốc đề xuất đáp ứng đúng chức năng và tiết kiệm tài nguyên cho xử lý 2D FFT RGB trên Zynq-7000. Tối ưu Twiddle LUT là cải tiến quan trọng nhất, giảm số DSP khoảng 95.9\% đồng thời giảm đáng kể FF và LUT. Kết quả này xác nhận rằng các hàm toán học runtime cần được xem xét cẩn thận khi nhắm đến FPGA tài nguyên nhỏ.
-
-Khảo sát fixed-point cho thấy số bit phần nguyên là yếu tố quyết định: các định dạng có ít bit phần nguyên thất bại vì FFT có thể sinh ra giá trị trung gian lớn, trong khi \texttt{ap\_fixed<28,20>} vẫn đạt kiểm chứng trên bốn mẫu và tiết kiệm tài nguyên hơn định dạng rộng hơn. Kết quả sau triển khai cũng xác nhận tính khả thi ở mức nền tảng: thiết kế đóng timing với slack dương, IP FFT chỉ dùng 8 DSP và công suất on-chip được ước lượng là 1.493 W. Tuy nhiên, cần phân biệt số liệu IP riêng khối FFT với số liệu hệ thống tích hợp gồm PS, interconnect, reset và debug logic.
+\label{sec:discussion}
+Kết quả thực nghiệm cho thấy bộ tăng tốc đáp ứng đúng chức năng và tiết kiệm tài nguyên cho 2D FFT RGB trên Zynq-7000. Tối ưu Twiddle LUT là yếu tố quan trọng nhất, giảm DSP khoảng 95.9\% và giảm đáng kể FF, LUT so với phiên bản dùng \texttt{sin}/\texttt{cos} runtime. Khảo sát fixed-point cũng cho thấy số bit phần nguyên quyết định khả năng PASS: các định dạng có dải biểu diễn nhỏ thất bại, trong khi \texttt{ap\_fixed<28,20>} vẫn đạt kiểm chứng trên bốn mẫu với chi phí thấp hơn định dạng rộng hơn. Kết quả chạy trên board bổ sung với ảnh checker cho thấy FPGA nhanh hơn khoảng 2.20 lần so với baseline phần mềm PS dùng runtime sin/cos trong ba lần đo liên tiếp, qua đó làm rõ lợi ích của việc đưa datapath FFT lặp lại sang PL. Sau implementation, thiết kế đóng timing với slack dương, IP FFT chỉ dùng 8 DSP và công suất on-chip được ước lượng là 1.493 W; khi diễn giải kết quả, cần phân biệt số liệu IP FFT với số liệu hệ thống tích hợp gồm PS, interconnect, reset và debug logic.
 
 \section{Kết Luận Và Hướng Phát Triển}
 \label{sec:conclusion}
-Bài báo đã trình bày một bộ tăng tốc 2D FFT cho xử lý ảnh RGB trên FPGA Zynq-7000, sử dụng FFT radix-2 hàng-cột, fixed-point và bảng tra twiddle 64 điểm. Cấu hình được chọn đạt độ trễ RTL 420207 chu kỳ cho mỗi frame $64\times64$ và sử dụng 66 BRAM\_18K, 8 DSP, 9869 FF và 12377 LUT ở mức IP. Trong tương lai, hệ thống có thể mở rộng sang AXI DMA/AXI Stream, xử lý song song các kênh RGB, ảnh lớn hơn và pipeline video thời gian thực.
+Bài báo đã trình bày bộ tăng tốc 2D FFT cho ảnh RGB trên Zynq-7000, sử dụng FFT radix-2 hàng-cột, fixed-point và bảng tra twiddle 64 điểm. Cấu hình được chọn đạt độ trễ RTL 420207 chu kỳ cho mỗi frame $64\times64$, sử dụng 66 BRAM\_18K, 8 DSP, 9869 FF và 12377 LUT ở mức IP. Trên phép đo bổ sung ở mức board với ảnh checker, thiết kế nhanh hơn khoảng 2.2 lần so với baseline phần mềm PS dùng runtime sin/cos. Hướng phát triển tiếp theo là AXI DMA/AXI Stream, xử lý song song các kênh RGB, ảnh lớn hơn và pipeline video thời gian thực.
 
-\section*{Mã Nguồn Và Video Minh Họa}
-Mã nguồn và tài liệu tái lập được cung cấp tại \url{https://github.com/vinhhuy15/zynq-2d-fft-project-2d-fft-vivado}. Video demo có tại \url{https://youtu.be/MT-Wih9r9Ww?si=f5bfxOD89rCQIJ0p}.
-
-{\fontsize{6.5}{7.1}\selectfont
-\bibliographystyle{IEEEtran}
-\bibliography{zynq_rgb_fft_references}
+{\fontsize{5.9}{6.35}\selectfont
+    \bibliographystyle{IEEEtran}
+    \bibliography{zynq_rgb_fft_references}
 }
 
 \end{document}
