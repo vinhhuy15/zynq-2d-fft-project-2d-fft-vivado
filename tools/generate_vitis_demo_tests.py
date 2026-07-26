@@ -33,20 +33,6 @@ def make_checker() -> np.ndarray:
     return arr
 
 
-def load_cifar_like(repo_root: Path) -> np.ndarray:
-    preferred = sorted((repo_root / "data" / "rgb_image_fft_tests" / "input").glob("class*_*.png"))
-    if preferred:
-        return np.asarray(Image.open(preferred[0]).convert("RGB").resize((FFT_SIZE, FFT_SIZE)), dtype=np.uint8)
-
-    arr = np.zeros((FFT_SIZE, FFT_SIZE, 3), dtype=np.uint8)
-    x = np.linspace(0, 255, FFT_SIZE, dtype=np.uint8)
-    y = np.linspace(0, 255, FFT_SIZE, dtype=np.uint8)
-    arr[:, :, 0] = np.tile(x, (FFT_SIZE, 1))
-    arr[:, :, 1] = np.tile(y.reshape(FFT_SIZE, 1), (1, FFT_SIZE))
-    arr[:, :, 2] = 255 - arr[:, :, 0]
-    return arr
-
-
 def log_magnitude_image(fft_complex: np.ndarray) -> np.ndarray:
     shifted = np.fft.fftshift(fft_complex)
     mag = np.log1p(np.abs(shifted))
@@ -160,14 +146,13 @@ def build_header(images: list[tuple[str, np.ndarray]], header_path: Path, out_di
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=Path.cwd())
-    parser.add_argument("--header", type=Path, default=Path("vitis/fft_app/src/rgb_image_fft_tests.h"))
+    parser.add_argument("--header", type=Path, default=Path("vitis/fft_dump_app/src/rgb_image_fft_tests.h"))
     parser.add_argument("--out", type=Path, default=Path("data/demo_fft_tests"))
     args = parser.parse_args()
 
     repo_root = args.repo_root.resolve()
     images = [
         ("synthetic_checker", make_checker()),
-        ("cifar_real_image", load_cifar_like(repo_root)),
     ]
     build_header(images, repo_root / args.header, repo_root / args.out)
     print("Generated Vitis demo tests:")

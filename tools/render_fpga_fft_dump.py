@@ -9,6 +9,10 @@ from PIL import Image, ImageChops, ImageDraw
 
 CHANNELS = ("r", "g", "b")
 FIXED_SCALE = 4096.0
+NAME_ALIASES = {
+    "synthetic_checker": "checker_64x64",
+    "synthetic_gradient": "gradient_64x64",
+}
 
 
 def signed_u32(hex_text: str) -> int:
@@ -24,6 +28,28 @@ def log_magnitude_image(fft_complex: np.ndarray) -> np.ndarray:
     if float(mag.max()) <= float(mag.min()):
         return np.zeros(mag.shape, dtype=np.uint8)
     return np.rint((mag - mag.min()) * 255.0 / (mag.max() - mag.min())).astype(np.uint8)
+
+
+def reference_stem(name: str) -> str:
+    return NAME_ALIASES.get(name, name)
+
+
+def python_fft_from_input(input_path: Path) -> list[Image.Image]:
+    image = Image.open(input_path).convert("RGB").resize((64, 64), Image.Resampling.BILINEAR)
+    arr = np.asarray(image, dtype=np.float64)
+    fixed = np.rint((arr / 255.0) * FIXED_SCALE) / FIXED_SCALE
+
+    rendered = []
+    for ch_idx in range(3):
+        fft_complex = np.fft.fft2(fixed[:, :, ch_idx])
+        rendered.append(Image.fromarray(log_magnitude_image(fft_complex), mode="L"))
+    return rendered
+
+
+def image_mae(a: Image.Image, b: Image.Image) -> float:
+    arr_a = np.asarray(a.convert("L"), dtype=np.float64)
+    arr_b = np.asarray(b.convert("L"), dtype=np.float64)
+    return float(np.mean(np.abs(arr_a - arr_b)))
 
 
 def parse_uart_log(log_path: Path) -> list[dict]:
@@ -90,14 +116,17 @@ def make_contact_sheet(title: str, images: list[tuple[str, Image.Image]], path: 
 
 def render_dump(dump: dict, out_dir: Path, python_ref_dir: Path | None, input_dir: Path | None) -> dict:
     name = dump["name"]
+    stem = reference_stem(name)
     width = dump["width"]
     height = dump["height"]
     real = dump["real"]
     imag = dump["imag"]
 
     hw_dir = out_dir / "hardware_fft"
+    py_dir = out_dir / "python_reference_fft"
     compare_dir = out_dir / "comparison"
     hw_dir.mkdir(parents=True, exist_ok=True)
+    py_dir.mkdir(parents=True, exist_ok=True)
     compare_dir.mkdir(parents=True, exist_ok=True)
 
     hw_channel_images = []
@@ -111,22 +140,30 @@ def render_dump(dump: dict, out_dir: Path, python_ref_dir: Path | None, input_di
     if len(hw_channel_images) >= 3:
         Image.merge("RGB", hw_channel_images[:3]).save(hw_dir / f"{name}_rgb_fft_fpga.png")
 
+    python_channel_images = None
+    input_img = None
+    if input_dir is not None:
+        input_path = input_dir / f"{stem}.png"
+        if input_path.exists():
+            input_img = Image.open(input_path).convert("RGB")
+            python_channel_images = python_fft_from_input(input_path)
+            for ch_idx, ch_name in enumerate(CHANNELS[: dump["channels"]]):
+                python_channel_images[ch_idx].save(py_dir / f"{name}_{ch_name}_fft_python.png")
+
     comparisons = []
+    metrics = []
     for ch_idx, ch_name in enumerate(CHANNELS[: dump["channels"]]):
         hw_img = hw_channel_images[ch_idx]
         py_img = None
-        if python_ref_dir is not None:
+        if python_channel_images is not None:
+            py_img = python_channel_images[ch_idx]
+        elif python_ref_dir is not None:
             candidate = python_ref_dir / f"{name}_{ch_name}_fft_python.png"
             if candidate.exists():
                 py_img = Image.open(candidate).convert("L")
 
         if py_img is not None:
             diff = ImageChops.difference(py_img, hw_img)
-            input_img = None
-            if input_dir is not None:
-                input_path = input_dir / f"{name}_64x64.png"
-                if input_path.exists():
-                    input_img = Image.open(input_path).convert("RGB")
             parts = []
             if input_img is not None:
                 parts.append(("Input", input_img))
@@ -134,16 +171,24 @@ def render_dump(dump: dict, out_dir: Path, python_ref_dir: Path | None, input_di
             sheet_path = compare_dir / f"{name}_{ch_name}_comparison.png"
             make_contact_sheet(f"{name} channel {ch_name.upper()}", parts, sheet_path)
             comparisons.append(str(sheet_path))
+            metrics.append({
+                "channel": ch_name,
+                "image_mae_0_255": image_mae(py_img, hw_img),
+                "image_max_abs_0_255": int(np.max(np.asarray(diff, dtype=np.uint8))),
+            })
 
     return {
         "name": name,
+        "reference_stem": stem,
         "width": width,
         "height": height,
         "channels": dump["channels"],
         "samples_read": dump["count"],
         "expected_samples": width * height * dump["channels"],
         "hardware_fft_dir": str(hw_dir),
+        "python_reference_fft_dir": str(py_dir),
         "comparison_files": comparisons,
+        "comparison_metrics": metrics,
     }
 
 
@@ -152,7 +197,11 @@ def main() -> None:
     parser.add_argument("--log", type=Path, required=True, help="UART log captured from COM4.")
     parser.add_argument("--out", type=Path, default=Path("data/fpga_fft_from_uart"))
     parser.add_argument("--python-ref-dir", type=Path, default=Path("data/demo_fft_tests/python_reference_fft"))
-    parser.add_argument("--input-dir", type=Path, default=Path("data/demo_fft_tests/input"))
+    parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=Path("software/python_reference/zynq_2d_fft_python_reference/data/input"),
+    )
     args = parser.parse_args()
 
     dumps = parse_uart_log(args.log)

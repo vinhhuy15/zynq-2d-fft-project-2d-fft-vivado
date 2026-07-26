@@ -64,7 +64,7 @@ set(USER_COMPILE_WARNINGS_INHIBIT_ALL )
 # -----------------------------------------
 
 # Optimization level   "-O0" [None], "-O1" [Optimize] , "-O2" [Optimize More], "-O3" [Optimize Most] or "-Os" [Optimize Size]
-set(USER_COMPILE_OPTIMIZATION_LEVEL -O0)
+set(USER_COMPILE_OPTIMIZATION_LEVEL -O2)
 
 # Other flags related to optimization
 set(USER_COMPILE_OPTIMIZATION_OTHER_FLAGS )
@@ -117,6 +117,7 @@ set(USER_LINK_OMIT_ALL_SYMBOL_INFO )
 # Add any libraries to be linked below, they will be added as extra libraries.
 # User needs to update USER_LINK_DIRECTORIES below with these library search paths.
 set(USER_LINK_LIBRARIES
+"m"
 )
 
 # Add any directories to look for the libraries to be linked.

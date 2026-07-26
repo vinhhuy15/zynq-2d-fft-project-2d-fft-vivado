@@ -20,11 +20,11 @@ try:
     platform.update_hw(hw_design=xsa_path)
     platform.build()
 
-    app = client.get_component(name="fft_app")
+    app = client.get_component(name="fft_dump_app")
     if app is None:
-        raise RuntimeError("Vitis application component 'fft_app' was not found.")
+        raise RuntimeError("Vitis application component 'fft_dump_app' was not found.")
 
-    print("Building fft_app...")
+    print("Building fft_dump_app...")
     app.build()
 finally:
     vitis.dispose()
