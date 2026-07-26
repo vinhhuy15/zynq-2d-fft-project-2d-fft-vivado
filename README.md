@@ -10,7 +10,7 @@ pipeline.
 
 [Demo video](https://youtu.be/MT-Wih9r9Ww) ·
 [IEEE-style paper](paper/report_HWSW/zynq_rgb_fft_ieee_draft.pdf) ·
-[Reproduction specification](research_spec.md)
+[HLS results](hls/fft2d_accel/results/paper_reproduce_64/paper_hls_results_summary.md)
 
 ## Highlights
 
@@ -45,8 +45,8 @@ only when rendering spectra.
 
 ## Results
 
-The values below are tied to the checked-in reproduction reports described in
-[`research_spec.md`](research_spec.md).
+The values below are tied to the checked-in HLS, C/RTL co-simulation, and
+Vivado implementation reports.
 
 | Metric | Result |
 |---|---:|
@@ -125,7 +125,7 @@ for the log schema and measurement boundaries.
 | `tools/` | Test-vector generation, UART capture, and spectrum rendering |
 | `pynq/` | PYNQ-side accelerator helper |
 | `paper/report_HWSW/` | Paper source, bibliography, figures, and compiled PDF |
-| `research_spec.md` | Claim-to-code mapping, protocol, assumptions, and limitations |
+| `hls/fft2d_accel/results/` | Numerical checks and archived HLS evidence |
 
 Generated HLS/Vivado/Vitis workspaces, BSP sources, netlists, caches, and local
 office files are intentionally excluded from version control.
