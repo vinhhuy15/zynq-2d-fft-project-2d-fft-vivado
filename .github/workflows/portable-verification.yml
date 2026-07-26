@@ -1,0 +1,31 @@
+name: Portable FFT verification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cpp-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build and compare all RGB samples
+        working-directory: hls/fft2d_accel
+        run: make run-all-64
+
+      - name: Audit checked-in HLS evidence
+        run: python tools/verify_research_evidence.py
+
+      - name: Publish numerical summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portable-fft-accuracy
+          path: hls/fft2d_accel/results/portable/hls_prep_color_accuracy_64x64.csv

@@ -1,0 +1,21 @@
+* text=auto
+
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.py text eol=lf
+*.tcl text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+*.bit binary
+*.dcp binary
+*.docx binary
+*.jpg binary
+*.png binary
+*.pptx binary
+*.pdf binary
+*.xsa binary

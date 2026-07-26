@@ -165,6 +165,7 @@ void fft2d_fixed_top(
     data_t output_real[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH],
     data_t output_imag[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH]
 ) {
+#if defined(__SYNTHESIS__)
 #pragma HLS INTERFACE m_axi port=input offset=slave bundle=gmem0
 #pragma HLS INTERFACE m_axi port=output_real offset=slave bundle=gmem1
 #pragma HLS INTERFACE m_axi port=output_imag offset=slave bundle=gmem2
@@ -172,6 +173,7 @@ void fft2d_fixed_top(
 #pragma HLS INTERFACE s_axilite port=output_real bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=output_imag bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+#endif
 
     static ComplexFixed matrix[FFT2D_CHANNELS][FFT2D_HEIGHT][FFT2D_WIDTH];
     ComplexFixed row_buffer[FFT2D_WIDTH];
