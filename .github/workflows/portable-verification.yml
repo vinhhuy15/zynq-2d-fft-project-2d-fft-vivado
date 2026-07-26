@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build and compare all RGB samples
         working-directory: hls/fft2d_accel
@@ -25,7 +25,7 @@ jobs:
 
       - name: Publish numerical summary
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: portable-fft-accuracy
           path: hls/fft2d_accel/results/portable/hls_prep_color_accuracy_64x64.csv
