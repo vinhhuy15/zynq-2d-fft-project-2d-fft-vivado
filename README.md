@@ -1,6 +1,6 @@
 # RGB 2D FFT Accelerator on Zynq-7000
 
-[![Portable FFT verification](https://github.com/vinhhuy15/zynq-2d-fft-project-2d-fft-vivado/actions/workflows/portable-verification.yml/badge.svg)](https://github.com/vinhhuy15/zynq-2d-fft-project-2d-fft-vivado/actions/workflows/portable-verification.yml)
+[![Portable FFT verification](https://github.com/vinhhuy15/zynq-rgb-fft/actions/workflows/portable-verification.yml/badge.svg)](https://github.com/vinhhuy15/zynq-rgb-fft/actions/workflows/portable-verification.yml)
 
 A hardware/software co-design project that accelerates a `64 x 64` two-dimensional
 FFT for three-channel RGB images on a PYNQ-Z1. The design combines a
